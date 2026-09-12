@@ -768,6 +768,17 @@ a {
   .hero__overlay {
     grid-column: 1;
     padding: 24px 20px 40px;
+    /* On mobile, .hero switches to a stacked (non-grid) flex column,
+       so .hero__overlay no longer overlaps the hero image -- it
+       flows in normal document flow right below it. Its desktop
+       min-height:100vh + justify-content:space-between rules were
+       built for the overlapping/grid layout; left as-is here they
+       reserve a full extra screen height and shove the logo and
+       headline to opposite ends of it, leaving a large dead gap
+       between them. */
+    min-height: auto;
+    justify-content: flex-start;
+    gap: 28px;
   }
 
   .stats-panel {

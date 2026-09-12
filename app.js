@@ -116,6 +116,7 @@
   const heroSubhead = document.getElementById("heroSubhead");
   const progressLine = document.getElementById("progressLine");
   const statDonors = document.getElementById("statDonors");
+  const statRaised = document.getElementById("statRaised");
   const goalStateSection = document.getElementById("goalState");
 
   // ----------------------------------------------------------
@@ -186,8 +187,11 @@
   // later, that's a different, reintroducible feature.
   // ----------------------------------------------------------
   function renderProgress() {
-    progressLine.textContent = `${currentDonors} light${currentDonors === 1 ? "" : "s"} are on`;
+    progressLine.textContent = `${currentDonors} seat${currentDonors === 1 ? "" : "s"} ${currentDonors === 1 ? "is" : "are"} taken`;
     statDonors.textContent = String(currentDonors);
+    if (typeof campaignData.totalRaised === "number") {
+      statRaised.textContent = "$" + Math.round(campaignData.totalRaised).toLocaleString("en-US");
+    }
 
     goalReached = false;
     goalStateSection.hidden = true;
@@ -206,7 +210,7 @@
   const cohortPanelCta = document.getElementById("cohortPanelCta");
 
   function cohortLabel(year) {
-    return year >= 2020 ? "2020+" : String(year);
+    return year >= 2020 ? "2020" : String(year);
   }
 
   // Non-year cohorts (e.g. "GMS Friend" -- non-alumni allies) shouldn't

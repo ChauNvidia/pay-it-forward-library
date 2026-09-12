@@ -40,6 +40,29 @@
   padding: 48px 48px 56px;
 }
 
+/* Each of the 14 frame images has its own "CHAPTER N / quote" caption
+   baked in, roughly vertically centered -- exactly where our real
+   headline sits too. On wide desktop crops there's enough clearance
+   for both, but on a narrow mobile crop (background-size:cover zooms
+   in more) the two collide and become unreadable. A soft dark wash
+   behind the text, strongest in the middle band, keeps the real
+   headline legible no matter which frame or crop is showing --
+   without fully blacking out the photo. */
+.lb-hero__overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    rgba(6, 9, 16, 0.15) 0%,
+    rgba(6, 9, 16, 0.55) 28%,
+    rgba(6, 9, 16, 0.6) 62%,
+    rgba(6, 9, 16, 0.2) 100%
+  );
+  pointer-events: none;
+}
+
 .lb-kicker {
   font-size: 0.78rem;
   letter-spacing: 0.18em;

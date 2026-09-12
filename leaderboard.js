@@ -99,7 +99,7 @@
   // match this page's design.
   // ----------------------------------------------------------
   function cohortLabel(year) {
-    return year >= 2020 ? "2020+" : String(year);
+    return year >= 2020 ? "2020" : String(year);
   }
 
   function cohortDisplayLabel(year) {

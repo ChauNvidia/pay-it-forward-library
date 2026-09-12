@@ -202,9 +202,7 @@
   const cohortPanel = document.getElementById("cohortPanel");
   const cohortPanelYear = document.getElementById("cohortPanelYear");
   const cohortPanelDonors = document.getElementById("cohortPanelDonors");
-  const cohortPanelPercent = document.getElementById("cohortPanelPercent");
   const cohortPanelRank = document.getElementById("cohortPanelRank");
-  const cohortPanelBarFill = document.getElementById("cohortPanelBarFill");
   const cohortPanelCta = document.getElementById("cohortPanelCta");
 
   function cohortLabel(year) {
@@ -226,7 +224,7 @@
       btn.className = "cohort-nav__btn";
       btn.textContent = cohortLabel(c.year);
       btn.setAttribute("aria-pressed", "false");
-      btn.setAttribute("aria-label", `${cohortDisplayLabel(c.year)}, ${c.donors} of ${c.goal} monthly donors`);
+      btn.setAttribute("aria-label", `${cohortDisplayLabel(c.year)}, ${c.donors} monthly donors`);
       btn.addEventListener("click", () => selectCohort(c.year));
       cohortNav.appendChild(btn);
     });
@@ -254,11 +252,11 @@
       card.innerHTML = `
         <span class="cohort-all-grid__rank">#${c.rank}</span>
         <span class="cohort-all-grid__label">${cohortDisplayLabel(c.year)}</span>
-        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">of ${c.goal}</span></span>
+        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">monthly donor${c.donors === 1 ? "" : "s"}</span></span>
       `;
       card.setAttribute(
         "aria-label",
-        `${cohortDisplayLabel(c.year)}, ranked #${c.rank}, ${c.donors} of ${c.goal} monthly donors. View details.`
+        `${cohortDisplayLabel(c.year)}, ranked #${c.rank}, ${c.donors} monthly donors. View details.`
       );
       card.addEventListener("click", () => selectCohort(c.year));
       cohortAllGrid.appendChild(card);
@@ -282,14 +280,11 @@
     const cohort = cohorts.find((c) => c.year === year);
     if (!cohort) return;
 
-    const pct = Math.round((cohort.donors / cohort.goal) * 100);
     const rank = ranksByDonors().find((c) => c.year === year).rank;
 
     cohortPanelYear.textContent = `${cohortDisplayLabel(year)}`;
     cohortPanelDonors.textContent = String(cohort.donors);
-    cohortPanelPercent.textContent = `${pct}%`;
     cohortPanelRank.textContent = `#${rank}`;
-    cohortPanelBarFill.style.width = pct + "%";
     cohortPanelCta.textContent = `TAKE YOUR PLACE WITH CLASS OF ${cohortLabel(year)}`;
     cohortPanel.hidden = false;
     cohortAllGrid.hidden = true;
@@ -337,7 +332,7 @@
         <span class="leaderboard__card-rank">#${c.rank}</span>
         <span class="leaderboard__card-body">
           <span class="leaderboard__card-year">${cohortDisplayLabel(c.year)}</span>
-          <span class="leaderboard__card-progress">${c.donors} of ${c.goal} lights</span>
+          <span class="leaderboard__card-progress">${c.donors} light${c.donors === 1 ? "" : "s"}</span>
         </span>
       `;
       leaderboardCards.appendChild(card);

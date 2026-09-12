@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scholars Equity Network — The Room Is Lighting Up</title>
+<meta name="description" content="20,000 scholars have a place here. Every light we add is one more scholar showing up." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       SECTION 1 — HERO / LIVE ROOM
+       Full-width library image with the 200-lamp canvas overlaid.
+       ============================================================ -->
+  <header class="hero" id="hero">
+    <div class="hero__room">
+      <!-- Chapter-frame system: replaces the old static library-bg +
+           canvas light-dots. Two stacked frame layers crossfade as
+           donor progress crosses each chapter's threshold (see
+           updateHeroFrame() in app.js). -->
+      <div class="hero__frame hero__frame--visible" id="heroFrameA" aria-hidden="true"></div>
+      <div class="hero__frame" id="heroFrameB" aria-hidden="true"></div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+
+      <!-- Legacy light-dot canvas — kept in the DOM (other code still
+           references it) but hidden; the chapter frames now carry the
+           "room filling up" visual instead. -->
+      <canvas id="lightCanvas" class="hero__canvas" aria-hidden="true" style="display:none;"></canvas>
+    </div>
+
+    <div class="hero__overlay">
+      <div class="hero__top">
+        <div class="sen-logo" aria-label="Scholars Equity Network">
+          <img class="sen-logo__image" src="assets/sen-logo-white.png" alt="Scholars Equity Network">
+        </div>
+      </div>
+
+      <div class="hero__content">
+        <h1 class="hero__headline" id="heroHeadline">20,000 scholars have a place here.</h1>
+        <p class="hero__subhead" id="heroSubhead">Every light we add is one more scholar showing up.</p>
+
+        <div class="hero__progress" role="status" aria-live="polite">
+          <p class="hero__progress-line" id="progressLine">6 lights are on</p>
+        </div>
+
+        <a href="https://give.uncf.org/site/Donation2?df_id=12612&mfc_pref=T&12612.donation=form1" target="_blank" rel="noopener noreferrer" class="btn btn--primary hero__cta">TAKE YOUR PLACE</a>
+
+        <p class="hero__community-note">Part of a community of 20,000+ scholars.</p>
+      </div>
+    </div>
+
+    <!-- Right-side campaign stats panel (desktop only) -->
+    <aside class="stats-panel" aria-label="Campaign progress">
+      <h2 class="stats-panel__title">The Room, Right Now</h2>
+      <dl class="stats-panel__list">
+        <div class="stats-panel__row">
+          <dt>Founding monthly donors</dt>
+          <dd id="statDonors">6</dd>
+        </div>
+        <div class="stats-panel__row">
+          <dt>Scholar community</dt>
+          <dd>20,000+</dd>
+        </div>
+      </dl>
+      <p class="stats-panel__note">The scholarship was never meant to end at graduation. It was the beginning of what we build together.</p>
+    </aside>
+  </header>
+
+  <!-- ============================================================
+       SECTION 2 — COHORT EXPLORER
+       ============================================================ -->
+  <section class="cohort-explorer" id="cohorts" aria-labelledby="cohortHeading">
+    <div class="section-inner">
+      <h2 id="cohortHeading" class="section-title">Cohorts, Lighting the Room Together</h2>
+      <p class="section-subtitle">Choose a class year to see who's already shown up — and who's still waiting for their light.</p>
+
+      <div class="cohort-nav" id="cohortNav" role="group" aria-label="Select a class year">
+        <!-- cohort year buttons injected by app.js -->
+      </div>
+
+      <button type="button" class="btn btn--ghost cohort-reset" id="cohortReset">View all cohorts</button>
+
+      <div class="cohort-panel" id="cohortPanel" aria-live="polite" hidden>
+        <h3 class="cohort-panel__year" id="cohortPanelYear">Class of 2002</h3>
+        <div class="cohort-panel__stats">
+          <div class="cohort-panel__stat">
+            <span class="cohort-panel__stat-value" id="cohortPanelDonors">8</span>
+            <span class="cohort-panel__stat-label">of 10 monthly donors</span>
+          </div>
+          <div class="cohort-panel__stat">
+            <span class="cohort-panel__stat-value" id="cohortPanelPercent">80%</span>
+            <span class="cohort-panel__stat-label">to goal</span>
+          </div>
+          <div class="cohort-panel__stat">
+            <span class="cohort-panel__stat-value" id="cohortPanelRank">#1</span>
+            <span class="cohort-panel__stat-label">rank among cohorts</span>
+          </div>
+        </div>
+        <div class="cohort-panel__bar" aria-hidden="true">
+          <div class="cohort-panel__bar-fill" id="cohortPanelBarFill"></div>
+        </div>
+        <a href="https://give.uncf.org/site/Donation2?df_id=12612&mfc_pref=T&12612.donation=form1" target="_blank" rel="noopener noreferrer" class="btn btn--primary cohort-panel__cta" id="cohortPanelCta">TAKE YOUR PLACE WITH CLASS OF 2002</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 3 — LEADERBOARD
+       ============================================================ -->
+  <section class="leaderboard" id="leaderboard" aria-labelledby="leaderboardHeading">
+    <div class="section-inner">
+      <h2 id="leaderboardHeading" class="section-title">WHO'S SHOWING UP?</h2>
+      <p class="section-subtitle">Friendly competition, one lamp at a time.</p>
+
+      <div class="leaderboard__cards" id="leaderboardCards">
+        <!-- top cohort cards injected by app.js -->
+      </div>
+
+      <div class="leaderboard__mover" id="leaderboardMover">
+        <span class="leaderboard__mover-label">Biggest move this week</span>
+        <span class="leaderboard__mover-detail" id="leaderboardMoverDetail">Class of 2007 — +3 new monthly donors</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 4 — YESTERDAY VS TODAY
+       ============================================================ -->
+  <section class="daily-change" id="daily-change" aria-labelledby="dailyChangeHeading">
+    <div class="section-inner">
+      <h2 id="dailyChangeHeading" class="section-title">A brighter room, together.</h2>
+
+      <div class="daily-change__compare">
+        <div class="daily-change__stat">
+          <span class="daily-change__stat-label">Yesterday</span>
+          <span class="daily-change__stat-value" id="yesterdayValue">78 lights</span>
+        </div>
+        <div class="daily-change__arrow" aria-hidden="true">→</div>
+        <div class="daily-change__stat">
+          <span class="daily-change__stat-label">Today</span>
+          <span class="daily-change__stat-value" id="todayValue">84 lights</span>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn--primary" id="seeWhatChangedBtn">SEE WHAT CHANGED</button>
+
+      <p class="daily-change__summary" id="dailyChangeSummary">6 more scholars showed up since yesterday.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 5 — DONATION MOMENT DEMO (dev-mode simulation)
+       ============================================================ -->
+  <section class="donor-demo" id="donate" aria-labelledby="donorDemoHeading">
+    <div class="section-inner">
+      <h2 id="donorDemoHeading" class="section-title">Take Your Place</h2>
+      <p class="section-subtitle">This is a front-end simulation of what happens the moment someone becomes a founding monthly donor.</p>
+
+      <button type="button" class="btn btn--primary btn--large" id="simulateDonorBtn">SIMULATE NEW DONOR</button>
+
+      <div class="donor-demo__moment" id="donorMoment" role="status" aria-live="polite" hidden>
+        <p class="donor-demo__moment-title">Your light is on.</p>
+        <p class="donor-demo__moment-detail" id="donorMomentDetail">You are monthly donor #85 helping light the room.</p>
+        <div class="donor-demo__moment-actions">
+          <a href="#hero" class="btn btn--secondary">VIEW THE ROOM</a>
+          <button type="button" class="btn btn--ghost" id="shareMomentBtn">SHARE THE MOMENT</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 6 — CAMPAIGN GOAL STATE
+       DISABLED in the no-fixed-target version of this campaign --
+       always hidden (see renderProgress() in app.js). Left in place
+       in case a milestone-based celebration is wanted later.
+       ============================================================ -->
+  <section class="goal-state" id="goalState" hidden aria-labelledby="goalStateHeading">
+    <div class="section-inner">
+      <h2 id="goalStateHeading" class="goal-state__headline">THE ROOM IS LIT.</h2>
+      <p class="goal-state__copy">Monthly donors showed up to help power what SEN builds next.</p>
+      <p class="goal-state__community-note">20,000+ scholars have a place here.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Scholars Equity Network &middot; Placeholder prototype &middot; Mock data for demonstration only</p>
+  </footer>
+
+  <!-- Temporary toast for the "your light is on" moment -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

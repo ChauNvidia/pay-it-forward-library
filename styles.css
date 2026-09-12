@@ -795,11 +795,14 @@ a {
     min-height: 78vh;
   }
 
-  .hero {
-    display: flex;
-    flex-direction: column;
-    min-height: auto;
-  }
+  /* NOTE: .hero stays display:grid (inherited from the base rule) on
+     mobile, same as desktop -- hero__room and hero__overlay share
+     grid-column:1/grid-row:1 so the headline overlaps the animation
+     instead of sitting in a separate block below it. (A stray
+     display:flex override used to live here and broke that overlap
+     -- the stats-panel grid-row:2 rule above was already written
+     assuming the grid stays intact, so removing the override was
+     the fix, not a new layout.) */
 
   .cohort-nav {
     flex-wrap: nowrap;

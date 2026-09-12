@@ -194,7 +194,12 @@
       statRaised.textContent = "$" + Math.round(campaignData.totalRaised).toLocaleString("en-US");
     }
     if (campaignData.lastUpdated) {
-      statLastUpdated.textContent = `Updated ${campaignData.lastUpdated} at 9pm PST`;
+      // Visible label just says "Updated daily" -- an exact
+      // date/time reads as more automated than this actually is
+      // (a script Chau runs by hand after each day's export, not a
+      // scheduled job). The real date is still there on hover for
+      // anyone who wants to verify it.
+      statLastUpdated.title = `Last updated ${campaignData.lastUpdated}`;
     }
 
     goalReached = false;

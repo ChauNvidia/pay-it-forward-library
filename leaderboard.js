@@ -91,8 +91,10 @@
         ? formatDollars(campaignData.totalRaised)
         : "—";
     if (campaignData.lastUpdated) {
-      document.getElementById("lbLastUpdated").textContent =
-        `Updated ${campaignData.lastUpdated} at 9pm PST`;
+      // Visible label just says "Updated daily" -- see app.js's
+      // renderProgress() for why (matches the homepage's approach).
+      document.getElementById("lbLastUpdated").title =
+        `Last updated ${campaignData.lastUpdated}`;
     }
   }
 

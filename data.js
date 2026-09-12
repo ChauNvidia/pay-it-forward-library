@@ -301,12 +301,25 @@ const lightCoordinates = [
 // ----------------------------------------------------------
 // CAMPAIGN FRAMES
 // Replaces the lightCoordinates canvas-dot system for the hero
-// background. 14 chapter illustrations, chronologically ordered,
-// showing the library going from empty to full as the campaign
-// progresses. The hero background swaps to the frame matching
-// current progress toward campaignGoal.
+// background. 15 chapter illustrations (Chapter 0 through Chapter
+// 14), chronologically ordered, showing the library going from
+// empty to full as the campaign progresses. The hero background
+// swaps to the frame matching current progress toward campaignGoal.
+//
+// Filenames now match each image's own baked-in "CHAPTER N" caption
+// (frames/chapter-00.jpg = Chapter 0, etc.) -- they used to be off
+// by one (chapter-01.jpg actually contained the Chapter 0 art),
+// which is what made "Chapter 12" look present when it wasn't.
+//
+// TEMPORARY: the real Chapter 12 ("This is just the beginning" ->
+// "Together, we go further" is the actual Ch.11->Ch.13 jump) image
+// doesn't exist yet -- not in frames/, not in Downloads. Reusing
+// chapter-11.jpg as a stand-in so the loop doesn't skip a beat.
+// Swap frames/chapter-12.jpg in and uncomment the line below once
+// Chau supplies the real image.
 // ----------------------------------------------------------
 const campaignFrames = [
+  "frames/chapter-00.jpg",
   "frames/chapter-01.jpg",
   "frames/chapter-02.jpg",
   "frames/chapter-03.jpg",
@@ -318,7 +331,7 @@ const campaignFrames = [
   "frames/chapter-09.jpg",
   "frames/chapter-10.jpg",
   "frames/chapter-11.jpg",
-  "frames/chapter-12.jpg",
+  "frames/chapter-11.jpg", // TODO: replace with "frames/chapter-12.jpg" once supplied
   "frames/chapter-13.jpg",
   "frames/chapter-14.jpg"
 ];

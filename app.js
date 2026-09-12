@@ -228,7 +228,7 @@
       btn.className = "cohort-nav__btn";
       btn.textContent = cohortLabel(c.year);
       btn.setAttribute("aria-pressed", "false");
-      btn.setAttribute("aria-label", `${cohortDisplayLabel(c.year)}, ${c.donors} monthly donors`);
+      btn.setAttribute("aria-label", `${cohortDisplayLabel(c.year)}, ${c.donors} sustaining donors`);
       btn.addEventListener("click", () => selectCohort(c.year));
       cohortNav.appendChild(btn);
     });
@@ -256,11 +256,11 @@
       card.innerHTML = `
         <span class="cohort-all-grid__rank">#${c.rank}</span>
         <span class="cohort-all-grid__label">${cohortDisplayLabel(c.year)}</span>
-        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">monthly donor${c.donors === 1 ? "" : "s"}</span></span>
+        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">sustaining donor${c.donors === 1 ? "" : "s"}</span></span>
       `;
       card.setAttribute(
         "aria-label",
-        `${cohortDisplayLabel(c.year)}, ranked #${c.rank}, ${c.donors} monthly donors. View details.`
+        `${cohortDisplayLabel(c.year)}, ranked #${c.rank}, ${c.donors} sustaining donors. View details.`
       );
       card.addEventListener("click", () => selectCohort(c.year));
       cohortAllGrid.appendChild(card);
@@ -347,7 +347,7 @@
     // donor counts. See campaignData.hasHistoricalData in data.js.
     if (campaignData.hasWeeklyMoverData) {
       leaderboardMover.hidden = false;
-      leaderboardMoverDetail.textContent = `${cohortDisplayLabel(biggestMove.year)} — +${biggestMove.newDonorsThisWeek} new monthly donors`;
+      leaderboardMoverDetail.textContent = `${cohortDisplayLabel(biggestMove.year)} — +${biggestMove.newDonorsThisWeek} new sustaining donors`;
     } else {
       leaderboardMover.hidden = true;
     }
@@ -470,7 +470,7 @@
       selectCohort(selectedCohort); // refresh open panel if relevant
     }
 
-    donorMomentDetail.textContent = `You are monthly donor #${currentDonors} helping light the room.`;
+    donorMomentDetail.textContent = `You are sustaining donor #${currentDonors} helping light the room.`;
     donorMoment.hidden = false;
 
     if (!prefersReducedMotion) {

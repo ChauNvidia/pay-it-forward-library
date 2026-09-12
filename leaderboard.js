@@ -135,7 +135,7 @@
       card.innerHTML = `
         <span class="cohort-all-grid__rank">#${c.rank}</span>
         <span class="cohort-all-grid__label">${cohortDisplayLabel(c.year)}</span>
-        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">monthly donor${c.donors === 1 ? "" : "s"}</span></span>
+        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">sustaining donor${c.donors === 1 ? "" : "s"}</span></span>
       `;
       grid.appendChild(card);
     });

@@ -35,7 +35,7 @@ const campaignData = {
 // ----------------------------------------------------------
 // COHORT DATA
 // 20 scholar class-year cohorts, each with its own goal of 10
-// founding monthly donors (20 cohorts x 10 = 200 campaign lights).
+// sustaining donors (20 cohorts x 10 = 200 campaign lights).
 // "donors" here should always match the count of active lights
 // tagged with that cohort year in lightCoordinates below.
 // ----------------------------------------------------------
@@ -78,7 +78,7 @@ const biggestMove = {
 
 // ----------------------------------------------------------
 // LIGHT COORDINATES
-// 200 campaign lamps, one per founding monthly donor slot.
+// 200 campaign lamps, one per sustaining donor slot.
 // Coordinates are PERCENTAGES (0-1) of the canvas width/height,
 // not fixed pixels, so the room can resize responsively.
 //

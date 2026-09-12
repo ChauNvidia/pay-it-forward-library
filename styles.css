@@ -258,8 +258,26 @@ a {
     1px 1px 0 rgba(6, 9, 16, 0.85);
 }
 
+/* Narrative copy between the headline and the "THE ROOM KEEPS
+   FILLING" kicker -- same legibility treatment (outline + shadow)
+   as the headline/subhead since it sits on the same photo. */
+.hero__story {
+  margin-top: 18px;
+  max-width: 560px;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--cream);
+  -webkit-text-stroke: 0.5px rgba(6, 9, 16, 0.55);
+  text-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(6, 9, 16, 0.75),
+    1px -1px 0 rgba(6, 9, 16, 0.75),
+    -1px 1px 0 rgba(6, 9, 16, 0.75),
+    1px 1px 0 rgba(6, 9, 16, 0.75);
+}
+
 .hero__subhead {
-  margin-top: 14px;
+  margin-top: 22px;
   font-size: clamp(1.05rem, 1.6vw, 1.35rem);
   color: var(--cream-dim);
   -webkit-text-stroke: 0.6px rgba(6, 9, 16, 0.65);

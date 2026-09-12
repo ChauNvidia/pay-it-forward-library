@@ -188,7 +188,15 @@
   // later, that's a different, reintroducible feature.
   // ----------------------------------------------------------
   function renderProgress() {
-    progressLine.textContent = `${currentDonors} seat${currentDonors === 1 ? "" : "s"} ${currentDonors === 1 ? "is" : "are"} taken`;
+    // The hero's "X seats are taken" line was replaced with the
+    // Larry letter/challenge story copy (static, in index.html) --
+    // this element no longer exists on the page, so this guard
+    // keeps renderProgress() from throwing if it's ever removed
+    // entirely from the DOM. The real seat count still lives in the
+    // stats panel (statDonors) below.
+    if (progressLine) {
+      progressLine.textContent = `${currentDonors} seat${currentDonors === 1 ? "" : "s"} ${currentDonors === 1 ? "is" : "are"} taken`;
+    }
     statDonors.textContent = String(currentDonors);
     if (typeof campaignData.totalRaised === "number") {
       statRaised.textContent = "$" + Math.round(campaignData.totalRaised).toLocaleString("en-US");

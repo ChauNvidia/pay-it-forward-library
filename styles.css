@@ -412,6 +412,14 @@ a {
   margin-bottom: 32px;
 }
 
+/* display:grid above beats the browser's default [hidden]{display:none}
+   rule, so without this the grid never actually disappears once shown.
+   Same fix needed anywhere else `hidden` is combined with a custom
+   display value. */
+.cohort-all-grid[hidden] {
+  display: none;
+}
+
 .cohort-all-grid__card {
   display: flex;
   flex-direction: column;

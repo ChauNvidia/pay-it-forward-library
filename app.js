@@ -177,15 +177,17 @@
   }
 
   // ----------------------------------------------------------
-  // NOTE: exploring an open-ended version of this campaign --
-  // no fixed 200-donor target surfaced anywhere in the copy.
+  // NOTE: open-ended version of this campaign -- no fixed
+  // 200-donor target surfaced anywhere in the copy.
   // campaignData.campaignGoal still exists internally (the legacy
   // 200-dot canvas array is sized to it), but nothing user-facing
-  // compares currentDonors against it anymore. The "THE ROOM IS
-  // LIT" goal-reached celebration is disabled for the same reason
-  // -- there's no longer a defined finish line to reach. If a
-  // milestone-based celebration (e.g. every 50 donors) is wanted
-  // later, that's a different, reintroducible feature.
+  // compares currentDonors against it anymore. #goalState used to
+  // be a "THE ROOM IS LIT" goal-reached celebration that stayed
+  // permanently hidden for that reason -- it's now been repurposed
+  // as "The Room Is Ours to Build," a permanent closing section, so
+  // renderProgress() no longer force-hides it (goalReached is kept
+  // around only to gate the demo/preview interactions below, in
+  // case a future milestone feature wants it again).
   // ----------------------------------------------------------
   function renderProgress() {
     // The hero's "X seats are taken" line was replaced with the
@@ -211,7 +213,6 @@
     }
 
     goalReached = false;
-    goalStateSection.hidden = true;
   }
 
   // ----------------------------------------------------------
@@ -245,7 +246,7 @@
       btn.className = "cohort-nav__btn";
       btn.textContent = cohortLabel(c.year);
       btn.setAttribute("aria-pressed", "false");
-      btn.setAttribute("aria-label", `${cohortDisplayLabel(c.year)}, ${c.donors} sustaining donors`);
+      btn.setAttribute("aria-label", `${cohortDisplayLabel(c.year)}, ${c.donors} sustaining scholars`);
       btn.addEventListener("click", () => selectCohort(c.year));
       cohortNav.appendChild(btn);
     });
@@ -273,11 +274,11 @@
       card.innerHTML = `
         <span class="cohort-all-grid__rank">#${c.rank}</span>
         <span class="cohort-all-grid__label">${cohortDisplayLabel(c.year)}</span>
-        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">sustaining donor${c.donors === 1 ? "" : "s"}</span></span>
+        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">sustaining scholar${c.donors === 1 ? "" : "s"}</span></span>
       `;
       card.setAttribute(
         "aria-label",
-        `${cohortDisplayLabel(c.year)}, ranked #${c.rank}, ${c.donors} sustaining donors. View details.`
+        `${cohortDisplayLabel(c.year)}, ranked #${c.rank}, ${c.donors} sustaining scholars. View details.`
       );
       card.addEventListener("click", () => selectCohort(c.year));
       cohortAllGrid.appendChild(card);
@@ -306,7 +307,7 @@
     cohortPanelYear.textContent = `${cohortDisplayLabel(year)}`;
     cohortPanelDonors.textContent = String(cohort.donors);
     cohortPanelRank.textContent = `#${rank}`;
-    cohortPanelCta.textContent = `TAKE YOUR PLACE WITH CLASS OF ${cohortLabel(year)}`;
+    cohortPanelCta.textContent = `TAKE YOUR PLACE WITH THE CLASS OF ${cohortLabel(year)}`;
     cohortPanel.hidden = false;
     cohortAllGrid.hidden = true;
 
@@ -364,7 +365,7 @@
     // donor counts. See campaignData.hasHistoricalData in data.js.
     if (campaignData.hasWeeklyMoverData) {
       leaderboardMover.hidden = false;
-      leaderboardMoverDetail.textContent = `${cohortDisplayLabel(biggestMove.year)} — +${biggestMove.newDonorsThisWeek} new sustaining donors`;
+      leaderboardMoverDetail.textContent = `${cohortDisplayLabel(biggestMove.year)}: ${biggestMove.newDonorsThisWeek} scholar${biggestMove.newDonorsThisWeek === 1 ? "" : "s"} answered Larry's call this week`;
     } else {
       leaderboardMover.hidden = true;
     }
@@ -421,7 +422,7 @@
       currentDonors = today;
       renderLights();
       renderProgress();
-      dailyChangeSummary.textContent = `${delta} more scholars showed up since yesterday.`;
+      dailyChangeSummary.textContent = `${delta} more scholar${delta === 1 ? "" : "s"} answered Larry's call.`;
       seeWhatChangedBtn.disabled = false;
       return;
     }
@@ -445,17 +446,20 @@
       setTimeout(tick, stepDelayMs);
     }
 
-    dailyChangeSummary.textContent = `${delta} more scholars showed up since yesterday.`;
+    dailyChangeSummary.textContent = `${delta} more scholar${delta === 1 ? "" : "s"} answered Larry's call.`;
     setTimeout(tick, stepDelayMs);
   }
 
   // ----------------------------------------------------------
   // simulateNewDonor()
-  // Dev-mode button: turns on the next inactive light with a
-  // brief glow animation, updates all progress counts, and
-  // shows a temporary "your light is on" moment.
+  // Triggered by the "Preview your moment" button -- turns on the
+  // next inactive light with a brief glow animation, updates all
+  // progress counts (locally only; never touches data.js), and
+  // shows a temporary "your light is on" moment. This is a preview
+  // of what the moment looks like, not a real transaction -- the
+  // primary CTA above it is the real donation link.
   // ----------------------------------------------------------
-  const simulateDonorBtn = document.getElementById("simulateDonorBtn");
+  const previewMomentBtn = document.getElementById("previewMomentBtn");
   const donorMoment = document.getElementById("donorMoment");
   const donorMomentDetail = document.getElementById("donorMomentDetail");
   const shareMomentBtn = document.getElementById("shareMomentBtn");
@@ -487,7 +491,7 @@
       selectCohort(selectedCohort); // refresh open panel if relevant
     }
 
-    donorMomentDetail.textContent = `You are sustaining donor #${currentDonors} helping light the room.`;
+    donorMomentDetail.textContent = `You're sustaining scholar #${currentDonors}. And the room just got a little brighter.`;
     donorMoment.hidden = false;
 
     if (!prefersReducedMotion) {
@@ -515,9 +519,9 @@
   window.addEventListener("resize", debounce(resizeCanvas, 150));
   cohortReset.addEventListener("click", resetCohortSelection);
   seeWhatChangedBtn.addEventListener("click", animateDailyChange);
-  simulateDonorBtn.addEventListener("click", simulateNewDonor);
+  previewMomentBtn.addEventListener("click", simulateNewDonor);
   shareMomentBtn.addEventListener("click", () => {
-    showToast("Link copied — share your moment.");
+    showToast("Link copied. Share your moment.");
   });
 
   function debounce(fn, wait) {
@@ -550,10 +554,10 @@
     todayValue.textContent = `${campaignData.currentDonors} lights`;
     dailyChangeSummary.textContent =
       delta > 0
-        ? `${delta} more scholar${delta === 1 ? "" : "s"} showed up since yesterday.`
+        ? `${delta} more scholar${delta === 1 ? "" : "s"} answered Larry's call.`
         : delta < 0
-        ? `${Math.abs(delta)} fewer than yesterday -- still ${campaignData.currentDonors} strong.`
-        : `Same as yesterday -- ${campaignData.currentDonors} strong.`;
+        ? `${Math.abs(delta)} fewer than yesterday. Still ${campaignData.currentDonors} scholars strong.`
+        : `Same as yesterday. ${campaignData.currentDonors} scholars strong.`;
   }
 
   function init() {

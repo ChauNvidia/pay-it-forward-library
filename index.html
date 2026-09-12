@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Scholars Equity Network — The Room Is Lighting Up</title>
+<title>Scholars Equity Network · The Room Is Lighting Up</title>
 <meta name="description" content="20,000 Gates Millennium Scholars have a place here. The room keeps filling." />
 <link rel="stylesheet" href="styles.css" />
 </head>
@@ -66,12 +66,27 @@
   </header>
 
   <!-- ============================================================
+       SECTION 1.5 — WHAT YOUR GIFT BUILDS
+       Short connective moment between the Larry intro story and the
+       cohort competition -- explains what a sustaining gift actually
+       funds before asking anyone to pick a side in the competition.
+       ============================================================ -->
+  <section class="gift-builds" aria-labelledby="giftBuildsHeading">
+    <div class="section-inner">
+      <h2 id="giftBuildsHeading" class="gift-builds__title">What Your Gift Builds</h2>
+      <p class="gift-builds__lede">Someone invested in our potential. Now we get to invest in our collective power.</p>
+      <p class="gift-builds__body">Your sustaining gift helps SEN build the infrastructure that connects our scholar community, creates opportunities to gather and collaborate, shares our stories, and helps scholars continue showing up for one another.</p>
+      <p class="gift-builds__closer">This isn't another scholarship. It's what becomes possible because there are 20,000 of us.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
        SECTION 2 — COHORT EXPLORER
        ============================================================ -->
   <section class="cohort-explorer" id="cohorts" aria-labelledby="cohortHeading">
     <div class="section-inner">
-      <h2 id="cohortHeading" class="section-title">Which Class Will Answer Larry's Call?</h2>
-      <p class="section-subtitle">Every sustaining donor lights another place in the room.<br />Rally your class. Climb the leaderboard. Help build what comes next.</p>
+      <h2 id="cohortHeading" class="section-title">Larry Sent the Letter. Now It's Our Turn.</h2>
+      <p class="section-subtitle">Twenty cohorts. One community.<br />Which class will answer Larry's call?</p>
 
       <div class="cohort-nav" id="cohortNav" role="group" aria-label="Select a class year">
         <!-- cohort year buttons injected by app.js -->
@@ -88,14 +103,14 @@
         <div class="cohort-panel__stats">
           <div class="cohort-panel__stat">
             <span class="cohort-panel__stat-value" id="cohortPanelDonors">8</span>
-            <span class="cohort-panel__stat-label">sustaining donors</span>
+            <span class="cohort-panel__stat-label">sustaining scholars</span>
           </div>
           <div class="cohort-panel__stat">
             <span class="cohort-panel__stat-value" id="cohortPanelRank">#1</span>
             <span class="cohort-panel__stat-label">rank among cohorts</span>
           </div>
         </div>
-        <a href="https://give.uncf.org/site/Donation2?df_id=12612&mfc_pref=T&12612.donation=form1" target="_blank" rel="noopener noreferrer" class="btn btn--primary cohort-panel__cta" id="cohortPanelCta">TAKE YOUR PLACE WITH CLASS OF 2002</a>
+        <a href="https://give.uncf.org/site/Donation2?df_id=12612&mfc_pref=T&12612.donation=form1" target="_blank" rel="noopener noreferrer" class="btn btn--primary cohort-panel__cta" id="cohortPanelCta">TAKE YOUR PLACE WITH THE CLASS OF 2002</a>
       </div>
     </div>
   </section>
@@ -106,7 +121,7 @@
   <section class="leaderboard" id="leaderboard" aria-labelledby="leaderboardHeading">
     <div class="section-inner">
       <h2 id="leaderboardHeading" class="section-title">WHO'S SHOWING UP?</h2>
-      <p class="section-subtitle">Friendly competition, one lamp at a time.</p>
+      <p class="section-subtitle">20 classes. One community. Let's see who steps up.</p>
 
       <div class="leaderboard__cards" id="leaderboardCards">
         <!-- top cohort cards injected by app.js -->
@@ -114,7 +129,7 @@
 
       <div class="leaderboard__mover" id="leaderboardMover">
         <span class="leaderboard__mover-label">Biggest move this week</span>
-        <span class="leaderboard__mover-detail" id="leaderboardMoverDetail">Class of 2007 — +3 new sustaining donors</span>
+        <span class="leaderboard__mover-detail" id="leaderboardMoverDetail">Class of 2007: 3 scholars answered Larry's call this week</span>
       </div>
     </div>
   </section>
@@ -125,6 +140,7 @@
   <section class="daily-change" id="daily-change" aria-labelledby="dailyChangeHeading">
     <div class="section-inner">
       <h2 id="dailyChangeHeading" class="section-title">The Room Gets Brighter Every Time One of Us Shows Up.</h2>
+      <p class="daily-change__explainer">Every light represents a scholar who said: I'm in.</p>
 
       <div class="daily-change__compare">
         <div class="daily-change__stat">
@@ -140,23 +156,31 @@
 
       <button type="button" class="btn btn--primary" id="seeWhatChangedBtn">SEE WHAT CHANGED</button>
 
-      <p class="daily-change__summary" id="dailyChangeSummary">6 more scholars showed up since yesterday.</p>
+      <p class="daily-change__summary" id="dailyChangeSummary">6 more scholars answered Larry's call.</p>
     </div>
   </section>
 
   <!-- ============================================================
-       SECTION 5 — DONATION MOMENT DEMO (dev-mode simulation)
+       SECTION 5 — DONATION MOMENT
+       Real fundraising CTA (primary <a> links straight to the UNCF
+       donation form). The "preview your moment" button below is a
+       clearly-labeled secondary affordance -- since this is a
+       static page with no way to confirm a real gift completed,
+       it lets someone see what the light-up moment feels like
+       without pretending it's a live receipt of their donation.
        ============================================================ -->
   <section class="donor-demo" id="donate" aria-labelledby="donorDemoHeading">
     <div class="section-inner">
-      <h2 id="donorDemoHeading" class="section-title">Take Your Place</h2>
-      <p class="section-subtitle">This is a front-end simulation of what happens the moment someone becomes a sustaining donor.</p>
+      <h2 id="donorDemoHeading" class="section-title">Your Place Is Waiting.</h2>
+      <p class="section-subtitle">Larry spent 20 years helping create opportunities for scholars like us.<br />Now we have the chance to build something extraordinary with the community that opportunity created.<br />Join as a sustaining scholar. Light your place in the room.</p>
 
-      <button type="button" class="btn btn--primary btn--large" id="simulateDonorBtn">SIMULATE NEW DONOR</button>
+      <a href="https://give.uncf.org/site/Donation2?df_id=12612&mfc_pref=T&12612.donation=form1" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large">TAKE YOUR PLACE</a>
+
+      <button type="button" class="btn btn--ghost donor-demo__preview-btn" id="previewMomentBtn">Preview your moment</button>
 
       <div class="donor-demo__moment" id="donorMoment" role="status" aria-live="polite" hidden>
-        <p class="donor-demo__moment-title">Your light is on.</p>
-        <p class="donor-demo__moment-detail" id="donorMomentDetail">You are sustaining donor #85 helping light the room.</p>
+        <p class="donor-demo__moment-title">YOUR LIGHT IS ON.</p>
+        <p class="donor-demo__moment-detail" id="donorMomentDetail">You're sustaining scholar #85. And the room just got a little brighter.</p>
         <div class="donor-demo__moment-actions">
           <a href="#hero" class="btn btn--secondary">VIEW THE ROOM</a>
           <button type="button" class="btn btn--ghost" id="shareMomentBtn">SHARE THE MOMENT</button>
@@ -166,21 +190,23 @@
   </section>
 
   <!-- ============================================================
-       SECTION 6 — CAMPAIGN GOAL STATE
-       DISABLED in the no-fixed-target version of this campaign --
-       always hidden (see renderProgress() in app.js). Left in place
-       in case a milestone-based celebration is wanted later.
+       SECTION 6 — THE ROOM IS OURS TO BUILD
+       Permanent closing section (previously a hidden "goal reached"
+       celebration that never showed in the open-ended version of
+       this campaign). Repurposed as the page's real ending: not a
+       finish line, an invitation to keep building.
        ============================================================ -->
-  <section class="goal-state" id="goalState" hidden aria-labelledby="goalStateHeading">
+  <section class="goal-state" id="goalState" aria-labelledby="goalStateHeading">
     <div class="section-inner">
-      <h2 id="goalStateHeading" class="goal-state__headline">THE ROOM IS LIT.</h2>
-      <p class="goal-state__copy">Sustaining donors showed up to help power what SEN builds next.</p>
-      <p class="goal-state__community-note">20,000+ scholars have a place here.</p>
+      <h2 id="goalStateHeading" class="goal-state__headline">The Room Is Ours to Build.</h2>
+      <p class="goal-state__copy">GMS gave each of us an extraordinary opportunity.<br />SEN gives us the opportunity to turn 20,000 individual stories into something greater than any one of us could build alone.</p>
+      <p class="goal-state__copy">Larry helped open the first door.<br />Now it's our turn.</p>
+      <a href="https://give.uncf.org/site/Donation2?df_id=12612&mfc_pref=T&12612.donation=form1" target="_blank" rel="noopener noreferrer" class="btn btn--primary goal-state__cta">TAKE YOUR PLACE</a>
     </div>
   </section>
 
   <footer class="site-footer">
-    <p>Scholars Equity Network &middot; Placeholder prototype &middot; Mock data for demonstration only</p>
+    <p>Scholars Equity Network &middot; Gates Millennium Scholars Alumni Association</p>
   </footer>
 
   <!-- Temporary toast for the "your light is on" moment -->

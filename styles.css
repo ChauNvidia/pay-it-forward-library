@@ -395,6 +395,47 @@ a {
 }
 
 /* ============================================================
+   SECTION 1.5 — WHAT YOUR GIFT BUILDS
+   Short, text-only connective moment between the Larry intro
+   story and the cohort competition. Solid background (no photo)
+   so it reads as a calm pause, not another "scene."
+   ============================================================ */
+.gift-builds {
+  background: var(--charcoal);
+  border-top: 1px solid rgba(244, 234, 217, 0.08);
+  text-align: center;
+}
+
+.gift-builds .section-inner {
+  max-width: 720px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.gift-builds__title {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  color: var(--amber-bright);
+  margin-bottom: 18px;
+}
+
+.gift-builds__lede {
+  font-size: 1.15rem;
+  color: var(--cream);
+  margin-bottom: 14px;
+}
+
+.gift-builds__body {
+  color: var(--cream-dim);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.gift-builds__closer {
+  color: var(--cream);
+  font-style: italic;
+}
+
+/* ============================================================
    SECTION 2 — COHORT EXPLORER
    Background photo: 20 book spines lined up on a desk -- one
    spine per class-year cohort, echoing the section's content.
@@ -663,6 +704,12 @@ a {
   align-items: center;
 }
 
+.daily-change__explainer {
+  max-width: 480px;
+  color: var(--cream-dim);
+  margin-top: 10px;
+}
+
 .daily-change__compare {
   display: flex;
   align-items: center;
@@ -716,6 +763,12 @@ a {
   align-items: center;
 }
 
+.donor-demo__preview-btn {
+  margin-top: 16px;
+  font-size: 0.78rem;
+  opacity: 0.8;
+}
+
 .donor-demo__moment {
   margin-top: 32px;
   padding: 28px 32px;
@@ -745,7 +798,7 @@ a {
 }
 
 /* ============================================================
-   SECTION 6 — CAMPAIGN GOAL STATE
+   SECTION 6 — THE ROOM IS OURS TO BUILD (closing section)
    ============================================================ */
 .goal-state {
   background: radial-gradient(ellipse 70% 60% at 50% 30%, rgba(255, 207, 138, 0.18), transparent 65%), var(--navy-deep);
@@ -756,18 +809,19 @@ a {
 .goal-state__headline {
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--amber-bright);
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .goal-state__copy {
   color: var(--cream);
   font-size: 1.1rem;
-  margin-bottom: 8px;
+  line-height: 1.6;
+  max-width: 620px;
+  margin: 0 auto 18px;
 }
 
-.goal-state__community-note {
-  color: var(--cream-dim);
-  font-style: italic;
+.goal-state__cta {
+  margin-top: 12px;
 }
 
 /* ============================================================

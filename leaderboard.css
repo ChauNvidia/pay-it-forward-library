@@ -152,6 +152,13 @@
   font-size: 1.4rem;
 }
 
+.lb-updated {
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(244, 234, 217, 0.5);
+  letter-spacing: 0.02em;
+}
+
 /* ---- Quote ------------------------------------------------ */
 .lb-quote {
   margin: 0;

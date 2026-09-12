@@ -29,7 +29,11 @@ const campaignData = {
   // Both written by update_from_donations.py from the same export
   // that sets currentDonors and cohorts[] above -- keep in sync.
   cohortsWithActivity: 4,
-  totalRaised: 370
+  totalRaised: 370,
+  // Stamped by update_from_donations.py every time it runs (the
+  // script runs once a day, after the day's export is in) -- shown
+  // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
+  lastUpdated: "September 11, 2026"
 };
 
 // ----------------------------------------------------------

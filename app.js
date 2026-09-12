@@ -117,6 +117,7 @@
   const progressLine = document.getElementById("progressLine");
   const statDonors = document.getElementById("statDonors");
   const statRaised = document.getElementById("statRaised");
+  const statLastUpdated = document.getElementById("statLastUpdated");
   const goalStateSection = document.getElementById("goalState");
 
   // ----------------------------------------------------------
@@ -191,6 +192,9 @@
     statDonors.textContent = String(currentDonors);
     if (typeof campaignData.totalRaised === "number") {
       statRaised.textContent = "$" + Math.round(campaignData.totalRaised).toLocaleString("en-US");
+    }
+    if (campaignData.lastUpdated) {
+      statLastUpdated.textContent = `Updated ${campaignData.lastUpdated} at 9pm PST`;
     }
 
     goalReached = false;

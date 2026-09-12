@@ -369,6 +369,13 @@ a {
   line-height: 1.5;
 }
 
+.stats-panel__updated {
+  margin-top: 12px;
+  font-size: 0.7rem;
+  color: rgba(244, 234, 217, 0.5);
+  letter-spacing: 0.02em;
+}
+
 /* ============================================================
    SECTION 2 — COHORT EXPLORER
    Background photo: 20 book spines lined up on a desk -- one

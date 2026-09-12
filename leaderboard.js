@@ -90,6 +90,10 @@
       typeof campaignData.totalRaised === "number"
         ? formatDollars(campaignData.totalRaised)
         : "—";
+    if (campaignData.lastUpdated) {
+      document.getElementById("lbLastUpdated").textContent =
+        `Updated ${campaignData.lastUpdated} at 9pm PST`;
+    }
   }
 
   // ----------------------------------------------------------

@@ -32,6 +32,8 @@ import sys
 import re
 import openpyxl
 from collections import Counter
+from datetime import datetime
+from zoneinfo import ZoneInfo
 
 DATA_JS_PATH = "/Users/leeannd/Boards-and-Orgs/SEN/library-campaign/data.js"
 
@@ -165,6 +167,18 @@ def main():
         f"totalRaised: {round(total_raised)}"
     )
 
+    # Replace lastUpdated with today's date (Pacific time, since the
+    # site displays it as "Updated [date] at 9pm PST" -- the export
+    # this script reads is expected to land once a day, in the evening).
+    today_pacific = datetime.now(ZoneInfo("America/Los_Angeles")).strftime("%B %-d, %Y")
+    old_updated = re.search(r'lastUpdated:\s*"[^"]*"', content)
+    if not old_updated:
+        raise ValueError('Could not find lastUpdated: "..." in data.js')
+    content = content.replace(
+        old_updated.group(0),
+        f'lastUpdated: "{today_pacific}"'
+    )
+
     # Replace the cohorts block entirely (from "const cohorts = [" to
     # its closing "];")
     cohorts_pattern = re.compile(r"const cohorts = \[.*?\];", re.DOTALL)
@@ -177,7 +191,7 @@ def main():
         f.write(content)
 
     print(f"\nUpdated {DATA_JS_PATH}")
-    print("(currentDonors, cohortsWithActivity, totalRaised, cohorts[] --")
+    print(f"(currentDonors, cohortsWithActivity, totalRaised, lastUpdated ({today_pacific}), cohorts[] --")
     print(" campaignFrames, lightCoordinates, etc. untouched)")
 
 

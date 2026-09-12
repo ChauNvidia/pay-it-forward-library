@@ -22,7 +22,14 @@ const campaignData = {
   // Real now: this is the first tracked week, so every donor is "new"
   // this week -- biggestMove below reflects the actual highest count
   // (GMS Friend, 3). Recompute this each week going forward.
-  hasWeeklyMoverData: true
+  hasWeeklyMoverData: true,
+  // ---- Used only by leaderboard.html ("Option 2") ----
+  // cohortsWithActivity = count of cohorts[] entries with donors > 0
+  // totalRaised = sum of the Amount column across all real donations
+  // Both written by update_from_donations.py from the same export
+  // that sets currentDonors and cohorts[] above -- keep in sync.
+  cohortsWithActivity: 4,
+  totalRaised: 370
 };
 
 // ----------------------------------------------------------

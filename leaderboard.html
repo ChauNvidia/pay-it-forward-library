@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scholars Equity Network — Every Cohort Has a Place</title>
+<meta name="description" content="Every cohort has a place. Every light makes a difference. Real-time donor activity across every class year." />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="leaderboard.css" />
+</head>
+<body class="lb-body">
+
+  <!-- ============================================================
+       HERO + STATS BAR
+       Same 14-frame crossfading library animation as the homepage,
+       with the campaign stat row + headline sitting on top instead
+       of the single "TAKE YOUR PLACE" hero.
+       ============================================================ -->
+  <header class="lb-hero" id="hero">
+    <div class="hero__room">
+      <div class="hero__frame hero__frame--visible" id="heroFrameA" aria-hidden="true"></div>
+      <div class="hero__frame" id="heroFrameB" aria-hidden="true"></div>
+      <div class="hero__vignette" aria-hidden="true"></div>
+    </div>
+
+    <div class="lb-hero__overlay">
+      <div class="lb-hero__top">
+        <p class="lb-kicker">THE ROOM KEEPS FILLING</p>
+        <h1 class="lb-headline">
+          Every cohort has a place.<br />
+          <span class="lb-headline--accent">Every light makes a difference.</span>
+        </h1>
+        <p class="lb-subhead" id="lbSubhead">20 cohorts. One community. A brighter tomorrow, together.</p>
+      </div>
+
+      <div class="lb-stats" role="status" aria-live="polite">
+        <div class="lb-stats__group">
+          <div class="lb-stat">
+            <span class="lb-stat__value" id="lbTotalDonors">6</span>
+            <span class="lb-stat__label">Total Donors</span>
+          </div>
+          <div class="lb-stat">
+            <span class="lb-stat__value" id="lbCohortsActive">4</span>
+            <span class="lb-stat__label">Cohorts<br />With Activity</span>
+          </div>
+          <div class="lb-stat">
+            <span class="lb-stat__value" id="lbTotalRaised">$370</span>
+            <span class="lb-stat__label">Raised<br />To Date</span>
+          </div>
+        </div>
+        <div class="lb-stats__divider" aria-hidden="true"></div>
+        <div class="lb-stats__note">
+          <span class="lb-stats__note-icon" aria-hidden="true">&#128101;</span>
+          <span>Alumni + Allies<br />Stronger Together</span>
+        </div>
+      </div>
+
+      <blockquote class="lb-quote">
+        &ldquo;Different journeys. Same room. A brighter tomorrow.&rdquo;
+        <cite>— SEN Community</cite>
+      </blockquote>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       ALL-COHORTS GRID
+       Always visible (no "View all cohorts" click needed) --
+       reuses the same open-ended card styling as the homepage's
+       cohort-explorer section, just without the click-to-reveal.
+       ============================================================ -->
+  <section class="lb-grid-section" aria-labelledby="lbGridHeading">
+    <div class="section-inner">
+      <h2 id="lbGridHeading" class="lb-grid-heading">Cohorts, Lighting the Room Together</h2>
+      <div class="cohort-all-grid lb-grid" id="lbCohortGrid">
+        <!-- one card per cohort, injected by leaderboard.js -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer lb-footer">
+    <p>Scholars Equity Network &middot; Together, we light the way.</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="leaderboard.js"></script>
+</body>
+</html>

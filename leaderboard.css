@@ -1,0 +1,198 @@
+/* ============================================================
+   leaderboard.css
+   Page-specific styles for leaderboard.html ("Option 2").
+   Loaded after styles.css -- reuses its CSS variables, .hero__*
+   frame-crossfade classes, .section-inner, .cohort-all-grid, and
+   .cohort-all-grid__card. Every selector here is prefixed .lb-
+   so nothing in here can ever collide with or override a rule
+   on the homepage.
+   ============================================================ */
+
+.lb-hero {
+  /* .hero__room (the frame-crossfade layer, shared with the
+     homepage) and .lb-hero__overlay both sit in this single grid
+     cell so they stack on top of each other -- same trick the
+     homepage's .hero uses. Without display:grid here, .hero__room's
+     own min-height:100vh pushes the overlay entirely below the
+     fold instead of overlapping it. */
+  display: grid;
+  position: relative;
+  min-height: 92vh;
+  background: var(--charcoal);
+  overflow: hidden;
+}
+
+.lb-hero .hero__room {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.lb-hero__overlay {
+  position: relative;
+  z-index: 2;
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+  min-height: 92vh;
+  padding: 48px 48px 56px;
+}
+
+.lb-kicker {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  color: var(--amber-bright);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.lb-headline {
+  font-size: clamp(1.9rem, 3.8vw, 3rem);
+  color: var(--cream);
+  line-height: 1.25;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  max-width: 760px;
+}
+
+.lb-headline--accent {
+  color: var(--amber-bright);
+}
+
+.lb-subhead {
+  margin-top: 18px;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--cream-dim);
+  max-width: 640px;
+}
+
+/* ---- Stats row ------------------------------------------------ */
+.lb-stats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  background: rgba(12, 18, 32, 0.55);
+  border: 1px solid rgba(244, 234, 217, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  max-width: fit-content;
+  backdrop-filter: blur(2px);
+}
+
+.lb-stats__group {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.lb-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.lb-stat__value {
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem);
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+.lb-stat__label {
+  margin-top: 4px;
+  font-size: 0.74rem;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+}
+
+.lb-stats__divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(244, 234, 217, 0.18);
+}
+
+.lb-stats__note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.82rem;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.lb-stats__note-icon {
+  font-size: 1.4rem;
+}
+
+/* ---- Quote ------------------------------------------------ */
+.lb-quote {
+  margin: 0;
+  max-width: 480px;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--cream-dim);
+  border-left: 2px solid var(--amber);
+  padding-left: 18px;
+}
+
+.lb-quote cite {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--amber-bright);
+}
+
+/* ---- Cohort grid section ------------------------------------- */
+.lb-grid-section {
+  background: var(--navy-deep);
+  border-top: 1px solid rgba(244, 234, 217, 0.08);
+}
+
+.lb-grid-heading {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  color: var(--cream);
+  margin-bottom: 28px;
+}
+
+.lb-grid {
+  /* .cohort-all-grid already provides the grid layout + gap;
+     this page just never hides it. */
+  margin-bottom: 0;
+}
+
+.lb-grid__card--ally {
+  background: rgba(49, 98, 245, 0.14);
+  border-color: rgba(49, 98, 245, 0.45);
+}
+
+.lb-grid__card--ally:hover {
+  border-color: var(--sen-blue);
+  background: rgba(49, 98, 245, 0.2);
+}
+
+.lb-footer {
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .lb-hero__overlay {
+    padding: 32px 24px 40px;
+  }
+
+  .lb-stats {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .lb-stats__group {
+    gap: 22px;
+  }
+}

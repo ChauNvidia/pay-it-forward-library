@@ -238,16 +238,37 @@ a {
   max-width: 620px;
 }
 
+/* Both the headline and subhead sit directly on top of the animated
+   photo (no solid background behind them), so legibility varies by
+   frame -- a bright window or light-colored wall can wash the text
+   out. -webkit-text-stroke draws a crisp outline in Chrome/Safari/
+   Edge; the layered text-shadow (soft depth shadow + a tight 1px
+   outline in all 4 directions) is the universal fallback/backup for
+   browsers that ignore text-stroke, so the outline effect holds up
+   everywhere, not just WebKit browsers. */
 .hero__headline {
   font-size: clamp(2rem, 4.2vw, 3.4rem);
   color: var(--cream);
-  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 1px rgba(6, 9, 16, 0.65);
+  text-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(6, 9, 16, 0.85),
+    1px -1px 0 rgba(6, 9, 16, 0.85),
+    -1px 1px 0 rgba(6, 9, 16, 0.85),
+    1px 1px 0 rgba(6, 9, 16, 0.85);
 }
 
 .hero__subhead {
   margin-top: 14px;
   font-size: clamp(1.05rem, 1.6vw, 1.35rem);
   color: var(--cream-dim);
+  -webkit-text-stroke: 0.6px rgba(6, 9, 16, 0.65);
+  text-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(6, 9, 16, 0.8),
+    1px -1px 0 rgba(6, 9, 16, 0.8),
+    -1px 1px 0 rgba(6, 9, 16, 0.8),
+    1px 1px 0 rgba(6, 9, 16, 0.8);
 }
 
 .hero__progress {

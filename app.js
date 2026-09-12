@@ -198,6 +198,7 @@
   // ----------------------------------------------------------
   const cohortNav = document.getElementById("cohortNav");
   const cohortReset = document.getElementById("cohortReset");
+  const cohortAllGrid = document.getElementById("cohortAllGrid");
   const cohortPanel = document.getElementById("cohortPanel");
   const cohortPanelYear = document.getElementById("cohortPanelYear");
   const cohortPanelDonors = document.getElementById("cohortPanelDonors");
@@ -238,6 +239,33 @@
   }
 
   // ----------------------------------------------------------
+  // buildCohortAllGrid()
+  // One small card per cohort (label, donors/goal, rank) so
+  // "View all cohorts" actually shows all of them at a glance,
+  // instead of just closing the single-cohort detail panel.
+  // ----------------------------------------------------------
+  function buildCohortAllGrid() {
+    cohortAllGrid.innerHTML = "";
+    const ranked = ranksByDonors();
+    ranked.forEach((c) => {
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "cohort-all-grid__card";
+      card.innerHTML = `
+        <span class="cohort-all-grid__rank">#${c.rank}</span>
+        <span class="cohort-all-grid__label">${cohortDisplayLabel(c.year)}</span>
+        <span class="cohort-all-grid__count">${c.donors} <span class="cohort-all-grid__of">of ${c.goal}</span></span>
+      `;
+      card.setAttribute(
+        "aria-label",
+        `${cohortDisplayLabel(c.year)}, ranked #${c.rank}, ${c.donors} of ${c.goal} monthly donors. View details.`
+      );
+      card.addEventListener("click", () => selectCohort(c.year));
+      cohortAllGrid.appendChild(card);
+    });
+  }
+
+  // ----------------------------------------------------------
   // selectCohort(year)
   // Highlights a cohort's lights, dims the rest, and opens the
   // side panel with its stats + a CTA scoped to that class year.
@@ -264,10 +292,18 @@
     cohortPanelBarFill.style.width = pct + "%";
     cohortPanelCta.textContent = `TAKE YOUR PLACE WITH CLASS OF ${cohortLabel(year)}`;
     cohortPanel.hidden = false;
+    cohortAllGrid.hidden = true;
 
     renderLights();
   }
 
+  // ----------------------------------------------------------
+  // resetCohortSelection()
+  // "View all cohorts" now actually shows every cohort at once
+  // (a small ranked card per year) instead of just closing the
+  // single-cohort detail panel -- clicking it always shows
+  // something, even if no cohort had been selected yet.
+  // ----------------------------------------------------------
   function resetCohortSelection() {
     selectedCohort = null;
     Array.from(cohortNav.children).forEach((btn) =>
@@ -275,6 +311,10 @@
     );
     cohortPanel.hidden = true;
     renderLights();
+
+    buildCohortAllGrid();
+    cohortAllGrid.hidden = false;
+    cohortAllGrid.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
   // ----------------------------------------------------------

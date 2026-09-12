@@ -405,6 +405,60 @@ a {
   margin-bottom: 32px;
 }
 
+.cohort-all-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.cohort-all-grid__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-family: inherit;
+  text-align: left;
+  background: rgba(244, 234, 217, 0.05);
+  border: 1px solid rgba(244, 234, 217, 0.12);
+  border-radius: var(--radius-md, 10px);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.cohort-all-grid__card:hover {
+  border-color: var(--amber);
+  background: rgba(244, 234, 217, 0.09);
+}
+
+.cohort-all-grid__card:focus-visible {
+  outline: 3px solid var(--sen-blue);
+  outline-offset: 2px;
+}
+
+.cohort-all-grid__rank {
+  font-size: 0.72rem;
+  color: var(--amber-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cohort-all-grid__label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--cream);
+}
+
+.cohort-all-grid__count {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+.cohort-all-grid__of {
+  font-size: 0.78rem;
+}
+
 .cohort-panel {
   background: rgba(244, 234, 217, 0.04);
   border: 1px solid rgba(244, 234, 217, 0.12);

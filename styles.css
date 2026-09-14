@@ -868,17 +868,18 @@ a {
   .hero__overlay {
     grid-column: 1;
     padding: 24px 20px 40px;
-    /* On mobile, .hero switches to a stacked (non-grid) flex column,
-       so .hero__overlay no longer overlaps the hero image -- it
-       flows in normal document flow right below it. Its desktop
-       min-height:100vh + justify-content:space-between rules were
-       built for the overlapping/grid layout; left as-is here they
-       reserve a full extra screen height and shove the logo and
-       headline to opposite ends of it, leaving a large dead gap
-       between them. */
+    /* .hero__overlay shares a grid cell with .hero__room (see the
+       NOTE below), so as a grid item it stretches to fill that
+       cell's height -- 78vh, from .hero__room's min-height. With
+       min-height reset to auto here (not the desktop 100vh) that
+       78vh is the real, image-sized box, so justify-content:
+       space-between now correctly pins the logo to the top and the
+       headline block to the bottom of the IMAGE, not of an
+       oversized phantom 100vh space -- maximizing the empty top
+       breathing room over the photo. */
     min-height: auto;
-    justify-content: flex-start;
-    gap: 28px;
+    justify-content: space-between;
+    gap: 24px;
   }
 
   .stats-panel {
@@ -912,13 +913,6 @@ a {
      this is sizing/spacing only. */
   .sen-logo__image {
     height: 40px;
-  }
-
-  .hero__content {
-    /* Push the headline down from the logo/top edge -- scoped to
-       this mobile media query only, so desktop's layout (space-
-       between, headline near vertical center) is untouched. */
-    margin-top: 90px;
   }
 
   .hero__headline {

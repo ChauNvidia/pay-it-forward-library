@@ -914,6 +914,13 @@ a {
     height: 40px;
   }
 
+  .hero__content {
+    /* Push the headline down from the logo/top edge -- scoped to
+       this mobile media query only, so desktop's layout (space-
+       between, headline near vertical center) is untouched. */
+    margin-top: 90px;
+  }
+
   .hero__headline {
     font-size: 1.6rem;
     line-height: 1.25;

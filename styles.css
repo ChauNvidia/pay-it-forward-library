@@ -904,6 +904,41 @@ a {
      assuming the grid stays intact, so removing the override was
      the fix, not a new layout.) */
 
+  /* Hero text on mobile: the desktop sizes/spacing (built for a wide
+     line length) wrap into many short lines on a narrow phone screen
+     and read as a wall of text. Scaling everything down + loosening
+     the gaps between headline/story/subhead lets the same words
+     breathe instead of stacking edge-to-edge. Wording is unchanged --
+     this is sizing/spacing only. */
+  .sen-logo__image {
+    height: 40px;
+  }
+
+  .hero__headline {
+    font-size: 1.6rem;
+    line-height: 1.25;
+  }
+
+  .hero__story {
+    margin-top: 14px;
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .hero__subhead {
+    margin-top: 18px;
+    font-size: 0.85rem;
+  }
+
+  .hero__cta {
+    margin-top: 20px;
+  }
+
+  .hero__community-note {
+    margin-top: 14px;
+    font-size: 0.85rem;
+  }
+
   .cohort-nav {
     flex-wrap: nowrap;
     overflow-x: auto;

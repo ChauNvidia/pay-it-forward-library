@@ -418,6 +418,41 @@ a {
   border-top: 1px solid rgba(244, 234, 217, 0.08);
 }
 
+/* Letter card + Larry's photo side by side (photo on the right, per
+   Chau's call) -- a dedicated photo panel with object-fit:cover is
+   far more predictable than trying to reveal a specific subject
+   through background-position math on a full-bleed photo. Stacks on
+   mobile (photo below the letter card). */
+.letter-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 28px;
+  margin: 8px auto 0;
+  max-width: 980px;
+}
+
+.letter-layout .letter-card {
+  margin: 0;
+  flex: 1 1 480px;
+}
+
+.letter-photo {
+  flex: 0 0 260px;
+  align-self: stretch;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(244, 234, 217, 0.14);
+}
+
+.letter-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 30% 20%;
+}
+
 .letter-card {
   position: relative;
   max-width: 640px;
@@ -1137,6 +1172,16 @@ a {
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  .letter-layout {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .letter-photo {
+    align-self: stretch;
+    height: 220px;
   }
 
   .hero__overlay {

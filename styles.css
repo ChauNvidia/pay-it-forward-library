@@ -264,7 +264,7 @@ a {
    instead of one flat six-line block. Same legibility treatment
    (outline + shadow) since it sits on the same photo. */
 .hero__eyebrow-line {
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
   color: var(--cream-dim);
   margin-bottom: 8px;
   -webkit-text-stroke: 0.5px rgba(6, 9, 16, 0.55);
@@ -1327,6 +1327,13 @@ a {
      this is sizing/spacing only. */
   .sen-logo__image {
     height: 40px;
+  }
+
+  .hero__eyebrow-line {
+    /* Chau's feedback ("too small") was about desktop -- mobile
+       already read fine at the original size, so this un-does the
+       base clamp()'s desktop-driven bump for mobile specifically. */
+    font-size: 1rem;
   }
 
   .hero__headline {

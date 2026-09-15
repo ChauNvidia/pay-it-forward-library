@@ -424,22 +424,19 @@ a {
    through background-position math on a full-bleed photo. Stacks on
    mobile (photo below the letter card). */
 .letter-layout {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 28px;
+  max-width: 780px;
   margin: 8px auto 0;
-  max-width: 980px;
 }
 
 .letter-layout .letter-card {
-  margin: 0;
-  flex: 1 1 480px;
+  max-width: none;
+  margin: 24px auto 0;
 }
 
+/* Full photo, never cropped -- the room itself is the point, so the
+   box just follows the image's own aspect ratio (no forced height,
+   no object-fit) instead of fitting it into a fixed-shape panel. */
 .letter-photo {
-  flex: 0 0 260px;
-  align-self: stretch;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid rgba(244, 234, 217, 0.14);
@@ -448,9 +445,7 @@ a {
 .letter-photo img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 30% 20%;
+  height: auto;
 }
 
 .letter-card {
@@ -1172,16 +1167,6 @@ a {
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
-  }
-
-  .letter-layout {
-    flex-direction: column-reverse;
-    gap: 20px;
-  }
-
-  .letter-photo {
-    align-self: stretch;
-    height: 220px;
   }
 
   .hero__overlay {

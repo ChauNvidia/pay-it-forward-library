@@ -335,7 +335,7 @@ const campaignFrames = [
   "frames/chapter-09.jpg",
   "frames/chapter-10.jpg",
   "frames/chapter-11.jpg",
-  "frames/chapter-11.jpg", // TODO: replace with "frames/chapter-12.jpg" once supplied
+  "frames/chapter-12.jpg",
   "frames/chapter-13.jpg",
   "frames/chapter-14.jpg"
 ];

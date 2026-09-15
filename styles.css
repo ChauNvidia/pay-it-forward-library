@@ -1238,6 +1238,30 @@ a {
 /* ============================================================
    FOOTER + TOAST
    ============================================================ */
+.partner-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 48px;
+  padding: 40px 24px 8px;
+  background: var(--charcoal);
+}
+
+.partner-logos__logo {
+  height: 28px;
+  width: auto;
+  opacity: 0.85;
+}
+
+.partner-logos__logo--sen {
+  height: 34px;
+}
+
+.partner-logos__logo--uncf {
+  height: 24px;
+}
+
 .site-footer {
   padding: 28px 24px;
   text-align: center;

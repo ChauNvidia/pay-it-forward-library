@@ -620,17 +620,11 @@ a {
   font-style: italic;
 }
 
-/* ---- gift-builds__* paragraphs, now folded into .response -------
+/* ---- gift-builds__* paragraphs, folded into .response -------
    (used to be their own section; kept as standalone classes since
    nothing here depends on a .gift-builds parent wrapper). */
-.gift-builds__lede {
-  margin-top: 32px;
-  font-size: 1.15rem;
-  color: var(--cream);
-  margin-bottom: 14px;
-}
-
 .gift-builds__body {
+  margin-top: 32px;
   color: var(--cream-dim);
   line-height: 1.6;
   margin-bottom: 14px;
@@ -1176,6 +1170,7 @@ a {
 .goal-state__headline {
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--amber-bright);
+  margin-top: 12px;
   margin-bottom: 20px;
 }
 

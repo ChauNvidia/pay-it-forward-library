@@ -550,8 +550,8 @@
       // a specific unlit count to fill.
       lightsCaption = "Every one of these is ours.";
     } else {
-      headline = `${gap.needed} MORE.`;
-      sub = `That's all we need to take ${ordinal(gap.above.rank)}.`;
+      headline = `WE ONLY NEED ${gap.needed} MORE.`;
+      sub = `${gap.needed} more scholar${gap.needed === 1 ? "" : "s"} and ${label} moves into ${ordinal(gap.above.rank)}.`;
       lights = buildLightIcons(gap.current.donors, gap.needed);
       lightsCaption = "Who's lighting the next one?";
     }

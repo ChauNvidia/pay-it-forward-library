@@ -423,30 +423,6 @@ a {
    far more predictable than trying to reveal a specific subject
    through background-position math on a full-bleed photo. Stacks on
    mobile (photo below the letter card). */
-.letter-layout {
-  max-width: 780px;
-  margin: 8px auto 0;
-}
-
-.letter-layout .letter-card {
-  max-width: none;
-  margin: 24px auto 0;
-}
-
-/* Full photo, never cropped -- the room itself is the point, so the
-   box just follows the image's own aspect ratio (no forced height,
-   no object-fit) instead of fitting it into a fixed-shape panel. */
-.letter-photo {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid rgba(244, 234, 217, 0.14);
-}
-
-.letter-photo img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
 
 .letter-card {
   position: relative;

@@ -419,7 +419,19 @@ a {
    ============================================================ */
 .letter-intro {
   position: relative;
-  min-height: 640px;
+  /* Locked to the photo's own ratio (2200x1118) instead of a fixed
+     min-height. A fixed height + object-fit:cover meant the crop
+     depended on how far the container's own ratio drifted from the
+     photo's -- on a browser window taller/narrower than my test
+     sizes, "cover" scaled way up to fill that height, zooming in and
+     cropping out almost everything but a sliver near the right edge.
+     aspect-ratio guarantees the box always matches the photo, so
+     cover never has to crop beyond what's intentional, on any
+     window size. min/max-height are just sane bounds for extreme
+     window shapes. */
+  aspect-ratio: 2200 / 1118;
+  min-height: 380px;
+  max-height: 720px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -1226,7 +1238,10 @@ a {
      desktop composition. */
   .letter-intro {
     display: block;
+    aspect-ratio: auto;
     min-height: auto;
+    max-height: none;
+    overflow: visible;
   }
 
   .letter-intro__photo {

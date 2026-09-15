@@ -761,6 +761,26 @@ a {
   outline-offset: 2px;
 }
 
+/* "Lit" cohort (at least one sustaining scholar) -- warm amber glow,
+   matching the lightbulb icons used everywhere else on the page, so
+   the grid itself reads as part of the same light metaphor instead
+   of every card looking identical regardless of who's shown up. */
+.cohort-all-grid__card--lit {
+  background: rgba(227, 161, 90, 0.12);
+  border-color: rgba(227, 161, 90, 0.4);
+  box-shadow: 0 0 18px rgba(255, 207, 138, 0.12);
+}
+
+.cohort-all-grid__card--lit:hover {
+  border-color: var(--amber-bright);
+  background: rgba(227, 161, 90, 0.18);
+}
+
+.cohort-all-grid__card--lit .cohort-all-grid__count {
+  color: var(--amber-bright);
+  font-weight: 700;
+}
+
 .cohort-all-grid__rank {
   font-size: 0.72rem;
   color: var(--amber-bright);

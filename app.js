@@ -270,7 +270,11 @@
     ranked.forEach((c) => {
       const card = document.createElement("button");
       card.type = "button";
-      card.className = "cohort-all-grid__card";
+      // A cohort with any sustaining scholars reads as "lit" (warm
+      // amber, matching the lightbulb icons elsewhere) -- zero-donor
+      // cohorts stay dim. Without this, every card looked identical
+      // regardless of who's actually shown up.
+      card.className = "cohort-all-grid__card" + (c.donors > 0 ? " cohort-all-grid__card--lit" : "");
       card.innerHTML = `
         <span class="cohort-all-grid__rank">#${c.rank}</span>
         <span class="cohort-all-grid__label">${cohortDisplayLabel(c.year)}</span>

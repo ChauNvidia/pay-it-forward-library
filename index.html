@@ -66,7 +66,32 @@
   </header>
 
   <!-- ============================================================
-       SECTION 1.1 — THE LETTER THAT STARTED IT
+       SECTION 1.0 — LETTER INTRO (cinematic photo + headline)
+       Larry speaking at the Pay It Forward Summit. Desktop: full-
+       bleed photo, text on the naturally darker left side of the
+       frame (mic stand + blurred background), Larry + the
+       architectural gold rings preserved unobstructed on the
+       right -- matches the "room" visual language established in
+       the hero. Mobile: photo first (no overlay), headline/body
+       below it in normal flow -- see the max-width:900px media
+       query for the swap from absolute-overlay to stacked block.
+       This section now owns the "THE LETTER THAT STARTED IT"
+       chapter title; the .letter section right below it (the
+       actual letter card) no longer repeats its own kicker/
+       headline, to avoid saying the same thing twice in a row.
+       ============================================================ -->
+  <section class="letter-intro" id="letterIntro" aria-labelledby="letterIntroHeading">
+    <img class="letter-intro__photo" src="letter-intro.jpg" alt="Larry Griffith speaking at the Pay It Forward Summit">
+    <div class="letter-intro__scrim" aria-hidden="true"></div>
+    <div class="letter-intro__content">
+      <p class="section-kicker">THE LETTER THAT STARTED IT</p>
+      <h2 id="letterIntroHeading" class="letter-intro__headline">Larry sent us a letter.<br />And a challenge.</h2>
+      <p class="letter-intro__body">For 20 years, he sent checks that opened doors for thousands of Gates Millennium Scholars. Now he's asking us to send a couple back.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1.1 — THE LETTER THAT STARTED IT (the letter card)
        Larry's actual letter (verbatim text, cross-checked against
        the raw Mailchimp HTML -- not paraphrased), collapsed to a
        short preview by default. Visitors arriving from the letter
@@ -74,12 +99,8 @@
        without having to scroll past the whole thing to reach the
        live campaign.
        ============================================================ -->
-  <section class="letter" id="letter" aria-labelledby="letterHeading">
+  <section class="letter" id="letter" aria-label="Larry's letter">
     <div class="section-inner">
-      <p class="section-kicker">THE LETTER THAT STARTED IT</p>
-      <h2 id="letterHeading" class="section-title">Larry sent us a letter.</h2>
-      <p class="section-subtitle">To 20,000+ Gates Millennium Scholars: his challenge to pay forward what was invested in us.</p>
-
       <div class="letter-card">
         <p class="letter-card__eyebrow">LARRY GRIFFITH &middot; EXECUTIVE VICE PRESIDENT, GMS</p>
         <p class="letter-card__title">From GMS to SEN: The Room Where It Happened</p>

@@ -408,6 +408,81 @@ a {
 }
 
 /* ============================================================
+   SECTION 1.0 — LETTER INTRO (cinematic photo + headline)
+   Desktop: .letter-intro__photo is absolutely positioned full-
+   bleed (object-fit:cover), text sits in the naturally darker
+   left portion of the frame with only a left-to-right gradient
+   scrim (subtle -- Larry and the gold rings stay unobstructed).
+   Mobile (see media query): the photo reverts to a normal,
+   static, full-width block and the text drops below it in plain
+   flow -- not a forced version of the desktop overlay.
+   ============================================================ */
+.letter-intro {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-top: 1px solid rgba(244, 234, 217, 0.08);
+}
+
+.letter-intro__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+}
+
+.letter-intro__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 10, 18, 0.88) 0%,
+    rgba(8, 10, 18, 0.68) 26%,
+    rgba(8, 10, 18, 0.3) 48%,
+    rgba(8, 10, 18, 0.04) 62%,
+    transparent 75%
+  );
+}
+
+.letter-intro__content {
+  position: relative;
+  z-index: 2;
+  max-width: 460px;
+  padding: 56px 48px;
+}
+
+.letter-intro__headline {
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  color: var(--cream);
+  line-height: 1.25;
+  margin-bottom: 16px;
+  -webkit-text-stroke: 1px rgba(6, 9, 16, 0.65);
+  text-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(6, 9, 16, 0.85),
+    1px -1px 0 rgba(6, 9, 16, 0.85),
+    -1px 1px 0 rgba(6, 9, 16, 0.85),
+    1px 1px 0 rgba(6, 9, 16, 0.85);
+}
+
+.letter-intro__body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--cream-dim);
+  -webkit-text-stroke: 0.5px rgba(6, 9, 16, 0.55);
+  text-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(6, 9, 16, 0.75),
+    1px -1px 0 rgba(6, 9, 16, 0.75),
+    -1px 1px 0 rgba(6, 9, 16, 0.75),
+    1px 1px 0 rgba(6, 9, 16, 0.75);
+}
+
+/* ============================================================
    SECTION 1.1 — THE LETTER THAT STARTED IT
    Editorial, reflective treatment -- a paper-toned card rather
    than the site's usual amber-glow UI chrome, since this is meant
@@ -1143,6 +1218,38 @@ a {
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  /* Letter intro: photo first (plain, full-width block -- not the
+     desktop's absolute full-bleed overlay), headline/body below it
+     in normal flow. Deliberately NOT a scaled-down version of the
+     desktop composition. */
+  .letter-intro {
+    display: block;
+    min-height: auto;
+  }
+
+  .letter-intro__photo {
+    position: static;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-position: center 35%;
+  }
+
+  .letter-intro__scrim {
+    display: none;
+  }
+
+  .letter-intro__content {
+    max-width: none;
+    padding: 28px 20px 36px;
+  }
+
+  .letter-intro__headline,
+  .letter-intro__body {
+    -webkit-text-stroke-width: 0;
+    text-shadow: none;
   }
 
   .hero__overlay {

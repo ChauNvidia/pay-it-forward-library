@@ -123,13 +123,25 @@
       <h2 id="leaderboardHeading" class="section-title">WHO'S SHOWING UP?</h2>
       <p class="section-subtitle">The Room Gets Brighter Every Time One of Us Shows Up.</p>
 
-      <div class="leaderboard__cards" id="leaderboardCards">
-        <!-- top cohort cards injected by app.js -->
+      <h3 class="race__title">The Race Right Now</h3>
+      <div class="race" id="raceList">
+        <!-- ranked bar rows injected by app.js; selected class gets .race__row--selected -->
       </div>
 
       <div class="leaderboard__mover" id="leaderboardMover">
         <span class="leaderboard__mover-label">Biggest move this week</span>
         <span class="leaderboard__mover-detail" id="leaderboardMoverDetail">Class of 2007: 3 scholars answered Larry's call this week</span>
+      </div>
+
+      <!-- ============================================================
+           YOUR CLASS -- personalized, screenshot-friendly card.
+           Default (no class chosen) vs. personalized states are both
+           rendered by renderYourClassCard() in app.js, driven by the
+           same `selectedCohort` state the cohort-nav section above
+           already sets -- no duplicate selection logic.
+           ============================================================ -->
+      <div class="your-class" id="yourClassCard" aria-live="polite">
+        <!-- injected by app.js -->
       </div>
     </div>
   </section>

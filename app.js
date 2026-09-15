@@ -312,6 +312,7 @@
     cohortAllGrid.hidden = true;
 
     renderLights();
+    renderLeaderboard(); // refresh race highlight + "YOUR CLASS" card
   }
 
   // ----------------------------------------------------------
@@ -328,6 +329,7 @@
     );
     cohortPanel.hidden = true;
     renderLights();
+    renderLeaderboard(); // clears race highlight + "YOUR CLASS" back to prompt state
 
     buildCohortAllGrid();
     cohortAllGrid.hidden = false;
@@ -336,29 +338,242 @@
 
   // ----------------------------------------------------------
   // renderLeaderboard()
-  // Builds the "WHO'S SHOWING UP?" cards (top 3 cohorts) and
-  // the "biggest move this week" callout.
+  // Umbrella render for the whole "WHO'S SHOWING UP?" section:
+  // the race bars, the "biggest move" callout, and the personalized
+  // "YOUR CLASS" card. Called from every place donor counts or the
+  // selected cohort can change (init, selectCohort, resetCohortSelection,
+  // simulateNewDonor) so all three always stay in sync with each other
+  // and with the cohort-nav selection above.
   // ----------------------------------------------------------
-  const leaderboardCards = document.getElementById("leaderboardCards");
+  const raceList = document.getElementById("raceList");
   const leaderboardMover = document.getElementById("leaderboardMover");
   const leaderboardMoverDetail = document.getElementById("leaderboardMoverDetail");
+  const yourClassCard = document.getElementById("yourClassCard");
+  const RACE_ROWS = 5; // how many cohorts show as bars in "The Race Right Now"
+
+  function ordinal(n) {
+    const s = ["th", "st", "nd", "rd"];
+    const v = n % 100;
+    return n + (s[(v - 20) % 10] || s[v] || s[0]);
+  }
+
+  // ----------------------------------------------------------
+  // computeGap(year)
+  // The core calculation the whole redesign is built around: how
+  // many MORE donors the given class needs to PASS (not tie) the
+  // class immediately ahead of it. Reuses ranksByDonors() -- same
+  // sort/rank logic already driving the cohort panel elsewhere, so
+  // there's exactly one source of truth for "who's ahead of whom."
+  // ----------------------------------------------------------
+  function computeGap(year) {
+    const ranked = ranksByDonors();
+    const idx = ranked.findIndex((c) => c.year === year);
+    if (idx === -1) return null;
+    const current = ranked[idx];
+
+    if (idx === 0) {
+      const second = ranked[1] || null;
+      const lead = second ? current.donors - second.donors : current.donors;
+      return { isLeader: true, current, second, lead, ranked };
+    }
+
+    const above = ranked[idx - 1];
+    // +1 because matching their count is still a tie, not a pass.
+    const needed = Math.max(1, above.donors - current.donors + 1);
+    return { isLeader: false, current, above, needed, ranked };
+  }
+
+  // Short, energetic kicker line above the main gap message --
+  // only for the near-miss/leader cases explicitly called out in
+  // the brief; larger gaps just show the main message with no kicker
+  // rather than force a punchy line that doesn't fit.
+  function microcopyKicker(gap) {
+    if (gap.isLeader) {
+      return gap.second && gap.lead <= 2 ? "YOU'RE #1. FOR NOW." : "IN THE LEAD.";
+    }
+    if (gap.needed === 1) return "ONE MORE.";
+    if (gap.needed <= 3) return "SO CLOSE.";
+    return "";
+  }
+
+  // ----------------------------------------------------------
+  // buildLightIcons(lit, unlit)
+  // Renders the "lit vs. unlit bulb" visualization. Caps the total
+  // icon count so a large donor number never renders dozens of tiny
+  // bulbs -- past the cap it shows a handful of lit bulbs plus a
+  // "+N" chip, but the unlit count (the number that actually matters)
+  // is always rendered in full, never summarized away.
+  // ----------------------------------------------------------
+  const LIGHT_ICON_CAP = 24;
+  const LIGHT_SVG = (extraClass) => `
+    <svg class="light-icon ${extraClass}" viewBox="0 0 24 24" aria-hidden="true">
+      <path class="light-icon__glow" d="M12 2a7 7 0 0 0-4 12.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26A7 7 0 0 0 12 2z"/>
+      <rect class="light-icon__base" x="9.3" y="18.4" width="5.4" height="1.6" rx="0.6"/>
+      <rect class="light-icon__base" x="9.9" y="20.4" width="4.2" height="1.3" rx="0.6"/>
+    </svg>`;
+
+  function buildLightIcons(lit, unlit) {
+    const total = lit + unlit;
+    if (total <= LIGHT_ICON_CAP) {
+      return (
+        LIGHT_SVG("light-icon--lit").repeat(lit) +
+        LIGHT_SVG("light-icon--unlit").repeat(unlit)
+      );
+    }
+    // Over the cap: show a representative handful of lit bulbs (not
+    // the real count -- a "+N" chip carries that) plus every unlit
+    // bulb, since the unlit count is the whole point of this
+    // visualization and must never be summarized away.
+    const litShown = Math.max(0, LIGHT_ICON_CAP - unlit - 1);
+    return (
+      LIGHT_SVG("light-icon--lit").repeat(litShown) +
+      `<span class="light-icon__more">+${lit - litShown}</span>` +
+      LIGHT_SVG("light-icon--unlit").repeat(unlit)
+    );
+  }
+
+  // ----------------------------------------------------------
+  // buildShareText(gap)
+  // Concise, class-specific share copy for the Web Share API /
+  // clipboard fallback. Uses the same campaign link the rest of the
+  // page already points visitors to.
+  // ----------------------------------------------------------
+  function buildShareText(gap) {
+    const label = cohortDisplayLabel(gap.current.year);
+    const link = "https://chaunvidia.github.io/pay-it-forward-library/";
+    if (gap.isLeader) {
+      const leadLine = gap.second
+        ? `We're #1 right now, ${gap.lead} ahead of ${cohortDisplayLabel(gap.second.year)}.`
+        : "We're #1 right now.";
+      return `HEY ${label.toUpperCase()} \u{1F440}\n\n${leadLine}\nLet's keep it that way.\n\nWho's in?\n\n${link}`;
+    }
+    return `HEY ${label.toUpperCase()} \u{1F440}\n\nWe're #${gap.current.rank} right now.\n\nWe need ${gap.needed} more scholar${gap.needed === 1 ? "" : "s"} to jump into ${ordinal(gap.above.rank)}.\n\nWho's in?\n\n${link}`;
+  }
+
+  async function shareYourClass() {
+    if (!selectedCohort) return;
+    const gap = computeGap(selectedCohort);
+    if (!gap) return;
+    const text = buildShareText(gap);
+
+    if (navigator.share) {
+      try {
+        await navigator.share({ text });
+        return;
+      } catch (err) {
+        // User canceled the native share sheet -- not an error, just stop.
+        if (err && err.name === "AbortError") return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(text);
+      showToast("Copied. Paste it in your class chat.");
+    } catch (err) {
+      showToast("Couldn't copy automatically -- select the text and copy it manually.");
+    }
+  }
+
+  // ----------------------------------------------------------
+  // renderRace()
+  // "The Race Right Now" -- top RACE_ROWS cohorts as ranked bars,
+  // proportional to the #1 cohort's donor count. Highlights the
+  // selected class's row if it's within the visible rows.
+  // ----------------------------------------------------------
+  function renderRace() {
+    const ranked = ranksByDonors();
+    const rows = ranked.slice(0, RACE_ROWS);
+    const maxDonors = Math.max(1, ranked[0] ? ranked[0].donors : 0);
+
+    raceList.innerHTML = rows
+      .map((c) => {
+        const pct = Math.max(6, Math.round((c.donors / maxDonors) * 100));
+        const isSelected = selectedCohort !== null && c.year === selectedCohort;
+        return `
+          <div class="race__row${isSelected ? " race__row--selected" : ""}">
+            <span class="race__rank">#${c.rank}</span>
+            <span class="race__label">${cohortDisplayLabel(c.year)}</span>
+            <span class="race__bar"><span class="race__bar-fill" style="width:${pct}%"></span></span>
+            <span class="race__count">${c.donors}</span>
+          </div>
+        `;
+      })
+      .join("");
+  }
+
+  // ----------------------------------------------------------
+  // renderYourClassCard()
+  // The personalized, screenshot-friendly card. Shows a prompt to
+  // choose a class when selectedCohort is null; otherwise shows
+  // rank, the lit/unlit light visualization, the gap-to-next
+  // message (the hero metric per the brief -- not raw rank), and
+  // the Rally/Share CTAs.
+  // ----------------------------------------------------------
+  function renderYourClassCard() {
+    if (selectedCohort === null) {
+      yourClassCard.innerHTML = `
+        <p class="your-class__prompt">Choose your class above to see exactly how close it is.</p>
+        <button type="button" class="btn btn--ghost your-class__choose-btn" id="yourClassChooseBtn">Choose your class</button>
+      `;
+      const btn = document.getElementById("yourClassChooseBtn");
+      if (btn) {
+        btn.addEventListener("click", () => {
+          cohortNav.scrollIntoView({ behavior: "smooth", block: "center" });
+        });
+      }
+      return;
+    }
+
+    const gap = computeGap(selectedCohort);
+    if (!gap) return;
+    const label = cohortDisplayLabel(gap.current.year);
+    // Card eyebrow: "CLASS OF 2003" for a class year, but just
+    // "GMS FRIEND" (no "Class of") for the non-year cohort --
+    // cohortDisplayLabel() already returns the right base string
+    // for each case (label above), this just picks the right prefix.
+    const cardLabel =
+      typeof gap.current.year === "string" ? label.toUpperCase() : `CLASS OF ${cohortLabel(gap.current.year)}`;
+    const kicker = microcopyKicker(gap);
+
+    let headline, sub, lights;
+    if (gap.isLeader) {
+      headline = "IN THE LEAD. KEEP IT THERE.";
+      sub = gap.second
+        ? `${gap.lead} ahead of ${cohortDisplayLabel(gap.second.year)}. Who's extending the lead?`
+        : "The only class on the board so far.";
+      lights = buildLightIcons(gap.current.donors, 0);
+    } else {
+      headline = `${gap.needed} LIGHT${gap.needed === 1 ? "" : "S"} AWAY FROM ${ordinal(gap.above.rank).toUpperCase()}`;
+      sub = "Who's lighting the next one?";
+      lights = buildLightIcons(gap.current.donors, gap.needed);
+    }
+
+    const rallySub = gap.isLeader
+      ? `We're ${gap.lead} ahead. Let's keep it that way. Who's in?`
+      : `We're ${gap.needed} scholar${gap.needed === 1 ? "" : "s"} away from taking ${ordinal(gap.above.rank)}. Who's in?`;
+
+    yourClassCard.innerHTML = `
+      ${kicker ? `<p class="your-class__kicker">${kicker}</p>` : ""}
+      <p class="your-class__label">${cardLabel}</p>
+      <p class="your-class__rank">CURRENTLY #${gap.current.rank}</p>
+      <div class="your-class__lights" aria-hidden="true">${lights}</div>
+      <p class="your-class__headline">${headline}</p>
+      <p class="your-class__sub">${sub}</p>
+      <div class="your-class__ctas">
+        <button type="button" class="btn btn--primary your-class__rally-btn" id="rallyBtn">RALLY ${label.toUpperCase()}</button>
+        <button type="button" class="btn btn--ghost your-class__share-btn" id="shareClassBtn">SHARE</button>
+      </div>
+      <p class="your-class__rally-sub">${rallySub}</p>
+      <p class="your-class__brand">Scholars Equity Network &middot; Pay It Forward</p>
+    `;
+
+    const rallyBtn = document.getElementById("rallyBtn");
+    if (rallyBtn) rallyBtn.addEventListener("click", shareYourClass);
+    const shareBtn = document.getElementById("shareClassBtn");
+    if (shareBtn) shareBtn.addEventListener("click", shareYourClass);
+  }
 
   function renderLeaderboard() {
-    const ranked = ranksByDonors().slice(0, 3);
-    leaderboardCards.innerHTML = "";
-
-    ranked.forEach((c) => {
-      const card = document.createElement("div");
-      card.className = "leaderboard__card";
-      card.innerHTML = `
-        <span class="leaderboard__card-rank">#${c.rank}</span>
-        <span class="leaderboard__card-body">
-          <span class="leaderboard__card-year">${cohortDisplayLabel(c.year)}</span>
-          <span class="leaderboard__card-progress">${c.donors} light${c.donors === 1 ? "" : "s"}</span>
-        </span>
-      `;
-      leaderboardCards.appendChild(card);
-    });
+    renderRace();
 
     // "Biggest move this week" needs real week-over-week tracking --
     // hide it rather than show the mock placeholder alongside real
@@ -369,6 +584,8 @@
     } else {
       leaderboardMover.hidden = true;
     }
+
+    renderYourClassCard();
   }
 
   // ----------------------------------------------------------

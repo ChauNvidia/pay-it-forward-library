@@ -626,43 +626,84 @@ a {
   border-top: 1px solid rgba(244, 234, 217, 0.08);
 }
 
-.leaderboard__cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin-bottom: 28px;
+/* ---- The Race Right Now -----------------------------------
+   Ranked bar rows, replacing the old flat top-3 cards -- bar
+   length is proportional to the #1 cohort's donor count, so the
+   GAP between classes is the thing that's visually obvious, not
+   just the ordering. */
+.race__title {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--cream-dim);
+  margin-bottom: 14px;
 }
 
-.leaderboard__card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(244, 234, 217, 0.04);
-  border: 1px solid rgba(244, 234, 217, 0.1);
-  border-radius: var(--radius-md);
-  padding: 16px 18px;
-}
-
-.leaderboard__card-rank {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--amber-bright);
-  min-width: 32px;
-}
-
-.leaderboard__card-body {
+.race {
   display: flex;
   flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
-.leaderboard__card-year {
+.race__row {
+  display: grid;
+  grid-template-columns: 36px 1fr 3fr 34px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+}
+
+.race__row--selected {
+  background: rgba(227, 161, 90, 0.12);
+  border-color: rgba(227, 161, 90, 0.4);
+}
+
+.race__rank {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--amber-bright);
+}
+
+.race__label {
+  font-size: 0.88rem;
   font-weight: 700;
   color: var(--cream);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.leaderboard__card-progress {
-  font-size: 0.82rem;
+.race__bar {
+  display: block;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(244, 234, 217, 0.1);
+  overflow: hidden;
+}
+
+.race__bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--amber), var(--amber-bright));
+}
+
+.race__row--selected .race__bar-fill {
+  background: linear-gradient(90deg, #ffcf8a, #fff2d9);
+}
+
+.race__count {
+  font-size: 0.88rem;
+  font-weight: 700;
   color: var(--cream-dim);
+  text-align: right;
+}
+
+.race__row--selected .race__count {
+  color: var(--amber-bright);
 }
 
 .leaderboard__mover {
@@ -687,6 +728,127 @@ a {
 .leaderboard__mover-detail {
   color: var(--cream);
   font-weight: 600;
+}
+
+/* ---- YOUR CLASS -- personalized, screenshot-friendly card --
+   Designed to make sense on its own: SEN/campaign identity in the
+   footer line, everything else self-contained. Text-align:center +
+   a tight max-width keep it feeling like a single shareable card
+   rather than another wide page section. */
+.your-class {
+  margin-top: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 28px 28px 24px;
+  text-align: center;
+  background: radial-gradient(ellipse 90% 70% at 50% 0%, rgba(227, 161, 90, 0.14), transparent 70%), rgba(244, 234, 217, 0.04);
+  border: 1px solid rgba(227, 161, 90, 0.3);
+  border-radius: var(--radius-lg);
+}
+
+.your-class__prompt {
+  color: var(--cream-dim);
+  margin-bottom: 16px;
+}
+
+.your-class__kicker {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--amber-bright);
+  margin-bottom: 10px;
+}
+
+.your-class__label {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cream-dim);
+}
+
+.your-class__rank {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--cream);
+  margin-top: 2px;
+  margin-bottom: 16px;
+}
+
+.your-class__lights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 18px;
+}
+
+.light-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+.light-icon--lit .light-icon__glow {
+  fill: var(--amber-bright);
+  filter: drop-shadow(0 0 5px rgba(255, 207, 138, 0.75));
+}
+
+.light-icon--lit .light-icon__base {
+  fill: var(--amber);
+}
+
+.light-icon--unlit .light-icon__glow {
+  fill: none;
+  stroke: rgba(244, 234, 217, 0.38);
+  stroke-width: 1.4;
+}
+
+.light-icon--unlit .light-icon__base {
+  fill: none;
+  stroke: rgba(244, 234, 217, 0.28);
+  stroke-width: 1.2;
+}
+
+.light-icon__more {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--cream-dim);
+  margin: 0 4px;
+}
+
+.your-class__headline {
+  font-size: clamp(1.3rem, 3vw, 1.7rem);
+  font-weight: 800;
+  color: var(--amber-bright);
+  line-height: 1.25;
+  margin-bottom: 6px;
+}
+
+.your-class__sub {
+  color: var(--cream-dim);
+  margin-bottom: 20px;
+}
+
+.your-class__ctas {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.your-class__rally-sub {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  margin-bottom: 16px;
+}
+
+.your-class__brand {
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: rgba(244, 234, 217, 0.45);
 }
 
 /* ============================================================
@@ -951,8 +1113,28 @@ a {
     flex: 0 0 auto;
   }
 
-  .leaderboard__cards {
-    grid-template-columns: 1fr;
+  /* The race rows' desktop ratio (1fr label : 3fr bar) squeezes
+     labels like "Class of 2000" down to "Class..." on a narrow
+     phone screen -- exactly the "careful reading required" problem
+     this whole redesign is trying to avoid. Give the label more
+     room and the bar less on mobile. */
+  .race__row {
+    grid-template-columns: 24px 1.3fr 1fr 26px;
+    gap: 8px;
+    padding: 9px 10px;
+  }
+
+  .race__label {
+    font-size: 0.8rem;
+  }
+
+  .race__rank,
+  .race__count {
+    font-size: 0.82rem;
+  }
+
+  .your-class {
+    padding: 24px 18px 20px;
   }
 
   .section-inner {

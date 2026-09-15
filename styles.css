@@ -518,36 +518,20 @@ a {
   height: 26px;
 }
 
+.response .section-inner {
+  max-width: 720px;
+}
+
 .response__caption {
   color: var(--cream-dim);
   font-style: italic;
 }
 
-/* ============================================================
-   SECTION 1.5 — WHAT YOUR GIFT BUILDS
-   Short, text-only connective moment between the Larry intro
-   story and the cohort competition. Solid background (no photo)
-   so it reads as a calm pause, not another "scene."
-   ============================================================ */
-.gift-builds {
-  background: var(--charcoal);
-  border-top: 1px solid rgba(244, 234, 217, 0.08);
-  text-align: center;
-}
-
-.gift-builds .section-inner {
-  max-width: 720px;
-  padding-top: 56px;
-  padding-bottom: 56px;
-}
-
-.gift-builds__title {
-  font-size: clamp(1.3rem, 2vw, 1.7rem);
-  color: var(--amber-bright);
-  margin-bottom: 18px;
-}
-
+/* ---- gift-builds__* paragraphs, now folded into .response -------
+   (used to be their own section; kept as standalone classes since
+   nothing here depends on a .gift-builds parent wrapper). */
 .gift-builds__lede {
+  margin-top: 32px;
   font-size: 1.15rem;
   color: var(--cream);
   margin-bottom: 14px;

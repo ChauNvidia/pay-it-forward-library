@@ -1248,22 +1248,13 @@ a {
   background: var(--charcoal);
 }
 
+/* Same height as the hero's top-left SEN logo (.sen-logo__image) so
+   the two feel like one consistent brand size across the page,
+   instead of the footer versions reading smaller/secondary. */
 .partner-logos__logo {
-  height: 28px;
+  height: 64px;
   width: auto;
   opacity: 0.85;
-}
-
-.partner-logos__logo--sen {
-  height: 34px;
-}
-
-.partner-logos__logo--gmsp {
-  height: 38px;
-}
-
-.partner-logos__logo--uncf {
-  height: 24px;
 }
 
 .site-footer {
@@ -1386,7 +1377,8 @@ a {
      the gaps between headline/story/subhead lets the same words
      breathe instead of stacking edge-to-edge. Wording is unchanged --
      this is sizing/spacing only. */
-  .sen-logo__image {
+  .sen-logo__image,
+  .partner-logos__logo {
     height: 40px;
   }
 

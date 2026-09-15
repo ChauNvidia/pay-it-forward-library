@@ -74,6 +74,19 @@ a {
   padding: 64px 24px;
 }
 
+/* Small uppercase eyebrow used above a section-title -- "THE LETTER
+   THAT STARTED IT" / "THE RESPONSE" / "THE CLASS CHALLENGE" -- ties
+   the three-act narrative together visually without repeating a
+   full heading treatment each time. */
+.section-kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--amber-bright);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
 .section-title {
   font-size: clamp(1.5rem, 2.4vw, 2.1rem);
   color: var(--cream);
@@ -392,6 +405,122 @@ a {
   font-size: 0.7rem;
   color: rgba(244, 234, 217, 0.5);
   letter-spacing: 0.02em;
+}
+
+/* ============================================================
+   SECTION 1.1 — THE LETTER THAT STARTED IT
+   Editorial, reflective treatment -- a paper-toned card rather
+   than the site's usual amber-glow UI chrome, since this is meant
+   to read as an actual letter, not another campaign panel.
+   ============================================================ */
+.letter {
+  background: var(--charcoal);
+  border-top: 1px solid rgba(244, 234, 217, 0.08);
+}
+
+.letter-card {
+  position: relative;
+  max-width: 640px;
+  margin: 8px auto 0;
+  padding: 36px 40px;
+  background: rgba(244, 234, 217, 0.05);
+  border: 1px solid rgba(244, 234, 217, 0.14);
+  border-radius: var(--radius-lg);
+}
+
+.letter-card__eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+  margin-bottom: 6px;
+}
+
+.letter-card__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--amber-bright);
+  margin-bottom: 22px;
+}
+
+.letter-card__text p {
+  color: var(--cream);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.letter-card__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Visual cue that more of the letter exists below, shown only
+   while collapsed -- JS hides this the moment #letterMore is
+   revealed (see toggleLetter() in app.js). */
+.letter-card__fade {
+  display: block;
+  height: 40px;
+  margin-top: -16px;
+  background: linear-gradient(180deg, transparent, rgba(16, 20, 31, 0.96));
+  pointer-events: none;
+}
+
+.letter-card__signoff {
+  margin-top: 24px;
+}
+
+.letter-card__signoff-title {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+.letter-card__toggle {
+  display: block;
+  width: fit-content;
+  margin: 24px auto 0;
+}
+
+.letter-card__original {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 0.82rem;
+}
+
+.letter-card__original a {
+  color: var(--cream-dim);
+  text-decoration: underline;
+}
+
+/* ============================================================
+   SECTION 1.2 — THE RESPONSE
+   Warm, simple, emotional -- the calmest of the three "act"
+   transitions before the more energetic class challenge below.
+   ============================================================ */
+.response {
+  background: linear-gradient(180deg, var(--charcoal), var(--navy-deep));
+  border-top: 1px solid rgba(244, 234, 217, 0.08);
+  text-align: center;
+}
+
+.response__lights {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 28px 0 18px;
+}
+
+.response__lights .light-icon {
+  width: 26px;
+  height: 26px;
+}
+
+.response__caption {
+  color: var(--cream-dim);
+  font-style: italic;
 }
 
 /* ============================================================
@@ -827,6 +956,13 @@ a {
 }
 
 .your-class__sub {
+  color: var(--cream-dim);
+  margin-bottom: 18px;
+}
+
+.your-class__lights-caption {
+  font-size: 0.85rem;
+  font-style: italic;
   color: var(--cream-dim);
   margin-bottom: 20px;
 }

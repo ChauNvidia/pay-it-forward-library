@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<title>From GMS to SEN: The Room Where It Happened</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,300..900;1,6..12,300..900&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;padding:0;background:#5b5f66;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  table{border-collapse:collapse;}
+  img{border:0;line-height:100%;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic;}
+  a{color:#1162C7;}
+
+  .email-container{width:640px;max-width:640px;}
+
+  /* ---------- left strip (table rowspan, not flex — flexbox is unreliable in email clients) ---------- */
+  .strip-td{width:130px;padding:0;line-height:0;font-size:0;background-color:#292208;}
+  .strip-img{display:block;width:130px;height:1750px;object-fit:cover;object-position:left top;}
+  .content-cell{width:100%;}
+
+  /* ---------- mobile-only top banner (hidden on desktop) ---------- */
+  .mobile-banner{display:none;}
+  .mobile-banner img{max-width:100%;}
+
+  /* ---------- masthead ---------- */
+  .logo-img{display:block;width:220px;height:auto;}
+  h1{
+    font-family:"EB Garamond",Garamond,Georgia,serif;
+    font-weight:500;font-size:32px;line-height:1.05;
+    color:#04052E;margin:22px 0 0 0;letter-spacing:0;
+  }
+  h2{
+    font-family:"EB Garamond",Garamond,Georgia,serif;
+    font-style:italic;font-weight:500;font-size:20px;line-height:1.15;
+    color:#A27431;margin:8px 0 0 0;
+  }
+
+  /* ---------- ornament rule ---------- */
+  .ornament-line-bar{height:1px;line-height:1px;font-size:1px;background-color:#A27431;}
+
+  /* ---------- letter body ---------- */
+  .letter{
+    font-family:"Nunito Sans","Avenir Next","Avenir",-apple-system,"Segoe UI",sans-serif;
+    font-weight:400;font-size:17px;line-height:27px;
+    color:#0D1436;
+  }
+  .letter p{margin:0 0 20px 0;}
+  .letter strong{font-weight:700;}
+  .letter a{color:#1162C7;font-weight:700;font-style:italic;text-decoration:none;}
+  .letter a:hover{text-decoration:underline;}
+
+  /* ---------- give-now CTA ---------- */
+  .cta-btn{
+    display:inline-block;
+    font-family:"Nunito Sans","Avenir Next","Avenir",-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;font-weight:700;letter-spacing:2px;
+    color:#fff !important;background-color:#A27431;
+    padding:14px 44px;border-radius:3px;
+    text-decoration:none;
+  }
+
+  /* ---------- signature ---------- */
+  .sig-signature{
+    font-family:"EB Garamond",Garamond,Georgia,serif;
+    font-style:italic;font-weight:500;font-size:30px;color:#04052E;
+    margin:0 0 6px 0;line-height:1;
+  }
+  .sig-title{
+    font-family:"Nunito Sans","Avenir Next","Avenir",sans-serif;
+    font-size:15px;font-weight:400;color:#0D1436;line-height:1.4;margin:0;
+  }
+
+  /* ---------- footer bar ---------- */
+  .fwd-text{
+    font-family:"Nunito Sans","Avenir Next","Avenir",-apple-system,"Segoe UI",sans-serif;
+    font-size:14px;font-weight:400;color:#5b5f66;line-height:1.6;margin:14px 0 0 0;
+  }
+  .fwd-text a{color:#1162C7;font-weight:700;text-decoration:none;}
+  .fwd-text a:hover{text-decoration:underline;}
+
+  .footer-td{background-color:#001842;padding:28px 24px;text-align:center;}
+  .tagline{
+    font-family:"Nunito Sans","Avenir Next","Avenir",sans-serif;
+    font-size:15px;font-weight:400;letter-spacing:1.6px;color:#fff;margin:10px 0 0 0;line-height:1.6;
+  }
+  .tagline .gold{color:#DCA55E;}
+  .footer-url{
+    font-family:"Nunito Sans","Avenir Next","Avenir",sans-serif;
+    font-size:12.5px;font-weight:400;letter-spacing:2.6px;color:#3B80F2;text-decoration:none;
+    display:inline-block;margin-top:10px;
+  }
+
+  /* ================= MOBILE ================= */
+  @media only screen and (max-width:680px){
+    .email-container{width:100% !important;max-width:100% !important;}
+    .strip-td{display:none !important;}
+    .content-cell{width:100% !important;}
+    .mobile-banner{display:block !important;position:relative;overflow:hidden;height:150px;}
+    .mobile-banner img{width:100%;height:100%;object-fit:cover;object-position:center 28%;display:block;}
+    .mobile-banner .strip-shade{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(4,5,46,.35) 0%,rgba(4,5,46,0) 30%);}
+    .content-pad{padding:26px 22px 0 22px !important;}
+    .letter-pad{padding:18px 22px 0 22px !important;}
+    .cta-pad{padding:8px 22px 26px 22px !important;}
+    .sig-pad{padding:0 22px 26px 22px !important;}
+    .fwd-pad{padding:22px 22px 26px 22px !important;}
+    .stack{display:block !important;width:100% !important;text-align:center !important;padding-left:0 !important;padding-right:0 !important;}
+    .logo-img{margin:0 auto !important;}
+    h1{font-size:6.2vw !important;}
+    h2{font-size:4.4vw !important;}
+    .headshot-cell{padding-top:18px !important;}
+    .tagline{font-size:2.6vw !important;letter-spacing:0.5px !important;}
+  }
+</style>
+</head>
+<body>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#5b5f66;">
+  <tr>
+    <td align="center" style="padding:28px 12px;">
+
+      <table role="presentation" class="email-container" width="640" cellpadding="0" cellspacing="0" border="0" style="background:#ffffff;">
+
+        <!-- ============ MOBILE-ONLY BANNER (hidden on desktop) ============ -->
+        <tr>
+          <td colspan="2">
+            <div class="mobile-banner">
+              <img src="letter-assets/strip-mobile.png" width="640" height="150" alt="The Obama Presidential Center at night">
+              <div class="strip-shade" aria-hidden="true"></div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- ============ STRIP (left, desktop, rowspan) + MASTHEAD ============ -->
+        <tr>
+          <td class="strip-td" rowspan="4" valign="top">
+            <img class="strip-img" src="letter-assets/strip.png" width="130" height="1750" alt="The Obama Presidential Center at night">
+          </td>
+          <td class="content-cell" valign="top">
+
+                <!-- masthead -->
+                <div class="content-pad" style="padding:32px 40px 0 40px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td class="stack" width="66%" valign="top" style="padding-right:16px;">
+                        <img class="logo-img" src="letter-assets/logo.png" alt="Scholars Equity Network">
+                        <h1>From GMS to SEN:</h1>
+                        <h2>The Room Where It Happened</h2>
+                      </td>
+                      <td class="stack headshot-cell" width="34%" valign="top" align="center">
+                        <!-- gold-ring circular headshot -->
+                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="background:radial-gradient(circle,rgba(162,116,49,.45) 0%,rgba(162,116,49,.12) 55%,rgba(162,116,49,0) 75%);border-radius:50%;">
+                          <tr>
+                            <td style="padding:14px;">
+                              <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#A27431;border-radius:50%;">
+                                <tr>
+                                  <td style="padding:3px;">
+                                    <img src="letter-assets/headshot.png" width="120" height="120" alt="Larry Griffith speaking at the Pay It Forward Summit" style="display:block;border-radius:50%;border:2px solid #F4ECD7;width:120px;height:120px;object-fit:cover;">
+                                  </td>
+                                </tr>
+                              </table>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- ornament rule -->
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:22px;">
+                    <tr>
+                      <td width="45%" valign="middle"><div class="ornament-line-bar">&nbsp;</div></td>
+                      <td width="30" align="center" valign="middle">
+                        <img src="letter-assets/star-ornament.png" width="22" height="22" alt="" style="display:block;">
+                      </td>
+                      <td width="45%" valign="middle"><div class="ornament-line-bar">&nbsp;</div></td>
+                    </tr>
+                  </table>
+                </div>
+          </td>
+        </tr>
+
+        <!-- ============ LETTER BODY ============ -->
+        <tr>
+          <td class="content-cell" valign="top">
+                <div class="letter-pad letter" style="padding:24px 40px 0 40px;">
+
+                  <p>Dear friends,</p>
+
+                  <p>On August 14th, I stood in a beautiful room at the Obama Presidential Center
+                  full of Gates Millennium Scholars turned builders, healers, organizers, educators,
+                  advocates and changemakers.&nbsp; It was an extraordinary night, powerful with emotion
+                  and celebration, and I haven&rsquo;t stopped thinking about it since.</p>
+
+                  <p>I am in my 20th year at UNCF leading the Gates Millennium Scholars Program, a $1.3
+                  billion initiative geared toward proving that by removing the barrier of the cost of a
+                  college degree from highly capable individuals like yourself, opportunity would unleash
+                  your nascent potential. What I saw at the Pay It Forward Summit is the clearest
+                  demonstration that the Gates&rsquo; investment is wildly successful!&nbsp; You are part of 20,000+
+                  GMS alumni turning shared experience into mentorship, civic engagement, scholarship,
+                  and positive impact on your communities.</p>
+
+                  <p>With our goal of growing your leadership, the scholarship was never meant to end at
+                  graduation. It was meant to be the beginning of a lifelong commitment to one another
+                  and to giving back to others &mdash; and I believe this network is only getting started, with a
+                  reach that will extend across our nation and, in time, our world. Accelerator grants
+                  already funding changemakers in community health, literacy, and beyond.</p>
+
+                  <p>To everyone who was in that room: thank you for being a powerful, living testimony.
+                  To everyone reading this who wasn&rsquo;t: there&rsquo;s a place for you here too.</p>
+
+                  <p>As I said that night, now is your turn. SEN needs you, your time, your talent and,
+                  importantly at this stage, your treasure. <strong>I am asking you to give annually and
+                  generously, with a minimum commitment of at least $100.00.</strong></p>
+
+                  <p style="margin-bottom:0;">Every contribution keeps this momentum going, so please make a gift so that you
+                  are part of what SEN builds next.</p>
+
+                </div>
+          </td>
+        </tr>
+
+        <!-- ============ GIVE NOW CTA ============ -->
+        <tr>
+          <td class="content-cell" valign="top">
+                <div class="cta-pad" style="padding:10px 40px 34px 40px;text-align:center;">
+                  <a class="cta-btn" href="https://give.uncf.org/site/Donation2?df_id=12612&amp;mfc_pref=T&amp;12612.donation=form1" target="_blank" rel="noopener noreferrer">GIVE NOW</a>
+                </div>
+          </td>
+        </tr>
+
+        <!-- ============ SIGNATURE ============ -->
+        <tr>
+          <td class="content-cell" valign="top">
+                <div class="sig-pad letter" style="padding:0 40px 34px 40px;">
+                  <p style="margin:0 0 18px 0;">With excitement for everything ahead,</p>
+                  <p class="sig-signature">Larry Griffith</p>
+                  <p class="sig-title">Executive Vice President (GMS)<br>Programs &amp; Student Services, UNCF</p>
+                </div>
+          </td>
+        </tr>
+
+        <!-- ============ FOOTER (full width) ============ -->
+        <tr>
+          <td class="footer-td" colspan="2">
+            <img src="letter-assets/star-footer.png" width="40" height="40" alt="" style="display:block;margin:0 auto;">
+            <p class="tagline">TIME. TALENT. TREASURE.&nbsp;&nbsp;<span class="gold">TOGETHER, WE PAY IT FORWARD.</span></p>
+            <a class="footer-url" href="https://scholarsequity.org">SCHOLARSEQUITY.ORG</a>
+          </td>
+        </tr>
+
+        <!-- ============ FORWARD / CONTACT ============ -->
+        <tr>
+          <td class="fwd-pad" colspan="2" align="center" style="padding:24px 40px 30px 40px;">
+            <p class="fwd-text" style="margin-top:0;">
+              Know someone who belongs in this community?
+              <a href="https://scholarsequity.org">Forward this letter</a> and invite them to join.
+            </p>
+            <p class="fwd-text">
+              Questions or feedback? Reach us at
+              <a href="mailto:admin@scholarsequity.org">admin@scholarsequity.org</a>
+            </p>
+            <p class="fwd-text">
+              <a href="index.html">&larr; Back to the campaign</a>
+            </p>
+          </td>
+        </tr>
+
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

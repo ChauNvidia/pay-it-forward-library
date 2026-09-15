@@ -210,6 +210,7 @@
       // anyone who wants to verify it.
       statLastUpdated.title = `Last updated ${campaignData.lastUpdated}`;
     }
+    renderResponseLights();
 
     goalReached = false;
   }
@@ -390,8 +391,10 @@
     if (gap.isLeader) {
       return gap.second && gap.lead <= 2 ? "YOU'RE #1. FOR NOW." : "IN THE LEAD.";
     }
-    if (gap.needed === 1) return "ONE MORE.";
-    if (gap.needed <= 3) return "SO CLOSE.";
+    // needed===1 is skipped here -- the headline itself now says
+    // "1 MORE.", so a kicker of "ONE MORE." right above it would
+    // just repeat the same number twice.
+    if (gap.needed >= 2 && gap.needed <= 3) return "SO CLOSE.";
     return "";
   }
 
@@ -533,17 +536,24 @@
       typeof gap.current.year === "string" ? label.toUpperCase() : `CLASS OF ${cohortLabel(gap.current.year)}`;
     const kicker = microcopyKicker(gap);
 
-    let headline, sub, lights;
+    // Headline is a big standalone number ("4 MORE.") rather than a
+    // full sentence -- the number itself is the hero metric per the
+    // brief. "Who's lighting the next one?" sits under the lights as
+    // its own caption, tying the number directly to the visual.
+    let headline, sub, lights, lightsCaption;
     if (gap.isLeader) {
-      headline = "IN THE LEAD. KEEP IT THERE.";
-      sub = gap.second
-        ? `${gap.lead} ahead of ${cohortDisplayLabel(gap.second.year)}. Who's extending the lead?`
-        : "The only class on the board so far.";
+      headline = gap.second ? `${gap.lead} AHEAD.` : "#1.";
+      sub = gap.second ? "Let's keep it that way." : "The only class on the board so far.";
       lights = buildLightIcons(gap.current.donors, 0);
+      // No unlit lights to point to when you're #1 with no gap --
+      // "who's lighting the NEXT one" only makes sense when there's
+      // a specific unlit count to fill.
+      lightsCaption = "Every one of these is ours.";
     } else {
-      headline = `${gap.needed} LIGHT${gap.needed === 1 ? "" : "S"} AWAY FROM ${ordinal(gap.above.rank).toUpperCase()}`;
-      sub = "Who's lighting the next one?";
+      headline = `${gap.needed} MORE.`;
+      sub = `That's all we need to take ${ordinal(gap.above.rank)}.`;
       lights = buildLightIcons(gap.current.donors, gap.needed);
+      lightsCaption = "Who's lighting the next one?";
     }
 
     const rallySub = gap.isLeader
@@ -554,9 +564,10 @@
       ${kicker ? `<p class="your-class__kicker">${kicker}</p>` : ""}
       <p class="your-class__label">${cardLabel}</p>
       <p class="your-class__rank">CURRENTLY #${gap.current.rank}</p>
-      <div class="your-class__lights" aria-hidden="true">${lights}</div>
       <p class="your-class__headline">${headline}</p>
       <p class="your-class__sub">${sub}</p>
+      <div class="your-class__lights" aria-hidden="true">${lights}</div>
+      <p class="your-class__lights-caption">${lightsCaption}</p>
       <div class="your-class__ctas">
         <button type="button" class="btn btn--primary your-class__rally-btn" id="rallyBtn">RALLY ${label.toUpperCase()}</button>
         <button type="button" class="btn btn--ghost your-class__share-btn" id="shareClassBtn">SHARE</button>
@@ -730,12 +741,53 @@
   }
 
   // ----------------------------------------------------------
+  // LETTER — collapsed by default (see index.html), so visitors
+  // arriving from the letter itself recognize it instantly without
+  // scrolling through the whole thing to reach the live campaign.
+  // ----------------------------------------------------------
+  const letterToggle = document.getElementById("letterToggle");
+  const letterMore = document.getElementById("letterMore");
+  const letterFade = document.getElementById("letterFade");
+
+  function toggleLetter() {
+    const expanded = !letterMore.hidden;
+    letterMore.hidden = expanded;
+    letterFade.hidden = !expanded;
+    letterToggle.setAttribute("aria-expanded", String(!expanded));
+    letterToggle.textContent = expanded ? "Read Larry's full letter ↓" : "Collapse letter ↑";
+    if (expanded) {
+      document.getElementById("letter").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  // ----------------------------------------------------------
+  // renderResponseLights()
+  // Real, live currentDonors as lit bulbs (via the same
+  // buildLightIcons() helper the personalized leaderboard card
+  // uses) -- the unlit count here is a fixed, purely illustrative
+  // "there's room for more" visual, not a specific numeric claim
+  // (the caption never states a number; the real per-class gap
+  // lives in the leaderboard card further down the page).
+  // ----------------------------------------------------------
+  const RESPONSE_ILLUSTRATIVE_UNLIT = 6;
+
+  function renderResponseLights() {
+    const el = document.getElementById("responseLights");
+    if (!el) return;
+    // Local `currentDonors` (not campaignData.currentDonors) so this
+    // stays in sync with the preview-moment demo, same as statDonors
+    // in renderProgress() below.
+    el.innerHTML = buildLightIcons(currentDonors, RESPONSE_ILLUSTRATIVE_UNLIT);
+  }
+
+  // ----------------------------------------------------------
   // EVENT WIRING
   // ----------------------------------------------------------
   window.addEventListener("resize", debounce(resizeCanvas, 150));
   cohortReset.addEventListener("click", resetCohortSelection);
   seeWhatChangedBtn.addEventListener("click", animateDailyChange);
   previewMomentBtn.addEventListener("click", simulateNewDonor);
+  letterToggle.addEventListener("click", toggleLetter);
   shareMomentBtn.addEventListener("click", () => {
     showToast("Link copied. Share your moment.");
   });
@@ -779,7 +831,7 @@
   function init() {
     buildCohortNav();
     startHeroFrameAutoplay();
-    renderProgress();
+    renderProgress(); // also renders the response lights
     renderLeaderboard();
     renderDailyChangeSection();
     resizeCanvas(); // also performs the initial renderLights()

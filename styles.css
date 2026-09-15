@@ -621,7 +621,12 @@ a {
    transitions before the more energetic class challenge below.
    ============================================================ */
 .response {
-  background: linear-gradient(180deg, var(--charcoal), var(--navy-deep));
+  background-image:
+    linear-gradient(180deg, rgba(12, 18, 32, 0.55), rgba(16, 20, 31, 0.62) 45%, rgba(12, 18, 32, 0.72)),
+    url("cohort-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-top: 1px solid rgba(244, 234, 217, 0.08);
   text-align: center;
 }
@@ -672,12 +677,7 @@ a {
    contrast stays high regardless of the photo's own brightness.
    ============================================================ */
 .cohort-explorer {
-  background-image:
-    linear-gradient(180deg, rgba(12, 18, 32, 0.55), rgba(16, 20, 31, 0.62) 45%, rgba(12, 18, 32, 0.72)),
-    url("cohort-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(180deg, var(--charcoal), var(--navy-deep));
   border-top: 1px solid rgba(244, 234, 217, 0.08);
 }
 

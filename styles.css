@@ -259,6 +259,23 @@ a {
    outline in all 4 directions) is the universal fallback/backup for
    browsers that ignore text-stroke, so the outline effect holds up
    everywhere, not just WebKit browsers. */
+/* Short lead-in sentence above the headline -- smaller/dimmer than
+   the headline itself so the two sentences read as setup -> payoff
+   instead of one flat six-line block. Same legibility treatment
+   (outline + shadow) since it sits on the same photo. */
+.hero__eyebrow-line {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--cream-dim);
+  margin-bottom: 8px;
+  -webkit-text-stroke: 0.5px rgba(6, 9, 16, 0.55);
+  text-shadow:
+    0 2px 14px rgba(0, 0, 0, 0.5),
+    -1px -1px 0 rgba(6, 9, 16, 0.75),
+    1px -1px 0 rgba(6, 9, 16, 0.75),
+    -1px 1px 0 rgba(6, 9, 16, 0.75),
+    1px 1px 0 rgba(6, 9, 16, 0.75);
+}
+
 .hero__headline {
   font-size: clamp(2rem, 4.2vw, 3.4rem);
   color: var(--cream);

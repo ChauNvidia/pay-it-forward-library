@@ -118,7 +118,6 @@
   const statDonors = document.getElementById("statDonors");
   const statRaised = document.getElementById("statRaised");
   const statLastUpdated = document.getElementById("statLastUpdated");
-  const goalStateSection = document.getElementById("goalState");
 
   // ----------------------------------------------------------
   // Hero frame autoplay

@@ -16,7 +16,7 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  currentDonors: 7,
+  currentDonors: 8,
   yesterdayDonors: 5, // real: yesterday 5 donors, today 6 -- +1
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Real now: this is the first tracked week, so every donor is "new"
@@ -29,11 +29,11 @@ const campaignData = {
   // Both written by update_from_donations.py from the same export
   // that sets currentDonors and cohorts[] above -- keep in sync.
   cohortsWithActivity: 5,
-  totalRaised: 390,
+  totalRaised: 490,
   // Stamped by update_from_donations.py every time it runs (the
   // script runs once a day, after the day's export is in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "September 14, 2026"
+  lastUpdated: "September 15, 2026"
 };
 
 // ----------------------------------------------------------
@@ -65,7 +65,7 @@ const cohorts = [
   { year: 2018, donors: 0, goal: 10 },
   { year: 2019, donors: 0, goal: 10 },
   { year: 2020, donors: 0, goal: 10 }, // "2020+" -- most recent scholars, bucketed together
-  { year: "GMS Friend", donors: 3, goal: 10 } // non-alumni allies, not a class year
+  { year: "GMS Friend", donors: 4, goal: 10 } // non-alumni allies, not a class year
 ];
 
 // ----------------------------------------------------------

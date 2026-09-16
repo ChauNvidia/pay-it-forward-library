@@ -19,10 +19,11 @@ const campaignData = {
   currentDonors: 10,
   yesterdayDonors: 5, // real: yesterday 5 donors, today 6 -- +1
   hasYesterdayData: true, // real yesterday-vs-today number now exists
-  // Real now: this is the first tracked week, so every donor is "new"
-  // this week -- biggestMove below reflects the actual highest count
-  // (GMS Friend, 3). Recompute this each week going forward.
-  hasWeeklyMoverData: true,
+  // Turned off Sept 16 -- this week's real delta was a tie (2012 and
+  // 2013 both +1, no single winner), so "Biggest move" stopped making
+  // sense as a singular callout. Flip back to true once there's a
+  // real single biggest mover to show, and update biggestMove below.
+  hasWeeklyMoverData: false,
   // ---- Used only by leaderboard.html ("Option 2") ----
   // cohortsWithActivity = count of cohorts[] entries with donors > 0
   // totalRaised = sum of the Amount column across all real donations

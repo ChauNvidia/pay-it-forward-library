@@ -966,6 +966,14 @@ a {
   padding: 14px 20px;
 }
 
+/* display:flex above beats the browser's default [hidden]{display:none}
+   rule, so without this the block never actually disappears when JS sets
+   leaderboardMover.hidden = true. Same fix pattern as .cohort-all-grid[hidden]
+   elsewhere in this file. */
+.leaderboard__mover[hidden] {
+  display: none;
+}
+
 .leaderboard__mover-label {
   font-size: 0.78rem;
   text-transform: uppercase;

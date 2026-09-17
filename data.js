@@ -16,16 +16,15 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Sept 17: now combines UNCF (10 donors, $610) + Give Butter (6
-  // unique donors, $1,526.20 -- Cinthia Manuel's gift excluded per
-  // Chau's request, row kept in the tracker for record-keeping only)
-  // via the new Donation-Master-Tracker.xlsx. See that file for
-  // source-by-source detail. Give Butter donors count toward
-  // currentDonors/totalRaised immediately once assigned a cohort;
-  // any still marked "NEEDS LOOKUP" in the tracker aren't reflected
-  // in cohorts[] below yet.
-  currentDonors: 16,
-  yesterdayDonors: 10, // yesterday's UNCF-only total, before Give Butter was folded in today
+  // Sept 17: combines UNCF (10 donors, $610) + Give Butter (6 unique
+  // donors, $1,526.20 -- Cinthia Manuel's gift excluded per Chau's
+  // request, row kept in the tracker for record-keeping only) + one
+  // Manual check gift (SuYeon You, $972.10) via the new
+  // Donation-Master-Tracker.xlsx. See that file for source-by-source
+  // detail. Any donor still marked "NEEDS LOOKUP" in the tracker
+  // isn't reflected in cohorts[] below yet.
+  currentDonors: 17,
+  yesterdayDonors: 10, // yesterday's UNCF-only total, before Give Butter/Manual were folded in today
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
   // 2013 both +1, no single winner), so "Biggest move" stopped making
@@ -37,8 +36,8 @@ const campaignData = {
   // totalRaised = sum of the Amount column across all real donations,
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
-  cohortsWithActivity: 9,
-  totalRaised: 2136,
+  cohortsWithActivity: 10,
+  totalRaised: 3108,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
@@ -59,7 +58,7 @@ const cohorts = [
   { year: 2003, donors: 0, goal: 10 },
   { year: 2004, donors: 0, goal: 10 },
   { year: 2005, donors: 1, goal: 10 }, // Give Butter: Naomie Droll (2 gifts, 1 donor)
-  { year: 2006, donors: 0, goal: 10 },
+  { year: 2006, donors: 1, goal: 10 }, // Manual (check): SuYeon You
   { year: 2007, donors: 0, goal: 10 },
   { year: 2008, donors: 1, goal: 10 },
   { year: 2009, donors: 1, goal: 10 },

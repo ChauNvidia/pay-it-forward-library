@@ -36,7 +36,7 @@ const campaignData = {
   // totalRaised = sum of the Amount column across all real donations,
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
-  cohortsWithActivity: 7,
+  cohortsWithActivity: 8,
   totalRaised: 2657,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
@@ -68,12 +68,12 @@ const cohorts = [
   { year: 2013, donors: 1, goal: 10 },
   { year: 2014, donors: 0, goal: 10 },
   { year: 2015, donors: 0, goal: 10 },
-  { year: 2016, donors: 0, goal: 10 },
+  { year: 2016, donors: 1, goal: 10 }, // Give Butter: Emilia Savage
   { year: 2017, donors: 0, goal: 10 },
   { year: 2018, donors: 0, goal: 10 },
   { year: 2019, donors: 0, goal: 10 },
   { year: 2020, donors: 0, goal: 10 }, // "2020+" -- most recent scholars, bucketed together
-  { year: "GMS Friend", donors: 4, goal: 10 } // non-alumni allies, not a class year
+  { year: "GMS Friend", donors: 6, goal: 10 } // non-alumni allies, not a class year -- +2 from Give Butter (Barry Nagle, Michael Boone)
 ];
 
 // ----------------------------------------------------------

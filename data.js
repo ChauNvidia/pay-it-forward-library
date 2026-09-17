@@ -16,8 +16,15 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  currentDonors: 10,
-  yesterdayDonors: 5, // real: yesterday 5 donors, today 6 -- +1
+  // Sept 17: now combines UNCF (10 donors, $610) + Give Butter (7
+  // unique donors, $2,047) via the new Donation-Master-Tracker.xlsx.
+  // See that file for source-by-source detail. The 7 Give Butter
+  // donors count toward currentDonors/totalRaised immediately, but
+  // NOT yet toward any specific cohort's lit lamp below -- their
+  // class years are marked "NEEDS LOOKUP" in the tracker. Once Chau
+  // fills those in, cohorts[] below should be updated to include them.
+  currentDonors: 17,
+  yesterdayDonors: 10, // yesterday's UNCF-only total, before Give Butter was folded in today
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
   // 2013 both +1, no single winner), so "Biggest move" stopped making
@@ -26,15 +33,15 @@ const campaignData = {
   hasWeeklyMoverData: false,
   // ---- Used only by leaderboard.html ("Option 2") ----
   // cohortsWithActivity = count of cohorts[] entries with donors > 0
-  // totalRaised = sum of the Amount column across all real donations
-  // Both written by update_from_donations.py from the same export
-  // that sets currentDonors and cohorts[] above -- keep in sync.
+  // totalRaised = sum of the Amount column across all real donations,
+  // now across ALL sources in Donation-Master-Tracker.xlsx, not just
+  // the UNCF export.
   cohortsWithActivity: 7,
-  totalRaised: 610,
-  // Stamped by update_from_donations.py every time it runs (the
-  // script runs once a day, after the day's export is in) -- shown
+  totalRaised: 2657,
+  // Stamped whenever the master tracker is rebuilt (previously ran
+  // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "September 16, 2026"
+  lastUpdated: "September 17, 2026"
 };
 
 // ----------------------------------------------------------

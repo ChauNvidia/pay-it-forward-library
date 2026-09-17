@@ -36,7 +36,7 @@ const campaignData = {
   // totalRaised = sum of the Amount column across all real donations,
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
-  cohortsWithActivity: 8,
+  cohortsWithActivity: 9,
   totalRaised: 2657,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
@@ -57,7 +57,7 @@ const cohorts = [
   { year: 2002, donors: 0, goal: 10 },
   { year: 2003, donors: 0, goal: 10 },
   { year: 2004, donors: 0, goal: 10 },
-  { year: 2005, donors: 0, goal: 10 },
+  { year: 2005, donors: 1, goal: 10 }, // Give Butter: Naomie Droll (2 gifts, 1 donor)
   { year: 2006, donors: 0, goal: 10 },
   { year: 2007, donors: 0, goal: 10 },
   { year: 2008, donors: 1, goal: 10 },

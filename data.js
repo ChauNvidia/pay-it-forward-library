@@ -16,14 +16,15 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Sept 17: now combines UNCF (10 donors, $610) + Give Butter (7
-  // unique donors, $2,047) via the new Donation-Master-Tracker.xlsx.
-  // See that file for source-by-source detail. The 7 Give Butter
-  // donors count toward currentDonors/totalRaised immediately, but
-  // NOT yet toward any specific cohort's lit lamp below -- their
-  // class years are marked "NEEDS LOOKUP" in the tracker. Once Chau
-  // fills those in, cohorts[] below should be updated to include them.
-  currentDonors: 17,
+  // Sept 17: now combines UNCF (10 donors, $610) + Give Butter (6
+  // unique donors, $1,526.20 -- Cinthia Manuel's gift excluded per
+  // Chau's request, row kept in the tracker for record-keeping only)
+  // via the new Donation-Master-Tracker.xlsx. See that file for
+  // source-by-source detail. Give Butter donors count toward
+  // currentDonors/totalRaised immediately once assigned a cohort;
+  // any still marked "NEEDS LOOKUP" in the tracker aren't reflected
+  // in cohorts[] below yet.
+  currentDonors: 16,
   yesterdayDonors: 10, // yesterday's UNCF-only total, before Give Butter was folded in today
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -37,7 +38,7 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 9,
-  totalRaised: 2657,
+  totalRaised: 2136,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.

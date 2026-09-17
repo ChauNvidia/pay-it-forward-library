@@ -73,7 +73,7 @@ const cohorts = [
   { year: 2018, donors: 0, goal: 10 },
   { year: 2019, donors: 0, goal: 10 },
   { year: 2020, donors: 0, goal: 10 }, // "2020+" -- most recent scholars, bucketed together
-  { year: "GMS Friend", donors: 6, goal: 10 } // non-alumni allies, not a class year -- +2 from Give Butter (Barry Nagle, Michael Boone)
+  { year: "GMS Friend", donors: 7, goal: 10 } // non-alumni allies, not a class year -- +3 from Give Butter (Barry Nagle, Michael Boone, Michelle Cohenour)
 ];
 
 // ----------------------------------------------------------

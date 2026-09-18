@@ -57,14 +57,14 @@ const cohorts = [
   { year: 2002, donors: 0, goal: 10 },
   { year: 2003, donors: 0, goal: 10 },
   { year: 2004, donors: 0, goal: 10 },
-  { year: 2005, donors: 2, goal: 10 }, // Give Butter: Naomie Droll (2 gifts, 1 donor) + Shamelle Ingram (2 gifts, 1 donor)
+  { year: 2005, donors: 1, goal: 10 }, // Give Butter: Shamelle Ingram (2 gifts, 1 donor)
   { year: 2006, donors: 1, goal: 10 }, // Manual (check): SuYeon You
   { year: 2007, donors: 0, goal: 10 },
   { year: 2008, donors: 1, goal: 10 },
   { year: 2009, donors: 1, goal: 10 },
   { year: 2010, donors: 0, goal: 10 },
   { year: 2011, donors: 1, goal: 10 },
-  { year: 2012, donors: 1, goal: 10 },
+  { year: 2012, donors: 1, goal: 10 }, // UNCF: Naomie Droll ($60) + her Give Butter gifts (2, $781.20) -- same donor, corrected from an earlier 2005 mistag
   { year: 2013, donors: 1, goal: 10 },
   { year: 2014, donors: 0, goal: 10 },
   { year: 2015, donors: 0, goal: 10 },

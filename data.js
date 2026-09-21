@@ -16,15 +16,16 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Sept 17: combines UNCF (10 donors, $610) + Give Butter (6 unique
-  // donors, $1,526.20 -- Cinthia Manuel's gift excluded per Chau's
-  // request, row kept in the tracker for record-keeping only) + one
-  // Manual check gift (SuYeon You, $972.10) via the new
-  // Donation-Master-Tracker.xlsx. See that file for source-by-source
-  // detail. Any donor still marked "NEEDS LOOKUP" in the tracker
-  // isn't reflected in cohorts[] below yet.
-  currentDonors: 17,
-  yesterdayDonors: 10, // yesterday's UNCF-only total, before Give Butter/Manual were folded in today
+  // Sept 21: combines UNCF (11 donors, $650 -- new since Sept 17:
+  // Lizeth Tamayo, 2 gifts of $20 each on Sept 19, Cohort 2012) +
+  // Give Butter (6 unique donors, $1,526.20 -- Cinthia Manuel's gift
+  // excluded per Chau's request, row kept in the tracker for
+  // record-keeping only) + one Manual check gift (SuYeon You,
+  // $972.10) via the Donation-Master-Tracker.xlsx. See that file for
+  // source-by-source detail. Any donor still marked "NEEDS LOOKUP" in
+  // the tracker isn't reflected in cohorts[] below yet.
+  currentDonors: 18,
+  yesterdayDonors: 17, // donor count as of the prior update (Sept 17), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
   // 2013 both +1, no single winner), so "Biggest move" stopped making
@@ -37,11 +38,11 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 10,
-  totalRaised: 3108,
+  totalRaised: 3148,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "September 17, 2026"
+  lastUpdated: "September 21, 2026"
 };
 
 // ----------------------------------------------------------
@@ -64,7 +65,7 @@ const cohorts = [
   { year: 2009, donors: 1, goal: 10 },
   { year: 2010, donors: 0, goal: 10 },
   { year: 2011, donors: 1, goal: 10 },
-  { year: 2012, donors: 1, goal: 10 }, // UNCF: Naomie Droll ($60) + her Give Butter gifts (2, $781.20) -- same donor, corrected from an earlier 2005 mistag
+  { year: 2012, donors: 2, goal: 10 }, // UNCF: Naomie Droll ($60) + her Give Butter gifts (2, $781.20) -- same donor, corrected from an earlier 2005 mistag; + Lizeth Tamayo (2 gifts, $40 total, new Sept 21)
   { year: 2013, donors: 1, goal: 10 },
   { year: 2014, donors: 0, goal: 10 },
   { year: 2015, donors: 0, goal: 10 },

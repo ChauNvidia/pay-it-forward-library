@@ -151,6 +151,28 @@ a {
   color: var(--amber-bright);
 }
 
+/* ---- Letters Back teaser (embargo-safe, live before Sept 28) ---- */
+.letters-teaser {
+  border-top: 1px solid rgba(244, 234, 217, 0.1);
+  border-bottom: 1px solid rgba(244, 234, 217, 0.1);
+}
+
+.letters-teaser__inner {
+  text-align: center;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  max-width: 640px;
+}
+
+.letters-teaser__body {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.letters-teaser__cta {
+  margin-top: 8px;
+}
+
 .btn--large {
   padding: 18px 36px;
   font-size: 0.95rem;

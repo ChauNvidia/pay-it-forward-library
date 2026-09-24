@@ -21,12 +21,13 @@ const campaignData = {
   // Cohort 2007 (first donor in that class), Sept 22) + Give Butter
   // (6 unique donors, $1,526.20 -- Cinthia Manuel's gift excluded per
   // Chau's request, row kept in the tracker for record-keeping only)
-  // + one Manual check gift (SuYeon You, $972.10) via the
+  // + two Manual gifts (SuYeon You, $972.10 check; Chau Dang, $100,
+  // Cohort 2002 -- first donor in that class) via the
   // Donation-Master-Tracker.xlsx. See that file for source-by-source
   // detail. Any donor still marked "NEEDS LOOKUP" in the tracker
   // isn't reflected in cohorts[] below yet.
-  currentDonors: 20,
-  yesterdayDonors: 18, // donor count as of the prior update (Sept 21), before today's UNCF batch
+  currentDonors: 21,
+  yesterdayDonors: 20, // donor count as of the prior update (Sept 23 UNCF batch), before this manual gift
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
   // 2013 both +1, no single winner), so "Biggest move" stopped making
@@ -38,8 +39,8 @@ const campaignData = {
   // totalRaised = sum of the Amount column across all real donations,
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
-  cohortsWithActivity: 11,
-  totalRaised: 3248,
+  cohortsWithActivity: 12,
+  totalRaised: 3348,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
@@ -56,7 +57,7 @@ const campaignData = {
 const cohorts = [
   { year: 2000, donors: 2, goal: 10 }, // UNCF: Carolina Ramirez + Mark Murtagh (new Sept 22)
   { year: 2001, donors: 0, goal: 10 },
-  { year: 2002, donors: 0, goal: 10 },
+  { year: 2002, donors: 1, goal: 10 }, // Manual: Chau Dang (new Sept 23, first donor in this class)
   { year: 2003, donors: 0, goal: 10 },
   { year: 2004, donors: 0, goal: 10 },
   { year: 2005, donors: 1, goal: 10 }, // Give Butter: Shamelle Ingram (2 gifts, 1 donor)
@@ -120,7 +121,7 @@ const lightCoordinates = [
   { x: 0.1136, y: 0.5703, cohort: 2001, index: 7, brightness: 0.83, active: false },
   { x: 0.1371, y: 0.5669, cohort: 2001, index: 8, brightness: 0.83, active: false },
   { x: 0.1613, y: 0.5693, cohort: 2001, index: 9, brightness: 0.97, active: false },
-  { x: 0.0736, y: 0.6039, cohort: 2002, index: 10, brightness: 0.91, active: false },
+  { x: 0.0736, y: 0.6039, cohort: 2002, index: 10, brightness: 0.91, active: true },
   { x: 0.0968, y: 0.6017, cohort: 2002, index: 11, brightness: 0.87, active: false },
   { x: 0.1215, y: 0.6081, cohort: 2002, index: 12, brightness: 0.97, active: false },
   { x: 0.1412, y: 0.6000, cohort: 2002, index: 13, brightness: 0.86, active: false },

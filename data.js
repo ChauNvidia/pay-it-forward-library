@@ -16,18 +16,18 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Sept 23: combines UNCF (13 donors, $760 -- new since Sept 21:
-  // Mark Murtagh, $100, Cohort 2000, Sept 22; Charise Richards, $10,
-  // Cohort 2007 (first donor in that class), Sept 22) + Give Butter
-  // (6 unique donors, $1,526.20 -- Cinthia Manuel's gift excluded per
-  // Chau's request, row kept in the tracker for record-keeping only)
-  // + two Manual gifts (SuYeon You, $972.10 check; Chau Dang, $100,
-  // Cohort 2002 -- first donor in that class) via the
+  // Sept 24: combines UNCF (14 donors, $800 -- new: Gilberto Corona,
+  // $40, Cohort 2010, dated Sept 16 but only just appeared in UNCF's
+  // export -- first donor in that class) + Give Butter (6 unique
+  // donors, $1,526.20 -- Cinthia Manuel's gift excluded per Chau's
+  // request, row kept in the tracker for record-keeping only) + two
+  // Manual gifts (SuYeon You, $972.10 check; Chau Dang, $100, Cohort
+  // 2002 -- first donor in that class) via the
   // Donation-Master-Tracker.xlsx. See that file for source-by-source
   // detail. Any donor still marked "NEEDS LOOKUP" in the tracker
   // isn't reflected in cohorts[] below yet.
-  currentDonors: 21,
-  yesterdayDonors: 20, // donor count as of the prior update (Sept 23 UNCF batch), before this manual gift
+  currentDonors: 22,
+  yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
   // 2013 both +1, no single winner), so "Biggest move" stopped making
@@ -39,12 +39,12 @@ const campaignData = {
   // totalRaised = sum of the Amount column across all real donations,
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
-  cohortsWithActivity: 12,
-  totalRaised: 3348,
+  cohortsWithActivity: 13,
+  totalRaised: 3388,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "September 23, 2026"
+  lastUpdated: "September 24, 2026"
 };
 
 // ----------------------------------------------------------
@@ -65,7 +65,7 @@ const cohorts = [
   { year: 2007, donors: 1, goal: 10 }, // UNCF: Charise Richards (new Sept 22, first donor in this class)
   { year: 2008, donors: 1, goal: 10 },
   { year: 2009, donors: 1, goal: 10 },
-  { year: 2010, donors: 0, goal: 10 },
+  { year: 2010, donors: 1, goal: 10 }, // UNCF: Gilberto Corona (new Sept 24, first donor in this class)
   { year: 2011, donors: 1, goal: 10 },
   { year: 2012, donors: 2, goal: 10 }, // UNCF: Naomie Droll ($60) + her Give Butter gifts (2, $781.20) -- same donor, corrected from an earlier 2005 mistag; + Lizeth Tamayo (2 gifts, $40 total, new Sept 21)
   { year: 2013, donors: 1, goal: 10 },
@@ -201,7 +201,7 @@ const lightCoordinates = [
   { x: 0.2737, y: 0.8340, cohort: 2009, index: 87, brightness: 0.99, active: false },
   { x: 0.2960, y: 0.8267, cohort: 2009, index: 88, brightness: 0.91, active: false },
   { x: 0.3140, y: 0.8245, cohort: 2009, index: 89, brightness: 0.90, active: false },
-  { x: 0.2301, y: 0.9436, cohort: 2010, index: 90, brightness: 0.87, active: false },
+  { x: 0.2301, y: 0.9436, cohort: 2010, index: 90, brightness: 0.87, active: true },
   { x: 0.2492, y: 0.9499, cohort: 2010, index: 91, brightness: 0.91, active: false },
   { x: 0.2734, y: 0.9506, cohort: 2010, index: 92, brightness: 0.89, active: false },
   { x: 0.2969, y: 0.9524, cohort: 2010, index: 93, brightness: 0.84, active: false },

@@ -16,16 +16,12 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Sept 24: combines UNCF (14 donors, $800 -- new: Gilberto Corona,
-  // $40, Cohort 2010, dated Sept 16 but only just appeared in UNCF's
-  // export -- first donor in that class) + Give Butter (6 unique
-  // donors, $1,526.20 -- Cinthia Manuel's gift excluded per Chau's
-  // request, row kept in the tracker for record-keeping only) + two
-  // Manual gifts (SuYeon You, $972.10 check; Chau Dang, $100, Cohort
-  // 2002 -- first donor in that class) via the
-  // Donation-Master-Tracker.xlsx. See that file for source-by-source
-  // detail. Any donor still marked "NEEDS LOOKUP" in the tracker
-  // isn't reflected in cohorts[] below yet.
+  // Sept 30: added Joi Howard (UNCF, $40 PayPal, Cohort 2005, new in
+  // Sept 30 export) to the Sept 24 combined UNCF + Give Butter + Manual
+  // baseline. Also reconciled against Donation-Master-Tracker.xlsx: this
+  // resolves the prior 1-donor gap between currentDonors and the cohorts[]
+  // sum below (was 22 vs 21) -- Joi Howard is that 22nd donor. Cinthia
+  // Manuel's Give Butter row remains excluded per Chau's request.
   currentDonors: 22,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
@@ -40,11 +36,11 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 13,
-  totalRaised: 3388,
+  totalRaised: 3438,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "September 24, 2026"
+  lastUpdated: "September 30, 2026"
 };
 
 // ----------------------------------------------------------
@@ -60,7 +56,7 @@ const cohorts = [
   { year: 2002, donors: 1, goal: 10 }, // Manual: Chau Dang (new Sept 23, first donor in this class)
   { year: 2003, donors: 0, goal: 10 },
   { year: 2004, donors: 0, goal: 10 },
-  { year: 2005, donors: 1, goal: 10 }, // Give Butter: Shamelle Ingram (2 gifts, 1 donor)
+  { year: 2005, donors: 2, goal: 10 }, // Give Butter: Shamelle Ingram (2 gifts, 1 donor) + UNCF: Joi Howard (new Sept 29-30, PayPal)
   { year: 2006, donors: 1, goal: 10 }, // Manual (check): SuYeon You
   { year: 2007, donors: 1, goal: 10 }, // UNCF: Charise Richards (new Sept 22, first donor in this class)
   { year: 2008, donors: 1, goal: 10 },

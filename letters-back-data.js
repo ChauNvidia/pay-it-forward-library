@@ -100,7 +100,7 @@ window.lettersBackData = [
     name: "Timothy Wells",
     role: "Gates Millennium Scholar",
     quote: "Gates Millennium Scholar, Class of 2002.",
-    letter: "Larry, as a Gates Millennium Scholar from the Class of 2002, I had the privilege of spending the day at the Summit giving back through complimentary executive coaching sessions. What I built with that scholarship is a career as a Master Certified Coach, helping leaders turn investment into growth, impact, and transformation. The summit's central idea stayed with me: that what we receive isn't meant to stop with us. Now I'm paying it forward one coaching session at a time, helping this community's leaders navigate their next chapter.",
+    letter: "Larry, as a Gates Millennium Scholar from the Class of 2002, my undergraduate scholarship laid the foundation for me to flourish professionally. Whether in wealth management, ministry, or now as a Master Certified Coach, paying it forward aligns with my life's mission: to help people who help people be the best version of themselves. I was honored to return to the Summit and offer complimentary executive coaching sessions to fellow scholars — one idea from the Summit stayed with me: what we receive isn't meant to stop with us. Now I'm paying it forward through coaching, helping leaders clarify their goals, work through challenges, and move confidently toward what's next.",
     image: "letter-back-cards/timothy.png"
   },
   {

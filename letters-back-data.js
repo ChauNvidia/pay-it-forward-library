@@ -96,6 +96,14 @@ window.lettersBackData = [
     image: "letter-back-cards/sara.png"
   },
   {
+    slug: "lani",
+    name: "Lani Shaw",
+    role: "Gates Millennium Scholar, Inaugural Class",
+    quote: "1 of 1,000, chosen from 60,000 applicants.",
+    letter: "Larry, more than 20 years ago, Bill and Melinda Gates and UNCF invested in my future and paid for my college education — one of just 1,000 scholars selected from more than 60,000 applications in that inaugural class. What I built with it is a career, and a session at the Summit called Stop Being the Best Kept Secret, teaching fellow scholars that doing great work isn't always enough — you have to advocate for yourself too. Now I'm paying it forward by pouring back into a community that poured so much into me.",
+    image: "letter-back-cards/lani.png"
+  },
+  {
     slug: "timothy",
     name: "Timothy Wells",
     role: "Gates Millennium Scholar",

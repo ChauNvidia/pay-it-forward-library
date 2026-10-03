@@ -6,6 +6,7 @@
 <title>Scholars Equity Network · The Room Is Lighting Up</title>
 <meta name="description" content="20,000 Gates Millennium Scholars have a place here. The room keeps filling." />
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="letters-back.css" />
 </head>
 <body>
 
@@ -160,10 +161,12 @@
   <!-- ============================================================
        SECTION 1.3 — LETTERS BACK TEASER
        Deliberately reveals NOTHING from the embargoed Letters Back
-       section (no names, no letter text, no count). Just plants the
-       idea and opens a submission channel via mailto, so scholars
-       can start writing before Sept 28+ without any actual letters
-       going public early.
+       section below (no names, no letter text, no count). Just
+       plants the idea and opens a submission channel via mailto,
+       so scholars can start writing before Sept 28+ without any
+       actual letters going public early. Safe to push live now --
+       double-check against project_letters_back_campaign_timeline
+       before touching this or the section below it.
        ============================================================ -->
   <section class="letters-teaser" id="lettersTeaser" aria-labelledby="lettersTeaserHeading">
     <div class="section-inner letters-teaser__inner">
@@ -171,6 +174,80 @@
       <h2 id="lettersTeaserHeading" class="section-title">Letters back to Larry.</h2>
       <p class="section-subtitle letters-teaser__body">Larry wrote one letter to 20,000 scholars. Soon, we'll share what some of you wrote back — what the opportunity became in your hands. Are you a scholar with a letter of your own?</p>
       <a class="btn btn--ghost letters-teaser__cta" href="mailto:admin@scholarsequity.org?subject=Letter%20Back%20to%20Larry%20—%20I'd%20like%20to%20contribute&body=Hi%20SEN%20team%2C%0A%0AI%27d%20love%20to%20contribute%20my%20story%20to%20Letters%20Back%20to%20Larry%21%20Here%27s%20what%20I%27m%20sending%3A%0A%0A1%29%20My%20name%20and%20title/organization%3A%0A%0A%0A2%29%20A%20headshot%20photo%3A%0A%28attached%29%0A%0A3%29%20My%20story%20%E2%80%94%20what%20the%20Gates%20Millennium%20Scholarship%20made%20possible%20for%20me%2C%20and%20how%20I%27m%20paying%20it%20forward%3A%0A%0A%0A%0AThank%20you%21">Email us to be considered</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 1.5 — LETTERS BACK TO LARRY
+       The human bridge between Larry's letter / "now it's our turn"
+       and the class leaderboard below. Larry sent one letter out;
+       these are scholars answering him in their own words. Data-
+       driven from lettersBackData (letters-back-data.js) -- every
+       entry currently in that array is a REAL finished card from
+       ~/Boards-and-Orgs/SEN/letter-back-social-template/, not a
+       placeholder. See letters-back.js for the carousel/gallery
+       behavior. LOCAL PROTOTYPE ONLY -- not yet pushed live.
+       ============================================================ -->
+  <section class="lb2-section" id="lettersBack" aria-labelledby="lb2Heading">
+    <div class="section-inner">
+      <div class="lb2-intro">
+        <p class="section-kicker">LETTERS BACK TO LARRY</p>
+        <h2 id="lb2Heading" class="lb2-intro__title">You wrote to us.<br>We're writing back.</h2>
+        <p class="lb2-intro__subtitle">Stories of transformation — what happened after someone invested in their potential.</p>
+      </div>
+
+      <!-- Featured letter -->
+      <div class="lb2-featured" id="lb2Featured">
+        <div class="lb2-featured__art-wrap">
+          <img class="lb2-featured__art" id="lb2Art" src="" alt="">
+        </div>
+        <div class="lb2-featured__meta">
+          <p class="lb2-featured__label">Featured Letter</p>
+          <p class="lb2-featured__count" id="lb2Count">01 / 27</p>
+          <p class="lb2-featured__quote" id="lb2Quote"></p>
+          <p class="lb2-featured__name" id="lb2Name"></p>
+          <p class="lb2-featured__role" id="lb2Role"></p>
+          <div class="lb2-featured__nav">
+            <button type="button" class="lb2-nav-btn" id="lb2Prev">&larr; Previous</button>
+            <button type="button" class="lb2-nav-btn" id="lb2Next">Next letter &rarr;</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- More letters preview strip -->
+      <div class="lb2-more">
+        <p class="lb2-more__kicker">More Letters Back</p>
+        <h3 class="lb2-more__headline">One investment. Countless ripples.</h3>
+        <div class="lb2-strip" id="lb2Strip"></div>
+      </div>
+
+      <div class="lb2-view-all">
+        <button type="button" class="btn btn--ghost" id="lb2ViewAll">View all <span id="lb2TotalCount3">27</span> letters &darr;</button>
+      </div>
+
+      <!-- Secondary CTA -- visually separated from the closing sequence
+           below with its own top rule, so it reads as an intentional,
+           quiet invitation rather than leftover text from the strip
+           above it. -->
+      <div class="lb2-contribute-row">
+        <p class="lb2-contribute">Are you a scholar with your own letter back to Larry? We'd love to include your story. <a href="mailto:admin@scholarsequity.org?subject=Letter%20Back%20to%20Larry%20—%20I'd%20like%20to%20contribute&body=Hi%20SEN%20team%2C%0A%0AI%27d%20love%20to%20contribute%20my%20story%20to%20Letters%20Back%20to%20Larry%21%20Here%27s%20what%20I%27m%20sending%3A%0A%0A1%29%20My%20name%20and%20title/organization%3A%0A%0A%0A2%29%20A%20headshot%20photo%3A%0A%28attached%29%0A%0A3%29%20My%20story%20%E2%80%94%20what%20the%20Gates%20Millennium%20Scholarship%20made%20possible%20for%20me%2C%20and%20how%20I%27m%20paying%20it%20forward%3A%0A%0A%0A%0AThank%20you%21">Email us</a> to be considered for the next round.</p>
+      </div>
+
+      <!-- Expanded full gallery -->
+      <div class="lb2-gallery" id="lb2Gallery" hidden>
+        <h3 class="lb2-gallery__heading" id="lb2GalleryHeading">27 voices from across the Gates Millennium Scholars Program</h3>
+        <div class="lb2-gallery__grid" id="lb2GalleryGrid"></div>
+        <button type="button" class="btn btn--ghost lb2-gallery__close" id="lb2GalleryClose">Close &uarr;</button>
+      </div>
+
+      <!-- Closing sequence: stat -> kicker -> headline -> final challenge,
+           one deliberately designed beat instead of four separate lines. -->
+      <div class="lb2-closing">
+        <p class="lb2-closing__stat">1 letter out &rarr; 20,000 scholars invited to answer</p>
+        <p class="lb2-closing__kicker">TOGETHER, WE PAY IT FORWARD.</p>
+        <h3 class="lb2-closing__headline">The investment didn't end with us.</h3>
+        <p class="lb2-closing__cta">Now, how will your class answer?</p>
+      </div>
     </div>
   </section>
 
@@ -345,5 +422,7 @@
 
   <script src="data.js"></script>
   <script src="app.js"></script>
+  <script src="letters-back-data.js"></script>
+  <script src="letters-back.js"></script>
 </body>
 </html>

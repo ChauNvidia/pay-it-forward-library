@@ -1,0 +1,437 @@
+/* ============================================================
+   letters-back.css
+   "Letters Back to Larry" -- the human bridge between Larry's
+   letter/"now it's our turn" narrative and the class leaderboard.
+   Loaded after styles.css -- reuses its CSS variables, .section-inner,
+   .section-kicker/.section-title/.section-subtitle, and .btn classes.
+   Every selector here is prefixed .lb2- (distinct from leaderboard.css's
+   .lb- prefix) so nothing here can collide with or override a rule
+   elsewhere on the site.
+
+   Visual principle per Chau's brief: the artwork carries the visual
+   weight. No heavy borders, no stacked shadows, no decorative icons,
+   no competing gradients -- museum exhibit, not social carousel.
+   ============================================================ */
+
+.lb2-section {
+  background: var(--charcoal);
+  border-top: 1px solid rgba(244, 234, 217, 0.08);
+  border-bottom: 1px solid rgba(244, 234, 217, 0.08);
+}
+
+/* ---- Section intro -------------------------------------------- */
+.lb2-intro {
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+
+.lb2-intro__title {
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  color: var(--cream);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.lb2-intro__subtitle {
+  color: var(--cream-dim);
+  font-size: 1.05rem;
+}
+
+/* ---- Featured letter -------------------------------------------
+   Desktop: two-column grid, artwork left, meta right.
+   Mobile: stacked, artwork first, full width (media query below). */
+.lb2-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 48px;
+  /* stretch (not center) so the meta column always matches the image's
+     height -- combined with margin-top:auto on .lb2-featured__nav below,
+     this pins Prev/Next to a fixed spot (bottom edge of the artwork) no
+     matter how long a given scholar's quote/letter text runs. */
+  align-items: stretch;
+  margin-bottom: 40px;
+}
+
+.lb2-featured__art-wrap {
+  position: relative;
+  line-height: 0;
+}
+
+.lb2-featured__art {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+.lb2-featured__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Fills the full stretched height of the grid row (see .lb2-featured
+     above) so there's room for .lb2-featured__nav's margin-top:auto to
+     push it all the way down to a fixed position. */
+  height: 100%;
+}
+
+.lb2-featured__label {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--amber-bright);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.lb2-featured__count {
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+  margin-bottom: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.lb2-featured__quote {
+  font-family: "Iowan Old Style", Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.3vw, 1.7rem);
+  line-height: 1.35;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+
+/* Applied when showing the fuller column-G "Letter Back" paragraph
+   instead of the short pull-quote -- same voice, smaller/tighter so a
+   full paragraph doesn't read like a giant pull-quote headline. */
+.lb2-featured__quote--long {
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.55;
+}
+
+.lb2-featured__name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 4px;
+}
+
+.lb2-featured__role {
+  font-size: 0.88rem;
+  color: var(--cream-dim);
+  margin-bottom: 28px;
+}
+
+.lb2-featured__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  /* Pins this row to the bottom of .lb2-featured__meta (which is
+     stretched to match the artwork's height), regardless of how much
+     text sits above it -- this is what keeps Prev/Next in a fixed spot
+     as you click through scholars with short vs. long quotes. */
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.lb2-nav-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--sen-blue);
+  cursor: pointer;
+  transition: color 0.15s ease;
+  /* Fixed width so the row never reflows/shifts as buttons toggle
+     between visible and hidden (visibility:hidden already preserves
+     the box, but a fixed width also protects against any future
+     label-text change). */
+  width: 116px;
+}
+
+#lb2Prev {
+  text-align: left;
+}
+
+#lb2Next {
+  text-align: right;
+}
+
+.lb2-nav-btn:hover {
+  color: var(--amber-bright);
+}
+
+.lb2-nav-btn:disabled {
+  color: rgba(244, 234, 217, 0.25);
+  cursor: default;
+}
+
+/* ---- More letters preview strip --------------------------------- */
+.lb2-more {
+  margin-bottom: 8px;
+}
+
+.lb2-more__kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--amber-bright);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.lb2-more__headline {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+
+.lb2-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+}
+
+.lb2-strip__card {
+  position: relative;
+  line-height: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(244, 234, 217, 0.1);
+  background: none;
+  padding: 0;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.lb2-strip__card:hover,
+.lb2-strip__card:focus-visible {
+  border-color: var(--sen-blue);
+  transform: translateY(-2px);
+}
+
+.lb2-strip__card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lb2-strip__more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  background: rgba(244, 234, 217, 0.04);
+  color: var(--cream);
+  font-family: inherit;
+}
+
+.lb2-strip__more-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.lb2-strip__more-label {
+  font-size: 0.72rem;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* ---- View all toggle --------------------------------------------- */
+.lb2-view-all {
+  margin-top: 28px;
+  text-align: center;
+}
+
+/* Secondary CTA row -- deliberately smaller and quieter than the closing
+   sequence below it. The top rule + reduced max-width give it its own
+   quiet "card-less card" so it doesn't read as part of the emotional
+   closing beat that follows. */
+.lb2-contribute-row {
+  max-width: 520px;
+  margin: 24px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(244, 234, 217, 0.12);
+  text-align: center;
+}
+
+.lb2-contribute {
+  margin: 0;
+  text-align: center;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--cream-dim);
+}
+
+.lb2-contribute a {
+  color: var(--sen-blue);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.lb2-contribute a:hover {
+  color: var(--amber-bright);
+}
+
+/* ---- Full gallery (expanded) --------------------------------------- */
+.lb2-gallery {
+  margin-top: 40px;
+}
+
+.lb2-gallery__heading {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  color: var(--cream);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.lb2-gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.lb2-gallery__card {
+  line-height: 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(244, 234, 217, 0.1);
+  background: none;
+  padding: 0;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.lb2-gallery__card:hover,
+.lb2-gallery__card:focus-visible {
+  border-color: var(--sen-blue);
+  transform: translateY(-2px);
+}
+
+.lb2-gallery__card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lb2-gallery__close {
+  display: block;
+  margin: 0 auto;
+}
+
+/* ---- Closing sequence -----------------------------------------------
+   One deliberately designed closing beat -- stat, kicker, headline,
+   final challenge -- read together as a single sequence rather than
+   four separate leftover lines. The top rule + reduced top margin
+   (vs. the old 40px+20px split across two separate blocks) tightens
+   the section so it feels intentional. Headline stays the largest,
+   strongest type in the section per the visual-hierarchy requirement;
+   everything else steps down from there. */
+.lb2-closing {
+  max-width: 640px;
+  margin: 40px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(244, 234, 217, 0.08);
+  text-align: center;
+}
+
+.lb2-closing__stat {
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--cream-dim);
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.lb2-closing__kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--amber-bright);
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.lb2-closing__headline {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  line-height: 1.25;
+  color: var(--cream);
+  margin: 0 0 16px;
+}
+
+.lb2-closing__cta {
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  color: var(--cream);
+  font-style: italic;
+  font-family: "Iowan Old Style", Georgia, "Times New Roman", serif;
+  margin: 0;
+}
+
+/* ================================================================
+   MOBILE
+   Stack the featured letter vertically -- full-width artwork first,
+   then quote/name, then prev/next, matching the brief's required
+   mobile order exactly. Strip narrows to a horizontal scroll instead
+   of shrinking 6 across into illegibility. Gallery drops to 2 across.
+   ================================================================ */
+@media (max-width: 860px) {
+  .lb2-featured {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .lb2-featured__meta {
+    align-items: center;
+    text-align: center;
+  }
+
+  .lb2-featured__nav {
+    justify-content: center;
+  }
+
+  .lb2-strip {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(96px, 1fr);
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+  }
+
+  .lb2-strip__card {
+    scroll-snap-align: start;
+  }
+
+  .lb2-gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lb2-contribute-row {
+    max-width: none;
+    margin: 20px 20px 0;
+    padding-top: 16px;
+  }
+
+  .lb2-closing {
+    margin-top: 32px;
+    padding-top: 22px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Let the stat line wrap sensibly on narrow screens instead of
+     cramming "1 LETTER OUT -> 20,000 SCHOLARS INVITED TO ANSWER"
+     onto one line. */
+  .lb2-closing__stat {
+    white-space: normal;
+    line-height: 1.6;
+  }
+}

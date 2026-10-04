@@ -210,9 +210,10 @@
     );
 
     // If the URL names a scholar (?letter=<slug>), open directly on
-    // their card -- no scroll-into-view on initial load, since the
-    // browser's own navigation (anchor scroll, or just landing on the
-    // page) already handles getting the section into view.
+    // their card AND scroll it into view -- a ?query= param (unlike a
+    // #hash) gets no automatic browser scroll on load, so without this
+    // a shared personal link would silently land at the top of the
+    // page instead of at the person it's actually for.
     const requestedSlug = slugFromURL();
     const requestedIndex = indexForSlug(requestedSlug);
     if (requestedIndex !== -1) {
@@ -222,6 +223,15 @@
     buildGallery();
     render();
     updateURL(currentIndex);
+
+    if (requestedIndex !== -1) {
+      // Wait a tick for images/layout to settle so the scroll lands on
+      // the right spot instead of being thrown off by a late layout
+      // shift (e.g. the hero image finishing its load).
+      window.requestAnimationFrame(() => {
+        els.featured.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    }
 
     window.addEventListener("popstate", () => {
       const idx = indexForSlug(slugFromURL());

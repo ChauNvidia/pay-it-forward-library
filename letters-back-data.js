@@ -72,6 +72,14 @@ window.lettersBackData = [
     image: "letter-back-cards/dpbetlehem.png"
   },
   {
+    slug: "allyson",
+    name: "Allyson Leggett Watson, PhD",
+    role: "Gates Millennium Scholar, Class of 2000",
+    quote: "Class of 2000. Now it's our turn to pay it forward.",
+    letter: "Larry, as an inaugural 2000 Gates Millennium Scholar, I got to see firsthand what happens when an investment in education becomes a lifetime of impact. What I built with it is a career among thousands of scholars now working as nonprofit founders, tech leaders, educators, and entrepreneurs. Now it's our turn to pay that investment forward, reinvesting in the next generation the way this community reinvested in us.",
+    image: "letter-back-cards/allyson.png"
+  },
+  {
     slug: "kelvin",
     name: "Kelvin J. Harris",
     role: "UNCF · Gates Millennium Scholars Program",

@@ -222,9 +222,14 @@
 
     buildGallery();
     render();
-    updateURL(currentIndex);
 
+    // Only touch the URL on load if the visitor actually arrived via a
+    // ?letter=<slug> link. A bare domain visit (or any slug-less load)
+    // must stay exactly as typed -- previously this ran unconditionally
+    // and silently appended whichever scholar happened to be first in
+    // lettersBackData to every plain visit to the homepage.
     if (requestedIndex !== -1) {
+      updateURL(currentIndex);
       // Wait a tick for images/layout to settle so the scroll lands on
       // the right spot instead of being thrown off by a late layout
       // shift (e.g. the hero image finishing its load).

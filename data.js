@@ -16,13 +16,12 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Sept 30: added Joi Howard (UNCF, $40 PayPal, Cohort 2005, new in
-  // Sept 30 export) to the Sept 24 combined UNCF + Give Butter + Manual
-  // baseline. Also reconciled against Donation-Master-Tracker.xlsx: this
-  // resolves the prior 1-donor gap between currentDonors and the cohorts[]
-  // sum below (was 22 vs 21) -- Joi Howard is that 22nd donor. Cinthia
-  // Manuel's Give Butter row remains excluded per Chau's request.
-  currentDonors: 22,
+  // Oct 5: added Corey Hardiman ($20 PayPal, Cohort 2010) and Reggious
+  // Bell ($150 ACH, Cohort 2004 -- first donor in that class) from the
+  // Oct 5 UNCF export. See Donation-Master-Tracker.xlsx for
+  // source-by-source detail. Cinthia Manuel's Give Butter row remains
+  // excluded per Chau's request.
+  currentDonors: 24,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -35,12 +34,12 @@ const campaignData = {
   // totalRaised = sum of the Amount column across all real donations,
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
-  cohortsWithActivity: 13,
-  totalRaised: 3438,
+  cohortsWithActivity: 14,
+  totalRaised: 3608,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "September 30, 2026"
+  lastUpdated: "October 5, 2026"
 };
 
 // ----------------------------------------------------------
@@ -51,28 +50,28 @@ const campaignData = {
 // tagged with that cohort year in lightCoordinates below.
 // ----------------------------------------------------------
 const cohorts = [
-  { year: 2000, donors: 2, goal: 10 }, // UNCF: Carolina Ramirez + Mark Murtagh (new Sept 22)
+  { year: 2000, donors: 2, goal: 10 },
   { year: 2001, donors: 0, goal: 10 },
-  { year: 2002, donors: 1, goal: 10 }, // Manual: Chau Dang (new Sept 23, first donor in this class)
+  { year: 2002, donors: 1, goal: 10 },
   { year: 2003, donors: 0, goal: 10 },
-  { year: 2004, donors: 0, goal: 10 },
-  { year: 2005, donors: 2, goal: 10 }, // Give Butter: Shamelle Ingram (2 gifts, 1 donor) + UNCF: Joi Howard (new Sept 29-30, PayPal)
-  { year: 2006, donors: 1, goal: 10 }, // Manual (check): SuYeon You
-  { year: 2007, donors: 1, goal: 10 }, // UNCF: Charise Richards (new Sept 22, first donor in this class)
+  { year: 2004, donors: 1, goal: 10 },
+  { year: 2005, donors: 2, goal: 10 },
+  { year: 2006, donors: 1, goal: 10 },
+  { year: 2007, donors: 1, goal: 10 },
   { year: 2008, donors: 1, goal: 10 },
   { year: 2009, donors: 1, goal: 10 },
-  { year: 2010, donors: 1, goal: 10 }, // UNCF: Gilberto Corona (new Sept 24, first donor in this class)
+  { year: 2010, donors: 2, goal: 10 },
   { year: 2011, donors: 1, goal: 10 },
-  { year: 2012, donors: 2, goal: 10 }, // UNCF: Naomie Droll ($60) + her Give Butter gifts (2, $781.20) -- same donor, corrected from an earlier 2005 mistag; + Lizeth Tamayo (2 gifts, $40 total, new Sept 21)
+  { year: 2012, donors: 2, goal: 10 },
   { year: 2013, donors: 1, goal: 10 },
   { year: 2014, donors: 0, goal: 10 },
   { year: 2015, donors: 0, goal: 10 },
-  { year: 2016, donors: 1, goal: 10 }, // Give Butter: Emilia Savage
+  { year: 2016, donors: 1, goal: 10 },
   { year: 2017, donors: 0, goal: 10 },
   { year: 2018, donors: 0, goal: 10 },
   { year: 2019, donors: 0, goal: 10 },
   { year: 2020, donors: 0, goal: 10 }, // "2020+" -- most recent scholars, bucketed together
-  { year: "GMS Friend", donors: 7, goal: 10 } // non-alumni allies, not a class year -- +3 from Give Butter (Barry Nagle, Michael Boone, Michelle Cohenour)
+  { year: "GMS Friend", donors: 7, goal: 10 } // non-alumni allies, not a class year
 ];
 
 // ----------------------------------------------------------

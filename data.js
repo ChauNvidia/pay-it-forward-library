@@ -16,9 +16,10 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 5: added Corey Hardiman ($20 PayPal, Cohort 2010) and Reggious
-  // Bell ($150 ACH, Cohort 2004 -- first donor in that class) from the
-  // Oct 5 UNCF export. See Donation-Master-Tracker.xlsx for
+  // Oct 5: added Corey Hardiman ($20 PayPal, Cohort 2010), Reggious
+  // Bell ($150 ACH, Cohort 2004 -- first donor in that class), and
+  // Barry Nagle's second gift ($25 Give Butter) from the Oct 5 UNCF +
+  // Give Butter updates. See Donation-Master-Tracker.xlsx for
   // source-by-source detail. Cinthia Manuel's Give Butter row remains
   // excluded per Chau's request.
   currentDonors: 24,
@@ -35,7 +36,7 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 14,
-  totalRaised: 3608,
+  totalRaised: 3633,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.

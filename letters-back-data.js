@@ -168,6 +168,14 @@ window.lettersBackData = [
     image: "letter-back-cards/chau.png"
   },
   {
+    slug: "lila",
+    name: "Lila K. Chamlagai, MPH, PhD(c)",
+    role: "Gates Millennium Scholar · PhD Candidate, Brown University School of Public Health",
+    quote: "GMS → SEN. The journey continues.",
+    letter: "Larry, being selected as a Gates Millennium Scholar was more than just financial support — it was an investment in who I could become. With that opportunity, I built a career dedicated to research, service, and giving back to communities in need. Along the way, I've also built a meaningful community of fellow Gates Scholars — physicians, researchers, educators, and leaders — who share a similar journey and commitment to making a difference. Today, I'm proud to pay that investment forward by serving my communities, supporting others, and staying actively engaged with SEN as we carry this legacy into its next chapter.",
+    image: "letter-back-cards/lila.png"
+  },
+  {
     slug: "robert",
     name: "Robert Lee",
     role: "Gates Millennium Scholar",

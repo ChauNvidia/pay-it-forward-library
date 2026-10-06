@@ -72,6 +72,14 @@ window.lettersBackData = [
     image: "letter-back-cards/tilifayea.png"
   },
   {
+    slug: "tina",
+    name: "Augustina (Tina) Mensa-Kwao, PhD, MPH, CHES",
+    role: "Gates Millennium Scholar",
+    quote: "People opened doors and believed in me first.",
+    letter: "Larry, my journey has been shaped by people who opened doors, invested in me, and believed in what was possible long before I could see it myself. What I built with that is a career in public health — creating healthier communities and helping build systems where more people can thrive. Now, I'm paying it forward by lifting as I climb, because the best way to honor an opportunity is to create one for someone else.",
+    image: "letter-back-cards/tina.png"
+  },
+  {
     slug: "dpbetlehem",
     name: "Dpbetlehem Reyna",
     role: "Gates Millennium Scholar",

@@ -16,14 +16,16 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 7: added Nickolas Brooks ($10) and Daisy Moreno ($50) -- both
-  // GMS Scholars, cohort years still pending confirmation from Chau, so
-  // both are counted in currentDonors/totalRaised but NOT yet placed in
-  // a cohorts[] bucket below (will move from this gap into their real
-  // class years once confirmed). See Donation-Master-Tracker.xlsx for
+  // Oct 7: added four donors with cohort years still pending from Chau --
+  // Nickolas Brooks ($10), Daisy Moreno ($50), Giovanni Osorio ($25, has
+  // a Letter Back to Larry entry but no cohort on file anywhere), and
+  // Aradhna Tripati ($10). All four are counted in
+  // currentDonors/totalRaised but NOT yet placed in a cohorts[] bucket
+  // below -- each will move from this gap into their real class year
+  // once confirmed. See Donation-Master-Tracker.xlsx for
   // source-by-source detail. Cinthia Manuel's Give Butter row remains
   // excluded per Chau's request.
-  currentDonors: 26,
+  currentDonors: 28,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -37,7 +39,7 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 14,
-  totalRaised: 3693,
+  totalRaised: 3728,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.

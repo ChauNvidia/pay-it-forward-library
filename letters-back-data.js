@@ -24,6 +24,14 @@
 
 window.lettersBackData = [
   {
+    slug: "shambrekia",
+    name: "Shambrekia Wise",
+    role: "Gates Millennium Scholar, Class of 2004",
+    quote: "A yes that changed every yes.",
+    letter: "Larry, in May 2004, just days before I graduated from high school, I learned I'd been selected as a Gates Millennium Scholar — a \"yes\" that changed the course of my life. What I built with it is a career shaped by the confidence that scholarship gave me to expect more of myself, and a community of mentors, colleagues, and friends through GMS and UNCF. Twenty-two years later, I'm the co-founder of a children's educational platform, helping kids and families see the world — and themselves — with greater possibility. Now I'm paying it forward every time I mentor a future scholar and help them recognize what's possible for their own life.",
+    image: "letter-back-cards/shambrekia.png"
+  },
+  {
     slug: "ana",
     name: "Ana Quiñones, LCSW-S, MPH, MCHES",
     role: "Gates Millennium Scholar",

@@ -16,13 +16,14 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 5: added Corey Hardiman ($20 PayPal, Cohort 2010), Reggious
-  // Bell ($150 ACH, Cohort 2004 -- first donor in that class), and
-  // Barry Nagle's second gift ($25 Give Butter) from the Oct 5 UNCF +
-  // Give Butter updates. See Donation-Master-Tracker.xlsx for
+  // Oct 7: added Nickolas Brooks ($10 Manual gift) -- GMS Scholar,
+  // cohort year still pending confirmation from Chau, so he is counted
+  // in currentDonors/totalRaised but NOT yet placed in a cohorts[]
+  // bucket below (will move from this gap into his real class year
+  // once confirmed). See Donation-Master-Tracker.xlsx for
   // source-by-source detail. Cinthia Manuel's Give Butter row remains
   // excluded per Chau's request.
-  currentDonors: 24,
+  currentDonors: 25,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -36,11 +37,11 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 14,
-  totalRaised: 3633,
+  totalRaised: 3643,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "October 5, 2026"
+  lastUpdated: "October 7, 2026"
 };
 
 // ----------------------------------------------------------

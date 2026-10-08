@@ -77,7 +77,7 @@ const cohorts = [
   { year: 2012, donors: 2, goal: 10 },
   { year: 2013, donors: 1, goal: 10 },
   { year: 2014, donors: 0, goal: 10 },
-  { year: 2015, donors: 1, goal: 10 },
+  { year: 2015, donors: 2, goal: 10 },
   { year: 2016, donors: 1, goal: 10 },
   { year: 2017, donors: 0, goal: 10 },
   { year: 2018, donors: 0, goal: 10 },

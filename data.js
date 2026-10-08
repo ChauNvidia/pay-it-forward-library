@@ -16,20 +16,19 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 7: corrected Naomie Droll's total -- Chau confirmed directly
-  // with her that only the $60 UNCF gift is actually hers; the two
-  // Give Butter gifts ($520.80 + $260.40) previously attributed to her
+  // Oct 7: confirmed Jose Antonio Meneses's cohort as 2015 (first
+  // donor in that class). Corrected Naomie Droll's total -- Chau
+  // confirmed directly with her that only the $60 UNCF gift is
+  // actually hers; two Give Butter gifts previously attributed to her
   // were excluded (kept in Donation-Master-Tracker.xlsx for
-  // record-keeping, not counted here). Also added ten donors with
-  // cohort years still pending from Chau -- Nickolas Brooks ($10),
-  // Daisy Moreno ($50), Giovanni Osorio ($25, has a Letter Back to
-  // Larry entry but no cohort on file anywhere), Aradhna Tripati ($10),
-  // Ivan Sanchez ($50), Jose Antonio Meneses ($50), Anne Kim ($25),
-  // Tony Anderson ($500), Ryan Lopez ($50), and Simon Wingsai Chow
-  // ($25). All ten are counted in currentDonors/totalRaised but NOT
-  // yet placed in a cohorts[] bucket below. See
-  // Donation-Master-Tracker.xlsx for source-by-source detail. Cinthia
-  // Manuel's Give Butter row remains excluded per Chau's request.
+  // record-keeping). Nine donors still have cohort years pending from
+  // Chau -- Nickolas Brooks ($10), Daisy Moreno ($50), Giovanni
+  // Osorio ($25), Aradhna Tripati ($10), Ivan Sanchez ($50), Anne Kim
+  // ($25), Tony Anderson ($500), Ryan Lopez ($50), and Simon Wingsai
+  // Chow ($25) -- counted in currentDonors/totalRaised but not yet in
+  // a cohorts[] bucket. See Donation-Master-Tracker.xlsx for
+  // source-by-source detail. Cinthia Manuel's Give Butter row remains
+  // excluded per Chau's request.
   currentDonors: 34,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
@@ -43,7 +42,7 @@ const campaignData = {
   // totalRaised = sum of the Amount column across all real donations,
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
-  cohortsWithActivity: 14,
+  cohortsWithActivity: 15,
   totalRaised: 3647,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
@@ -74,7 +73,7 @@ const cohorts = [
   { year: 2012, donors: 2, goal: 10 },
   { year: 2013, donors: 1, goal: 10 },
   { year: 2014, donors: 0, goal: 10 },
-  { year: 2015, donors: 0, goal: 10 },
+  { year: 2015, donors: 1, goal: 10 },
   { year: 2016, donors: 1, goal: 10 },
   { year: 2017, donors: 0, goal: 10 },
   { year: 2018, donors: 0, goal: 10 },

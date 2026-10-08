@@ -16,10 +16,12 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 8: confirmed Daisy Moreno's cohort as 2002 (joins Chau Dang in
-  // that class). Oct 7: confirmed Jose Antonio Meneses's cohort as 2015
-  // (first donor in that class). Corrected Naomie Droll's total -- Chau
-  // confirmed directly with her that only the $60 UNCF gift is
+  // Oct 8: added SuYeon You's employer match ($972.10, doubling her
+  // total to $1,944.20 -- same donor, same cohort 2006, confirmed by
+  // Chau). Confirmed Daisy Moreno's cohort as 2002 (joins Chau Dang in
+  // that class). Oct 7: confirmed Jose Antonio Meneses's cohort as
+  // 2015 (first donor in that class). Corrected Naomie Droll's total --
+  // Chau confirmed directly with her that only the $60 UNCF gift is
   // actually hers; two Give Butter gifts previously attributed to her
   // were excluded (kept in Donation-Master-Tracker.xlsx for
   // record-keeping). Eight donors still have cohort years pending from
@@ -43,7 +45,7 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 15,
-  totalRaised: 3647,
+  totalRaised: 4619,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.

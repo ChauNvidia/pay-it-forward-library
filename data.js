@@ -33,7 +33,7 @@ const campaignData = {
   // bucket. See Donation-Master-Tracker.xlsx for source-by-source
   // detail. Cinthia Manuel's Give Butter row remains excluded per
   // Chau's request.
-  currentDonors: 35,
+  currentDonors: 36,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -47,7 +47,7 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 15,
-  totalRaised: 4719,
+  totalRaised: 4799,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
@@ -75,7 +75,7 @@ const cohorts = [
   { year: 2010, donors: 2, goal: 10 },
   { year: 2011, donors: 1, goal: 10 },
   { year: 2012, donors: 2, goal: 10 },
-  { year: 2013, donors: 1, goal: 10 },
+  { year: 2013, donors: 2, goal: 10 },
   { year: 2014, donors: 0, goal: 10 },
   { year: 2015, donors: 2, goal: 10 },
   { year: 2016, donors: 1, goal: 10 },

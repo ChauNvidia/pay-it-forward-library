@@ -176,6 +176,14 @@ window.lettersBackData = [
     image: "letter-back-cards/lima.png"
   },
   {
+    slug: "judith",
+    name: "Judith Rendon, PharmD, BCPS",
+    role: "Gates Millennium Scholar · Rendon Entrepreneurial Center",
+    quote: "Excited for the growth still ahead.",
+    letter: "Larry, I'm incredibly grateful to be part of this community and everything that continues to grow from it. What I've found as a Gates Millennium Scholar is something special about being surrounded by people who believe in creating opportunities for others, the same belief that drives my work at the Rendon Entrepreneurial Center. Now I'm paying it forward by staying excited for the continued growth of this network, and everything still ahead of us.",
+    image: "letter-back-cards/judith.png"
+  },
+  {
     slug: "chau",
     name: "Chau Dang",
     role: "Gates Millennium Scholar",

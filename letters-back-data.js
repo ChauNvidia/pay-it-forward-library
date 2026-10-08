@@ -32,6 +32,14 @@ window.lettersBackData = [
     image: "letter-back-cards/jasmine.png"
   },
   {
+    slug: "judith",
+    name: "Judith Rendon, PharmD, BCPS",
+    role: "Gates Millennium Scholar · Rendon Entrepreneurial Center",
+    quote: "Excited for the growth still ahead.",
+    letter: "Larry, I'm incredibly grateful to be part of this community and everything that continues to grow from it. What I've found as a Gates Millennium Scholar is something special about being surrounded by people who believe in creating opportunities for others, the same belief that drives my work at the Rendon Entrepreneurial Center. Now I'm paying it forward by staying excited for the continued growth of this network, and everything still ahead of us.",
+    image: "letter-back-cards/judith.png"
+  },
+  {
     slug: "shambrekia",
     name: "Shambrekia Wise",
     role: "Gates Millennium Scholar, Class of 2004",
@@ -40,12 +48,52 @@ window.lettersBackData = [
     image: "letter-back-cards/shambrekia.png"
   },
   {
+    slug: "tina",
+    name: "Augustina (Tina) Mensa-Kwao, PhD, MPH, CHES",
+    role: "Gates Millennium Scholar",
+    quote: "People opened doors and believed in me first.",
+    letter: "Larry, my journey has been shaped by people who opened doors, invested in me, and believed in what was possible long before I could see it myself. What I built with that is a career in public health — creating healthier communities and helping build systems where more people can thrive. Now, I'm paying it forward by lifting as I climb, because the best way to honor an opportunity is to create one for someone else.",
+    image: "letter-back-cards/tina.png"
+  },
+  {
+    slug: "lila",
+    name: "Lila K. Chamlagai, MPH, PhD(c)",
+    role: "Gates Millennium Scholar · PhD Candidate, Brown University School of Public Health",
+    quote: "GMS → SEN. The journey continues.",
+    letter: "Larry, being selected as a Gates Millennium Scholar was more than just financial support — it was an investment in who I could become. With that opportunity, I built a career dedicated to research, service, and giving back to communities in need. Along the way, I've also built a meaningful community of fellow Gates Scholars — physicians, researchers, educators, and leaders — who share a similar journey and commitment to making a difference. Today, I'm proud to pay that investment forward by serving my communities, supporting others, and staying actively engaged with SEN as we carry this legacy into its next chapter.",
+    image: "letter-back-cards/lila.png"
+  },
+  {
     slug: "ana",
     name: "Ana Quiñones, LCSW-S, MPH, MCHES",
     role: "Gates Millennium Scholar",
     quote: "A door I ran through with joy.",
     letter: "Larry, sixteen years ago, the Gates Millennium Scholarship opened a door I ran through with joy and disbelief — it let a young Hispanic girl from a single-mother household sit at tables in Ivy League rooms. What I built with it is a career in clinical social work and public health, and the confidence to build Twin Suns Counseling from the ground up. That opportunity didn't just lift me — it grew through me, into my children, my brother, my interns, my patients, and my students. Now I'm paying it forward every time I hand someone else the same momentum and confidence that was handed to me.",
     image: "letter-back-cards/ana.png"
+  },
+  {
+    slug: "allyson",
+    name: "Allyson Leggett Watson, PhD",
+    role: "Gates Millennium Scholar, Class of 2000",
+    quote: "Class of 2000. Now it's our turn to pay it forward.",
+    letter: "Larry, as an inaugural 2000 Gates Millennium Scholar, I got to see firsthand what happens when an investment in education becomes a lifetime of impact. What I built with it is a career among thousands of scholars now working as nonprofit founders, tech leaders, educators, and entrepreneurs. Now it's our turn to pay that investment forward, reinvesting in the next generation the way this community reinvested in us.",
+    image: "letter-back-cards/allyson.png"
+  },
+  {
+    slug: "lani",
+    name: "Lani Shaw",
+    role: "Gates Millennium Scholar, Inaugural Class",
+    quote: "1 of 1,000, chosen from 60,000 applicants.",
+    letter: "Larry, more than 20 years ago, Bill and Melinda Gates and UNCF invested in my future and paid for my college education — one of just 1,000 scholars selected from more than 60,000 applications in that inaugural class. What I built with it is a career, and a session at the Summit called Stop Being the Best Kept Secret, teaching fellow scholars that doing great work isn't always enough — you have to advocate for yourself too. Now I'm paying it forward by pouring back into a community that poured so much into me.",
+    image: "letter-back-cards/lani.png"
+  },
+  {
+    slug: "chau",
+    name: "Chau Dang",
+    role: "Gates Millennium Scholar",
+    quote: "I still think, \"Why me?\"",
+    letter: "Larry, I remember being confused about getting the Gates Millennium Scholarship. I remember thinking, \"Why me?\" I still think that. What I built with it is a life spent trying to make sense of that question — working with scholars, hearing their stories, and creating the conditions for them to thrive. The Pay It Forward Summit was a collection of a lot of invisible work that led up to one moment, and hearing Jim Larimore describe carrying the weight of a $1.6 billion investment from the very beginning reminded me what it means to be championed by someone who didn't even know you yet. Now I'm paying it forward by chairing this board and building SEN into the room where that investment keeps multiplying — because the audacity to dream it is what got us this far, and it's what will get us further.",
+    image: "letter-back-cards/chau.png"
   },
   {
     slug: "corey",
@@ -88,28 +136,12 @@ window.lettersBackData = [
     image: "letter-back-cards/tilifayea.png"
   },
   {
-    slug: "tina",
-    name: "Augustina (Tina) Mensa-Kwao, PhD, MPH, CHES",
-    role: "Gates Millennium Scholar",
-    quote: "People opened doors and believed in me first.",
-    letter: "Larry, my journey has been shaped by people who opened doors, invested in me, and believed in what was possible long before I could see it myself. What I built with that is a career in public health — creating healthier communities and helping build systems where more people can thrive. Now, I'm paying it forward by lifting as I climb, because the best way to honor an opportunity is to create one for someone else.",
-    image: "letter-back-cards/tina.png"
-  },
-  {
     slug: "dpbetlehem",
     name: "Dpbetlehem Reyna",
     role: "Gates Millennium Scholar",
     quote: "An envelope arrived, and everything changed.",
     letter: "Larry, fourteen years ago I opened an envelope that told me I'd been selected as a Gates Millennium Scholar — one of 1,000 recipients out of more than 20,000 applicants that year. What I built with it was a debt-free degree from Emory University and the distinction of being the first in my family to graduate college. Now I'm paying it forward by staying connected to this community and never forgetting the people who helped get me here.",
     image: "letter-back-cards/dpbetlehem.png"
-  },
-  {
-    slug: "allyson",
-    name: "Allyson Leggett Watson, PhD",
-    role: "Gates Millennium Scholar, Class of 2000",
-    quote: "Class of 2000. Now it's our turn to pay it forward.",
-    letter: "Larry, as an inaugural 2000 Gates Millennium Scholar, I got to see firsthand what happens when an investment in education becomes a lifetime of impact. What I built with it is a career among thousands of scholars now working as nonprofit founders, tech leaders, educators, and entrepreneurs. Now it's our turn to pay that investment forward, reinvesting in the next generation the way this community reinvested in us.",
-    image: "letter-back-cards/allyson.png"
   },
   {
     slug: "kelvin",
@@ -134,14 +166,6 @@ window.lettersBackData = [
     quote: "Twenty-six years ago, someone believed in me.",
     letter: "Larry, twenty-six years ago I was at one of the lowest points in my life, unsure what my future would look like — then I received the Gates Millennium Scholarship. What I built with it is my bachelor's and master's degrees, a year studying abroad in Australia, and now a career as one of about 600 Board Certified Specialists in Renal Nutrition, running The CKD Dietitian, a social enterprise serving people with chronic kidney disease. Now I'm paying it forward by carrying that investment through my work, my story, and the people I have the privilege to serve.",
     image: "letter-back-cards/sara.png"
-  },
-  {
-    slug: "lani",
-    name: "Lani Shaw",
-    role: "Gates Millennium Scholar, Inaugural Class",
-    quote: "1 of 1,000, chosen from 60,000 applicants.",
-    letter: "Larry, more than 20 years ago, Bill and Melinda Gates and UNCF invested in my future and paid for my college education — one of just 1,000 scholars selected from more than 60,000 applications in that inaugural class. What I built with it is a career, and a session at the Summit called Stop Being the Best Kept Secret, teaching fellow scholars that doing great work isn't always enough — you have to advocate for yourself too. Now I'm paying it forward by pouring back into a community that poured so much into me.",
-    image: "letter-back-cards/lani.png"
   },
   {
     slug: "timothy",
@@ -182,30 +206,6 @@ window.lettersBackData = [
     quote: "Investing in the people the world too often overlooks.",
     letter: "Larry, thirteen years ago I opened a large white envelope and found out I'd been accepted into the Gates Millennium Scholars Program — a chance that changed the course of my life. What I built with it is a career in clean energy access and energy equity, presenting on that work at the Summit. That acceptance opened doors that continue to shape my journey today. Now I'm paying it forward by investing my career in the people the world too often overlooks, the same way someone once invested in me.",
     image: "letter-back-cards/lima.png"
-  },
-  {
-    slug: "judith",
-    name: "Judith Rendon, PharmD, BCPS",
-    role: "Gates Millennium Scholar · Rendon Entrepreneurial Center",
-    quote: "Excited for the growth still ahead.",
-    letter: "Larry, I'm incredibly grateful to be part of this community and everything that continues to grow from it. What I've found as a Gates Millennium Scholar is something special about being surrounded by people who believe in creating opportunities for others, the same belief that drives my work at the Rendon Entrepreneurial Center. Now I'm paying it forward by staying excited for the continued growth of this network, and everything still ahead of us.",
-    image: "letter-back-cards/judith.png"
-  },
-  {
-    slug: "chau",
-    name: "Chau Dang",
-    role: "Gates Millennium Scholar",
-    quote: "I still think, \"Why me?\"",
-    letter: "Larry, I remember being confused about getting the Gates Millennium Scholarship. I remember thinking, \"Why me?\" I still think that. What I built with it is a life spent trying to make sense of that question — working with scholars, hearing their stories, and creating the conditions for them to thrive. The Pay It Forward Summit was a collection of a lot of invisible work that led up to one moment, and hearing Jim Larimore describe carrying the weight of a $1.6 billion investment from the very beginning reminded me what it means to be championed by someone who didn't even know you yet. Now I'm paying it forward by chairing this board and building SEN into the room where that investment keeps multiplying — because the audacity to dream it is what got us this far, and it's what will get us further.",
-    image: "letter-back-cards/chau.png"
-  },
-  {
-    slug: "lila",
-    name: "Lila K. Chamlagai, MPH, PhD(c)",
-    role: "Gates Millennium Scholar · PhD Candidate, Brown University School of Public Health",
-    quote: "GMS → SEN. The journey continues.",
-    letter: "Larry, being selected as a Gates Millennium Scholar was more than just financial support — it was an investment in who I could become. With that opportunity, I built a career dedicated to research, service, and giving back to communities in need. Along the way, I've also built a meaningful community of fellow Gates Scholars — physicians, researchers, educators, and leaders — who share a similar journey and commitment to making a difference. Today, I'm proud to pay that investment forward by serving my communities, supporting others, and staying actively engaged with SEN as we carry this legacy into its next chapter.",
-    image: "letter-back-cards/lila.png"
   },
   {
     slug: "robert",

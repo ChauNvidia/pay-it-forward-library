@@ -24,6 +24,14 @@
 
 window.lettersBackData = [
   {
+    slug: "charity",
+    name: "Charity Ntansah, PhD, MPH, CHES",
+    role: "Gates Millennium Scholar, Class of 2010",
+    quote: "Doors I didn't know existed.",
+    letter: "Larry, the Gates Millennium Scholarship opened doors for me that I didn't even know existed — not just paying for school, but putting me in rooms and connecting me with people who changed the trajectory of my life, like the APHA conference in 2018 where I met my future PhD advisor. What I built with it is a career in public health, now as a Presidential Postdoctoral Fellow at Rutgers University, studying the underserved communities whose stories don't always make it to the front of the research. Now I'm paying it forward by mentoring students and running a platform that helps them navigate the unwritten rules of academia — because GMS taught us that giving back isn't something you wait to do until you've made it.",
+    image: "letter-back-cards/charity.png"
+  },
+  {
     slug: "jasmine",
     name: "Jasmine Frazier",
     role: "Gates Millennium Scholar, Class of 2010",

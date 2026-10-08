@@ -16,19 +16,19 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 7: confirmed Jose Antonio Meneses's cohort as 2015 (first
-  // donor in that class). Corrected Naomie Droll's total -- Chau
+  // Oct 8: confirmed Daisy Moreno's cohort as 2002 (joins Chau Dang in
+  // that class). Oct 7: confirmed Jose Antonio Meneses's cohort as 2015
+  // (first donor in that class). Corrected Naomie Droll's total -- Chau
   // confirmed directly with her that only the $60 UNCF gift is
   // actually hers; two Give Butter gifts previously attributed to her
   // were excluded (kept in Donation-Master-Tracker.xlsx for
-  // record-keeping). Nine donors still have cohort years pending from
-  // Chau -- Nickolas Brooks ($10), Daisy Moreno ($50), Giovanni
-  // Osorio ($25), Aradhna Tripati ($10), Ivan Sanchez ($50), Anne Kim
-  // ($25), Tony Anderson ($500), Ryan Lopez ($50), and Simon Wingsai
-  // Chow ($25) -- counted in currentDonors/totalRaised but not yet in
-  // a cohorts[] bucket. See Donation-Master-Tracker.xlsx for
-  // source-by-source detail. Cinthia Manuel's Give Butter row remains
-  // excluded per Chau's request.
+  // record-keeping). Eight donors still have cohort years pending from
+  // Chau -- Nickolas Brooks ($10), Giovanni Osorio ($25), Aradhna
+  // Tripati ($10), Ivan Sanchez ($50), Anne Kim ($25), Tony Anderson
+  // ($500), Ryan Lopez ($50), and Simon Wingsai Chow ($25) -- counted
+  // in currentDonors/totalRaised but not yet in a cohorts[] bucket. See
+  // Donation-Master-Tracker.xlsx for source-by-source detail. Cinthia
+  // Manuel's Give Butter row remains excluded per Chau's request.
   currentDonors: 34,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
@@ -47,7 +47,7 @@ const campaignData = {
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "October 7, 2026"
+  lastUpdated: "October 8, 2026"
 };
 
 // ----------------------------------------------------------
@@ -60,7 +60,7 @@ const campaignData = {
 const cohorts = [
   { year: 2000, donors: 2, goal: 10 },
   { year: 2001, donors: 0, goal: 10 },
-  { year: 2002, donors: 1, goal: 10 },
+  { year: 2002, donors: 2, goal: 10 },
   { year: 2003, donors: 0, goal: 10 },
   { year: 2004, donors: 1, goal: 10 },
   { year: 2005, donors: 2, goal: 10 },

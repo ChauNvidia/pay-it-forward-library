@@ -16,22 +16,24 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 8: added SuYeon You's employer match ($972.10, doubling her
-  // total to $1,944.20 -- same donor, same cohort 2006, confirmed by
-  // Chau). Confirmed Daisy Moreno's cohort as 2002 (joins Chau Dang in
-  // that class). Oct 7: confirmed Jose Antonio Meneses's cohort as
-  // 2015 (first donor in that class). Corrected Naomie Droll's total --
-  // Chau confirmed directly with her that only the $60 UNCF gift is
-  // actually hers; two Give Butter gifts previously attributed to her
-  // were excluded (kept in Donation-Master-Tracker.xlsx for
-  // record-keeping). Eight donors still have cohort years pending from
-  // Chau -- Nickolas Brooks ($10), Giovanni Osorio ($25), Aradhna
-  // Tripati ($10), Ivan Sanchez ($50), Anne Kim ($25), Tony Anderson
-  // ($500), Ryan Lopez ($50), and Simon Wingsai Chow ($25) -- counted
-  // in currentDonors/totalRaised but not yet in a cohorts[] bucket. See
-  // Donation-Master-Tracker.xlsx for source-by-source detail. Cinthia
-  // Manuel's Give Butter row remains excluded per Chau's request.
-  currentDonors: 34,
+  // Oct 8: added Marcos Jimenez ($100, cohort pending) and SuYeon
+  // You's employer match ($972.10, doubling her total to $1,944.20 --
+  // same donor, cohort 2006, confirmed by Chau). Confirmed Daisy
+  // Moreno's cohort as 2002 (joins Chau Dang in that class). Oct 7:
+  // confirmed Jose Antonio Meneses's cohort as 2015 (first donor in
+  // that class). Corrected Naomie Droll's total -- Chau confirmed
+  // directly with her that only the $60 UNCF gift is actually hers;
+  // two Give Butter gifts previously attributed to her were excluded
+  // (kept in Donation-Master-Tracker.xlsx for record-keeping). Nine
+  // donors still have cohort years pending from Chau -- Nickolas
+  // Brooks ($10), Giovanni Osorio ($25), Aradhna Tripati ($10), Ivan
+  // Sanchez ($50), Anne Kim ($25), Tony Anderson ($500), Ryan Lopez
+  // ($50), Simon Wingsai Chow ($25), and Marcos Jimenez ($100) --
+  // counted in currentDonors/totalRaised but not yet in a cohorts[]
+  // bucket. See Donation-Master-Tracker.xlsx for source-by-source
+  // detail. Cinthia Manuel's Give Butter row remains excluded per
+  // Chau's request.
+  currentDonors: 35,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -45,7 +47,7 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 15,
-  totalRaised: 4619,
+  totalRaised: 4719,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.

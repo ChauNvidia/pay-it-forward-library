@@ -24,6 +24,14 @@
 
 window.lettersBackData = [
   {
+    slug: "jasmine",
+    name: "Jasmine Frazier",
+    role: "Gates Millennium Scholar, Class of 2010",
+    quote: "Chills, every time I pay it forward.",
+    letter: "Larry, 16 years ago, I received the life-changing news that I'd been selected for the Gates Millennium Scholarship — a first-generation student from Southside, Richmond, for whom that opportunity didn't just change where I'd go to college, it changed the trajectory of my life. What I built with it is a career as a college counselor and owner of Access Granted Consulting, LLC, helping hundreds of marginalized students pursue a debt-free education and win scholarships — over $70 million and counting. Now I'm paying it forward every time I help a student relive the moment that changed my life forever.",
+    image: "letter-back-cards/jasmine.png"
+  },
+  {
     slug: "shambrekia",
     name: "Shambrekia Wise",
     role: "Gates Millennium Scholar, Class of 2004",

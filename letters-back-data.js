@@ -28,7 +28,7 @@ window.lettersBackData = [
     name: "Tara Welborne, PhD, PE",
     role: "Director, Design Assurance, Becton Dickinson",
     quote: "A future I only dreamed of.",
-    letter: "Larry, I still remember receiving that letter during my senior year of high school, holding my son, and realizing that a future I had only dreamed about was finally within reach. I always knew I was capable of great things, but college seemed so far out of reach -- at a time when I had very little hope, that letter gave me a reason to believe in what was possible for both of us. That opportunity opened doors I never knew existed and shaped the life I've been blessed to build. What began with one opportunity has become a lifetime of opening doors for others through mentoring, education, and community service.",
+    letter: "Larry, I still remember receiving that letter during my senior year of high school, holding my son, and realizing that a future I had only dreamed about was finally within reach. I always knew I was capable of great things, but college seemed so far out of reach -- at a time when I had very little hope, that letter gave me a reason to believe in what was possible for both of us. That opportunity opened doors I never knew existed and shaped the life I've been blessed to build. What began with one opportunity has become a lifetime of opening doors for others.",
     image: "letter-back-cards/tara.png"
   },
   {

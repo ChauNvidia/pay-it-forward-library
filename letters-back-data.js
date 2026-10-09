@@ -24,14 +24,6 @@
 
 window.lettersBackData = [
   {
-    slug: "ebony",
-    name: "Ebony Dashiell-Aje, PhD",
-    role: "Gates Millennium Scholar · Co-Founder, Cedar Bosk",
-    quote: "Individual success is a shared inheritance.",
-    letter: "Larry, twenty-six years ago a letter changed the course of my life — I'd been named an inaugural Gates Millennium Scholar, with every financial barrier between me and a top-notch education removed. What I built with it is a career alongside doctors, attorneys, founders, and community builders — all of us shaped by that same $1.6 billion bet on our potential. Now I'm paying it forward by turning that bet into infrastructure for the communities that raised us.",
-    image: "letter-back-cards/ebony.png"
-  },
-  {
     slug: "charity",
     name: "Charity Ntansah, PhD, MPH, CHES",
     role: "Gates Millennium Scholar, Class of 2010",

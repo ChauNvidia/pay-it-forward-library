@@ -28,7 +28,7 @@ window.lettersBackData = [
     name: "Darrius Atkins",
     role: "Assistant United States Attorney, U.S. Attorney's Office for the Northern District of Illinois",
     quote: "A license to dream and to try.",
-    letter: "Larry, I never knew much about my dad, and my mom struggled with drug addiction throughout her life -- I was raised on the West Side of Chicago by a grandmother who grew up picking cotton in Mississippi. What I built with the Gates Millennium Scholarship is a career as an Assistant United States Attorney, working to keep communities safe, seek justice for victims, and hold those entrusted with public power to honest service. Now I'm paying it forward by insisting on that same honest service every day in the work I do.",
+    letter: "Larry, I never knew much about my dad. My mom struggled with drug addiction throughout her life, and I was raised on the West Side of Chicago by a grandmother who grew up picking cotton in Mississippi. Today, I serve as an Assistant United States Attorney, working to keep communities safe, seeking justice for victims, and insisting on honest service from those entrusted with public power. The Gates Millennium Scholarship was a license to dream and to try. For me, that mattered.",
     image: "letter-back-cards/darrius.png"
   },
   {

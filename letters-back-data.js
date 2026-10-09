@@ -20,7 +20,9 @@
 //
 // IMPORTANT: attach to window explicitly (not `const lettersBackData =`)
 // -- a bare top-level const/let does NOT become a window property, and
-// letters-back.js reads this off window.lettersBackData = [
+// letters-back.js reads this off window.lettersBackData.
+
+window.lettersBackData = [
   {
     slug: "darrius",
     name: "Darrius Atkins",

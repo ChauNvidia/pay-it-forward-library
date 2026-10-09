@@ -24,6 +24,14 @@
 
 window.lettersBackData = [
   {
+    slug: "marcos",
+    name: "Marcos Jimenez",
+    role: "Gates Millennium Scholar, Class of 2015",
+    quote: "Freedom to build and heal.",
+    letter: "Larry, the Gates Millennium Scholarship gave a kid growing up in poverty in South Central Los Angeles the chance to build a different life. It made USC possible and helped create lasting stability for my mom and me. Years later, that investment continues in the freedom I have to build a business and make space for healing. Now, I want to carry that opportunity forward by sharing my time and skills through SEN and helping others find the support that changed my life.",
+    image: "letter-back-cards/marcos.png"
+  },
+  {
     slug: "tara",
     name: "Tara Welborne, PhD, PE",
     role: "Director, Design Assurance, Becton Dickinson",

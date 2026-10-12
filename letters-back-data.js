@@ -24,6 +24,14 @@
 
 window.lettersBackData = [
   {
+    slug: "irvin",
+    name: "Irvin C. Mull Jr., M.S.",
+    role: "Gates Millennium Scholar, Class of 2012 -- Career and Technical Educator, Tulsa Public Schools",
+    quote: "Purpose over a paycheck.",
+    letter: "Growing up in Memphis, Tennessee, I understood early on that access to opportunity could change the trajectory of someone's life. Being selected as a Gates Millennium Scholar did more than make college affordable -- it changed the trajectory of my life. Because of the Gates Millennium Scholars Program, I was able to graduate from Howard University and earn my master's degree from George Washington University without the burden of student loan debt. That financial freedom allowed me to build a successful career in corporate America, working in technology, data analytics, and consulting. But the greatest gift of the scholarship was the freedom to walk away from corporate America and pursue a life of purpose without the financial weight of student loans holding me back. Today, I serve as a Career and Technical Education educator at a Title I school in Tulsa, Oklahoma, building a computer science and esports program designed to expose students to technology, career pathways, and opportunities they may have never imagined for themselves. GMSP gave me the freedom to choose purpose over a paycheck, and now I'm using that freedom to help change lives.",
+    image: "letter-back-cards/irvin.png"
+  },
+  {
     slug: "jen",
     name: "Jen Fong",
     role: "Inaugural Gates Millennium Scholar, Class of 2000 -- Retired High School Principal, San Francisco Unified School District",

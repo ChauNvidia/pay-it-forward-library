@@ -24,6 +24,14 @@
 
 window.lettersBackData = [
   {
+    slug: "brittany",
+    name: "Brittany Jones",
+    role: "Gates Millennium Scholar, Class of 2015 -- 3rd Grade Teacher, Southwest Charlotte STEM Academy / Professional Learning Specialist, Amplify / PhD Student, UNC Charlotte",
+    quote: "A dream in the mail.",
+    letter: "11 years ago, I got an email and a package in the mail that one could only dream of. Being selected as a Gates scholar changed everything for me. When I was applying to college, my parents were behind me 100% but I saw the fear in their eyes as they watched me apply to schools they could not afford to send me to. Being selected as a Gates scholar came at a time that felt like everything was going wrong. We were homeless for a time, money was tight, and I was the last of 4 kids to get put through college. This opportunity has put me in rooms that I otherwise may not have made it into. As a teacher, I pay it forward in my classroom each day by pushing my scholars to perform at their highest potential and by valuing who they are. As a doctoral student, I pay it forward in my research and service, helping to amplify the voices of Black girls in STEM through curriculum development, professional learning, and programming.",
+    image: "letter-back-cards/brittany.png"
+  },
+  {
     slug: "irvin",
     name: "Irvin C. Mull Jr., M.S.",
     role: "Gates Millennium Scholar, Class of 2012 -- Career and Technical Educator, Tulsa Public Schools",

@@ -16,7 +16,9 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 12: added 4 new gifts from the latest UNCF export (P1266
+  // Oct 12: added a second gift from Chau Dang ($500, cohort 2002 --
+  // same donor, so donor count and cohort 2002 are unchanged; total
+  // raised $5,079 -> $5,579). Also added 4 new gifts from the latest UNCF export (P1266
   // Donations-6) -- Tara Welborne ($100, new donor, cohort pending),
   // plus second gifts from three existing donors: Gilberto Corona
   // ($40, cohort 2010), Robert Lee ($20, cohort 2009), and Aaron
@@ -54,7 +56,7 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 15,
-  totalRaised: 5079,
+  totalRaised: 5579,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.

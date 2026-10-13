@@ -24,6 +24,14 @@
 
 window.lettersBackData = [
   {
+    slug: "christen",
+    name: "Christen Johnson, MD, EdD, MPH",
+    role: "Gates Millennium Scholar -- Double Board-Certified Physician & Former National President, SNMA",
+    quote: "A box behind the shrubs.",
+    letter: "I've wanted to be a doctor since I was three. I applied for 77 scholarships. I ended up receiving seven. The seventh scholarship that was delivered to my house on my 18th birthday changed the whole course of my life. I remember running across the back side of the school building toward my car, making it home, and finding the box tucked behind the shrubs that changed my life. Seventeen years later, I still remember my grandfather's face when I was able to tell him he didn't have to keep trying to figure out how to work harder to make sure I could go to school. As a Gates Millennium Scholar, the support I received allowed me to dream bigger and become an award-winning, double board-certified family and lifestyle medicine physician. I've written two books, countless chapters, and nearly 100 publications and presentations. I've grown enough to start my own medical practice because health doesn't end in the exam room. As the National President for the Student National Medical Association, I had the privilege of advocating for thousands of Black and Brown medical students and physicians. Little me, teenage me, medical school me, and adult me would not be the same person I've become today without this scholarship.",
+    image: "letter-back-cards/christen.png"
+  },
+  {
     slug: "brittany",
     name: "Brittany Jones",
     role: "Gates Millennium Scholar, Class of 2015 -- 3rd Grade Teacher, Southwest Charlotte STEM Academy / Professional Learning Specialist, Amplify / PhD Student, UNC Charlotte",

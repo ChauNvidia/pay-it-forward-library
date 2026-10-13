@@ -16,6 +16,9 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
+  // Oct 13: added Debbie Ostorga ($25, new donor, cohort 2000 confirmed
+  // by Chau -- cohort 2000 goes 2 -> 3; currentDonors 38 -> 39,
+  // totalRaised $5,579 -> $5,604).
   // Oct 12: added a second gift from Chau Dang ($500, cohort 2002 --
   // same donor, so donor count and cohort 2002 are unchanged; total
   // raised $5,079 -> $5,579). Also added 4 new gifts from the latest UNCF export (P1266
@@ -42,7 +45,7 @@ const campaignData = {
   // yet in a cohorts[] bucket. See Donation-Master-Tracker.xlsx for
   // source-by-source detail. Cinthia Manuel's Give Butter row remains
   // excluded per Chau's request.
-  currentDonors: 38,
+  currentDonors: 39,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -56,11 +59,11 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 15,
-  totalRaised: 5579,
+  totalRaised: 5604,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "October 12, 2026"
+  lastUpdated: "October 13, 2026"
 };
 
 // ----------------------------------------------------------
@@ -71,7 +74,7 @@ const campaignData = {
 // tagged with that cohort year in lightCoordinates below.
 // ----------------------------------------------------------
 const cohorts = [
-  { year: 2000, donors: 2, goal: 10 },
+  { year: 2000, donors: 3, goal: 10 },
   { year: 2001, donors: 0, goal: 10 },
   { year: 2002, donors: 2, goal: 10 },
   { year: 2003, donors: 0, goal: 10 },

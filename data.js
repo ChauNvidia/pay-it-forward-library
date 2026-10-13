@@ -16,26 +16,31 @@
 const campaignData = {
   networkSize: 20000,
   campaignGoal: 200,
-  // Oct 11: added Andrew Oh ($100, cohort pending). Oct 9: confirmed
-  // Tony Anderson's cohort as 2007 (joins the existing 2007 donor,
-  // bringing that class to 2). Oct 8: added Marcos Jimenez ($100,
-  // cohort later confirmed as 2015 -- see below) and SuYeon You's
-  // employer match ($972.10, doubling her total to $1,944.20 -- same
-  // donor, cohort 2006, confirmed by Chau). Confirmed Daisy Moreno's
-  // cohort as 2002 (joins Chau Dang in that class). Oct 7: confirmed
-  // Jose Antonio Meneses's cohort as 2015 (first donor in that
-  // class). Corrected Naomie Droll's total -- Chau confirmed directly
-  // with her that only the $60 UNCF gift is actually hers; two Give
-  // Butter gifts previously attributed to her were excluded (kept in
-  // Donation-Master-Tracker.xlsx for record-keeping). Eight donors
-  // still have cohort years pending from Chau -- Nickolas Brooks
-  // ($10), Giovanni Osorio ($25), Aradhna Tripati ($10), Ivan Sanchez
-  // ($50), Anne Kim ($25), Ryan Lopez ($50), Simon Wingsai Chow
-  // ($25), and Andrew Oh ($100) -- counted in currentDonors/
-  // totalRaised but not yet in a cohorts[] bucket. See
-  // Donation-Master-Tracker.xlsx for source-by-source detail. Cinthia
-  // Manuel's Give Butter row remains excluded per Chau's request.
-  currentDonors: 37,
+  // Oct 12: added 4 new gifts from the latest UNCF export (P1266
+  // Donations-6) -- Tara Welborne ($100, new donor, cohort pending),
+  // plus second gifts from three existing donors: Gilberto Corona
+  // ($40, cohort 2010), Robert Lee ($20, cohort 2009), and Aaron
+  // Stallworth ($20, GMS Friend). Oct 11: added Andrew Oh ($100,
+  // cohort pending). Oct 9: confirmed Tony Anderson's cohort as 2007
+  // (joins the existing 2007 donor, bringing that class to 2). Oct 8:
+  // added Marcos Jimenez ($100, cohort later confirmed as 2015 -- see
+  // below) and SuYeon You's employer match ($972.10, doubling her
+  // total to $1,944.20 -- same donor, cohort 2006, confirmed by
+  // Chau). Confirmed Daisy Moreno's cohort as 2002 (joins Chau Dang
+  // in that class). Oct 7: confirmed Jose Antonio Meneses's cohort as
+  // 2015 (first donor in that class). Corrected Naomie Droll's total
+  // -- Chau confirmed directly with her that only the $60 UNCF gift
+  // is actually hers; two Give Butter gifts previously attributed to
+  // her were excluded (kept in Donation-Master-Tracker.xlsx for
+  // record-keeping). Nine donors still have cohort years pending from
+  // Chau -- Nickolas Brooks ($10), Giovanni Osorio ($25), Aradhna
+  // Tripati ($10), Ivan Sanchez ($50), Anne Kim ($25), Ryan Lopez
+  // ($50), Simon Wingsai Chow ($25), Andrew Oh ($100), and Tara
+  // Welborne ($100) -- counted in currentDonors/totalRaised but not
+  // yet in a cohorts[] bucket. See Donation-Master-Tracker.xlsx for
+  // source-by-source detail. Cinthia Manuel's Give Butter row remains
+  // excluded per Chau's request.
+  currentDonors: 38,
   yesterdayDonors: 21, // donor count as of the prior update (Sept 23), before today's UNCF batch
   hasYesterdayData: true, // real yesterday-vs-today number now exists
   // Turned off Sept 16 -- this week's real delta was a tie (2012 and
@@ -49,11 +54,11 @@ const campaignData = {
   // now across ALL sources in Donation-Master-Tracker.xlsx, not just
   // the UNCF export.
   cohortsWithActivity: 15,
-  totalRaised: 4899,
+  totalRaised: 5079,
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "October 11, 2026"
+  lastUpdated: "October 12, 2026"
 };
 
 // ----------------------------------------------------------

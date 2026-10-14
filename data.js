@@ -65,7 +65,7 @@ const campaignData = {
   // Stamped whenever the master tracker is rebuilt (previously ran
   // once a day; now runs any time a new source is folded in) -- shown
   // as "Updated [date] at 9pm PST" wherever lastUpdatedNote appears.
-  lastUpdated: "October 13, 2026"
+  lastUpdated: "October 12, 2026" // campaign close date -- shown as "Final totals"
 };
 
 // ----------------------------------------------------------

@@ -10,6 +10,15 @@
 </head>
 <body>
 
+  <!-- Campaign-closed banner (ran September 8 - October 12, 2026). Remove this
+       block and the .closed-banner rules in styles.css to undo. -->
+  <div class="closed-banner" role="region" aria-label="Campaign status">
+    <p class="closed-banner__text">
+      <strong>This campaign is closed. It ran September 8 &ndash; October 12, 2026.</strong>
+      Thank you to everyone who showed up. Here is what we built together.
+    </p>
+  </div>
+
   <!-- ============================================================
        SECTION 1 — HERO / LIVE ROOM
        Full-width library image with the 200-lamp canvas overlaid.
@@ -50,19 +59,19 @@
 
     <!-- Right-side campaign stats panel (desktop only) -->
     <aside class="stats-panel" aria-label="Campaign progress">
-      <h2 class="stats-panel__title">The Room, Right Now</h2>
+      <h2 class="stats-panel__title">The Room, Final Results</h2>
       <dl class="stats-panel__list">
         <div class="stats-panel__row">
           <dt>Sustaining Donors</dt>
           <dd id="statDonors">6</dd>
         </div>
         <div class="stats-panel__row">
-          <dt>Raised To Date</dt>
+          <dt>Raised in the Campaign</dt>
           <dd id="statRaised">$370</dd>
         </div>
       </dl>
       <p class="stats-panel__note">The scholarship was never meant to end at graduation. It was the beginning of what we build together.</p>
-      <p class="stats-panel__updated" id="statLastUpdated" title="Last updated September 11, 2026">Live &middot; Updated daily</p>
+      <p class="stats-panel__updated" id="statLastUpdated">Sept 8 &ndash; Oct 12, 2026</p>
     </aside>
   </header>
 
